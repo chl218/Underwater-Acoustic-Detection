@@ -13,4 +13,4 @@ live’s ecosystems, this project was greenlit as a way to record fish acoustics
 and provide the data to scientist across the globe to analysis our ocean's
 health and forecast what the trends of marine lives is heading towards.  
 
-For more detailes please refer to ur [Wiki page](https://github.com/chl218/Underwater-Acoustic-Detection/wiki)
+For more detailes please refer to our [Wiki page](https://github.com/chl218/Underwater-Acoustic-Detection/wiki).
