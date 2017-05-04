@@ -1,6 +1,6 @@
 # Underwater Acoustic Detection
 
-We are working Scripps Institute of Oceanography, to implement a signal
+We are working with Scripps Institute of Oceanography, to implement a signal
 detection algorithm and a convoluted neural network algorithm to analysis the
 trends of marine life over time. As humans, we are hugely depended on the ocean
 and its ecosystems, which provides us with a food-chain block as well as large
