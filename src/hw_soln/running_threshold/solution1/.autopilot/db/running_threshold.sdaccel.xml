@@ -1,0 +1,143 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'running_threshold'" level="0">
+<item name = "Date">Tue May 09 00:01:19 2017
+</item>
+<item name = "Version">2015.4 (Build 1412921 on Wed Nov 18 09:58:55 AM 2015)</item>
+<item name = "Project">running_threshold</item>
+<item name = "Solution">solution1</item>
+<item name = "Product family">zynq</item>
+<item name = "Target device">xc7z020clg484-1</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing (ns)">
+<section name = "" level="1">
+<item name = "Target clock period (ns)">5.00</item>
+<item name = "Clock uncertainty (ns)">0.63</item>
+<item name = "Estimated clock period (ns)">4.35</item>
+</section>
+</item>
+<item name = "Latency (clock cycles)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">, min, max, min, max, Type</keys>
+<column name="">1080043, 1080043, 1080044, 1080044, none</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="7">Instance, Module, min, max, min, max, Type</keys>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+<column name="- Loop 1">1080001, 1080001, 11, 9, 1, 120000, yes</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Utilization Estimates" level="0">
+<item name = "Summary"><table name="" hasTotal="1">
+<keys size="5">Name, BRAM_18K, DSP48E, FF, LUT</keys>
+<column name="DSP">-, -, -, -</column>
+<column name="Expression">-, -, 0, 24</column>
+<column name="FIFO">-, -, -, -</column>
+<column name="Instance">-, 5, 1911, 1775</column>
+<column name="Memory">-, -, -, -</column>
+<column name="Multiplexer">-, -, -, 226</column>
+<column name="Register">-, -, 217, -</column>
+<specialColumn name="Available">280, 220, 106400, 53200</specialColumn>
+<specialColumn name="Utilization (%)">0, 2, 2, 3</specialColumn>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="1">
+<keys size="6">Instance, Module, BRAM_18K, DSP48E, FF, LUT</keys>
+<column name="running_threshold_fadd_32ns_32ns_32_9_full_dsp_U0">running_threshold_fadd_32ns_32ns_32_9_full_dsp, 0, 2, 324, 424</column>
+<column name="running_threshold_fdiv_32ns_32ns_32_30_U2">running_threshold_fdiv_32ns_32ns_32_30, 0, 0, 1436, 1026</column>
+<column name="running_threshold_fmul_32ns_32ns_32_5_max_dsp_U1">running_threshold_fmul_32ns_32ns_32_5_max_dsp, 0, 3, 151, 325</column>
+</table>
+</item>
+<item name = "DSP48"><table name="" hasTotal="0">
+<keys size="3">Instance, Module, Expression</keys>
+</table>
+</item>
+<item name = "Memory"><table name="" hasTotal="1">
+<keys size="9">Memory, Module, BRAM_18K, FF, LUT, Words, Bits, Banks, W*Bits*Banks</keys>
+</table>
+</item>
+<item name = "FIFO"><table name="" hasTotal="1">
+<keys size="7">Name, BRAM_18K, FF, LUT, Depth, Bits, Size:D*B</keys>
+</table>
+</item>
+<item name = "Expression"><table name="" hasTotal="1">
+<keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
+<column name="i_1_fu_131_p2">+, 0, 0, 17, 17, 1</column>
+<column name="ap_sig_bdd_134">and, 0, 0, 1, 1, 1</column>
+<column name="exitcond_fu_125_p2">icmp, 0, 0, 6, 17, 15</column>
+</table>
+</item>
+<item name = "Multiplexer"><table name="" hasTotal="1">
+<keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
+<column name="ap_NS_fsm">96, 52, 1, 52</column>
+<column name="grp_fu_107_p0">32, 3, 32, 96</column>
+<column name="grp_fu_107_p1">32, 3, 32, 96</column>
+<column name="i_phi_fu_95_p4">17, 2, 17, 34</column>
+<column name="i_reg_91">17, 2, 17, 34</column>
+<column name="mean_reg_79">32, 2, 32, 64</column>
+</table>
+</item>
+<item name = "Register"><table name="" hasTotal="1">
+<keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
+<column name="ap_CS_fsm">51, 0, 51, 0</column>
+<column name="ap_reg_ppiten_pp0_it0">1, 0, 1, 0</column>
+<column name="ap_reg_ppiten_pp0_it1">1, 0, 1, 0</column>
+<column name="ap_reg_ppstg_exitcond_reg_137_pp0_it1">1, 0, 1, 0</column>
+<column name="exitcond_reg_137">1, 0, 1, 0</column>
+<column name="i_1_reg_141">17, 0, 17, 0</column>
+<column name="i_reg_91">17, 0, 17, 0</column>
+<column name="mean_reg_79">32, 0, 32, 0</column>
+<column name="reg_119">32, 0, 32, 0</column>
+<column name="tmp_1_reg_156">32, 0, 32, 0</column>
+<column name="tmp_3_reg_146">32, 0, 32, 0</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Interface" level="0">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">RTL Ports, Dir, Bits, Protocol, Source Object, C Type</keys>
+<column name="ap_clk">in, 1, ap_ctrl_hs, running_threshold, return value</column>
+<column name="ap_rst">in, 1, ap_ctrl_hs, running_threshold, return value</column>
+<column name="ap_start">in, 1, ap_ctrl_hs, running_threshold, return value</column>
+<column name="ap_done">out, 1, ap_ctrl_hs, running_threshold, return value</column>
+<column name="ap_idle">out, 1, ap_ctrl_hs, running_threshold, return value</column>
+<column name="ap_ready">out, 1, ap_ctrl_hs, running_threshold, return value</column>
+<column name="amplitude_V_dout">in, 32, ap_fifo, amplitude_V, pointer</column>
+<column name="amplitude_V_empty_n">in, 1, ap_fifo, amplitude_V, pointer</column>
+<column name="amplitude_V_read">out, 1, ap_fifo, amplitude_V, pointer</column>
+<column name="threshold_V_din">out, 32, ap_fifo, threshold_V, pointer</column>
+<column name="threshold_V_full_n">in, 1, ap_fifo, threshold_V, pointer</column>
+<column name="threshold_V_write">out, 1, ap_fifo, threshold_V, pointer</column>
+</table>
+</item>
+</section>
+
+<section name = "Critical Path" level="0">
+<item name = "Max Delay">4.35</item>
+<item name = "Critical Path Table"><table name="Critical Path Table" hasTotal="0">
+<keys size="15">Name, Operator, Delay, Accumulated Delay, Store Source, Resource, Core, Interface, Type, Port, Array, Scope, Pointer, Callee, Phi Node</keys>
+<column name="'tmp', running_threshold.cpp:12">fmul, 4.35, 4.35, -, -, -, -, -, -, -, -, -, -, -</column>
+</table>
+</item>
+</section>
+</profile>

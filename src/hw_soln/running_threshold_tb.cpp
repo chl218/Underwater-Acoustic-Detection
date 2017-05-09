@@ -24,9 +24,9 @@ float golden_threshold(DTYPE_FLO arr[SAMPLES]) {
 
 	float mean = 0.0;
 	for(int i = 0; i < SAMPLES; i++) {
-		mean += arr[i] * MAGNIFY;
+		mean += arr[i];
 	}
-	return mean / SAMPLES;
+	return (MAGNIFY*mean) / SAMPLES;
 
 }
 
@@ -45,7 +45,7 @@ int main() {
 	running_threshold(stream_i, stream_o);
 
 	float actual_threshold = stream_o.read();
-	if(actual_threshold == golden_soln) {
+	if(abs(actual_threshold - golden_soln) < 0.00001) {
 		printf("PASS: output matches golden solution\n");
 		return 0;
 	}

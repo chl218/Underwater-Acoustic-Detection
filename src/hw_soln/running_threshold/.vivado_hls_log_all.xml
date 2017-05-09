@@ -2,14 +2,29 @@
 <vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
   <errorLogs>
     <logs>
-      <csimLog>
-        <logs message="@E [SIM-1] 'csim_design' failed: compilation error(s).&#xD;&#xA;4&#xD;&#xA;    while executing&#xD;&#xA;&quot;source C:/Users/Jack/Desktop/cse237d/Underwater-Acoustic-Detection/src/hw_soln/running_threshold/solution1/csim.tcl&quot;&#xD;&#xA;    invoked from within&#xD;&#xA;&quot;hls::main C:/Users/Jack/Desktop/cse237d/Underwater-Acoustic-Detection/src/hw_soln/running_threshold/solution1/csim.tcl&quot;&#xD;&#xA;    (&quot;uplevel&quot; body line 1)&#xD;&#xA;    invoked from within&#xD;&#xA;&quot;uplevel 1 hls::main {*}$args&quot;&#xD;&#xA;    (procedure &quot;hls_proc&quot; line 5)&#xD;&#xA;    invoked from within&#xD;&#xA;&quot;hls_proc $argv&quot;&#xD;&#xA;" projectName="running_threshold" solutionName="solution1" date="2017-05-08T23:15:43.925-0700"/>
-        <logs message="@E [SIM-1] 'csim_design' failed: compilation error(s).&#xD;&#xA;4&#xD;&#xA;    while executing&#xD;&#xA;&quot;source C:/Users/Jack/Desktop/cse237d/Underwater-Acoustic-Detection/src/hw_soln/running_threshold/solution1/csim.tcl&quot;&#xD;&#xA;    invoked from within&#xD;&#xA;&quot;hls::main C:/Users/Jack/Desktop/cse237d/Underwater-Acoustic-Detection/src/hw_soln/running_threshold/solution1/csim.tcl&quot;&#xD;&#xA;    (&quot;uplevel&quot; body line 1)&#xD;&#xA;    invoked from within&#xD;&#xA;&quot;uplevel 1 hls::main {*}$args&quot;&#xD;&#xA;    (procedure &quot;hls_proc&quot; line 5)&#xD;&#xA;    invoked from within&#xD;&#xA;&quot;hls_proc $argv&quot;&#xD;&#xA;" projectName="running_threshold" solutionName="solution1" date="2017-05-08T23:04:36.224-0700"/>
-      </csimLog>
+      <synLog/>
+      <simLog>
+        <logs message="@E [SIM-4] *** C/RTL co-simulation finished: FAIL ***&#xD;&#xA;command 'ap_source' returned error code&#xD;&#xA;    while executing&#xD;&#xA;&quot;source C:/Users/Jack/Desktop/cse237d/Underwater-Acoustic-Detection/src/hw_soln/running_threshold/solution1/cosim.tcl&quot;&#xD;&#xA;    invoked from within&#xD;&#xA;&quot;hls::main C:/Users/Jack/Desktop/cse237d/Underwater-Acoustic-Detection/src/hw_soln/running_threshold/solution1/cosim.tcl&quot;&#xD;&#xA;    (&quot;uplevel&quot; body line 1)&#xD;&#xA;    invoked from within&#xD;&#xA;&quot;uplevel 1 hls::main {*}$args&quot;&#xD;&#xA;    (procedure &quot;hls_proc&quot; line 5)&#xD;&#xA;    invoked from within&#xD;&#xA;&quot;hls_proc $argv&quot;&#xD;&#xA;" projectName="running_threshold" solutionName="solution1" date="2017-05-09T00:06:12.080-0700"/>
+        <logs message="@E [SIM-362] Aborting co-simulation: C TB post check failed." projectName="running_threshold" solutionName="solution1" date="2017-05-09T00:06:11.658-0700"/>
+      </simLog>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
     </logs>
   </errorLogs>
   <warningLogs>
     <logs>
+      <synLog>
+        <logs message="@W [SCHED-68] Unable to enforce a carried constraint (II = 8)&#xD;&#xA;   between 'fadd' operation ('mean', running_threshold.cpp:9) and 'fadd' operation ('mean', running_threshold.cpp:9)." projectName="running_threshold" solutionName="solution1" date="2017-05-09T00:01:19.470-0700" type="Warning"/>
+        <logs message="@W [SCHED-68] Unable to enforce a carried constraint (II = 7)&#xD;&#xA;   between 'fadd' operation ('mean', running_threshold.cpp:9) and 'fadd' operation ('mean', running_threshold.cpp:9)." projectName="running_threshold" solutionName="solution1" date="2017-05-09T00:01:19.455-0700" type="Warning"/>
+        <logs message="@W [SCHED-68] Unable to enforce a carried constraint (II = 4)&#xD;&#xA;   between 'fadd' operation ('mean', running_threshold.cpp:9) and 'fadd' operation ('mean', running_threshold.cpp:9)." projectName="running_threshold" solutionName="solution1" date="2017-05-09T00:01:19.439-0700" type="Warning"/>
+        <logs message="@W [SCHED-68] Unable to enforce a carried constraint (II = 3)&#xD;&#xA;   between 'fadd' operation ('mean', running_threshold.cpp:9) and 'fadd' operation ('mean', running_threshold.cpp:9)." projectName="running_threshold" solutionName="solution1" date="2017-05-09T00:01:19.439-0700" type="Warning"/>
+        <logs message="@W [SCHED-68] Unable to enforce a carried constraint (II = 2)&#xD;&#xA;   between 'fadd' operation ('mean', running_threshold.cpp:9) and 'fadd' operation ('mean', running_threshold.cpp:9)." projectName="running_threshold" solutionName="solution1" date="2017-05-09T00:01:19.424-0700" type="Warning"/>
+        <logs message="@W [SCHED-68] Unable to enforce a carried constraint (II = 1)&#xD;&#xA;   between 'fadd' operation ('mean', running_threshold.cpp:9) and 'fadd' operation ('mean', running_threshold.cpp:9)." projectName="running_threshold" solutionName="solution1" date="2017-05-09T00:01:19.408-0700" type="Warning"/>
+      </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
       <csimLog/>
     </logs>
   </warningLogs>
