@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xd:acceleratorMap xmlns:xd="http://www.xilinx.com/xidane" xd:functionName="peaks" xd:componentRef="peaks" xd:initiationInterval="114" xd:clockPeriod="5.000000" xd:sequential="true" xd:hostMachine="64" xd:reset="control">
+  <xd:controlReg xd:name="control" xd:interfaceRef="ap_ctrl" xd:busTypeRef="acc_handshake" xd:type="acc_handshake"/>
+  <xd:arg xd:name="samples" xd:originalName="samples" xd:direction="in" xd:interfaceRef="samples_V" xd:busTypeRef="acc_fifo" xd:dataWidth="32"/>
+  <xd:arg xd:name="amplitude" xd:originalName="amplitude" xd:direction="out" xd:interfaceRef="amplitude_V" xd:busTypeRef="acc_fifo" xd:dataWidth="32"/>
+  <xd:arg xd:name="locations" xd:originalName="locations" xd:direction="out" xd:interfaceRef="locations_V" xd:busTypeRef="acc_fifo" xd:dataWidth="32"/>
+  <xd:latencyEstimates xd:best-case="113" xd:worst-case="113" xd:average-case="113"/>
+  <xd:resourceEstimates xd:LUT="774" xd:FF="284" xd:BRAM="0" xd:DSP="0"/>
+</xd:acceleratorMap>

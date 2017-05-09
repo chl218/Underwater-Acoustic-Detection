@@ -1,0 +1,236 @@
+
+
+================================================================
+== Vivado HLS Report for 'peaks'
+================================================================
+* Date:           Mon May 08 18:49:13 2017
+
+* Version:        2015.4 (Build 1412921 on Wed Nov 18 09:58:55 AM 2015)
+* Project:        peaks
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   5.00|      4.36|        0.63|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |  220|  220|  221|  221|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------------+-----+-----+----------+-----------+-----------+------+----------+
+        |                |  Latency  | Iteration|  Initiation Interval  | Trip |          |
+        |    Loop Name   | min | max |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------------+-----+-----+----------+-----------+-----------+------+----------+
+        |- Local_Maxima  |  213|  213|        20|          2|          1|    98|    yes   |
+        +----------------+-----+-----+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+-------+
+|       Name      | BRAM_18K| DSP48E|   FF   |  LUT  |
++-----------------+---------+-------+--------+-------+
+|DSP              |        -|      -|       -|      -|
+|Expression       |        -|      -|       0|    300|
+|FIFO             |        -|      -|       -|      -|
+|Instance         |        -|      3|     240|    240|
+|Memory           |        -|      -|       -|      -|
+|Multiplexer      |        -|      -|       -|    221|
+|Register         |        -|      -|     342|     56|
++-----------------+---------+-------+--------+-------+
+|Total            |        0|      3|     582|    817|
++-----------------+---------+-------+--------+-------+
+|Available        |      280|    220|  106400|  53200|
++-----------------+---------+-------+--------+-------+
+|Utilization (%)  |        0|      1|   ~0   |      1|
++-----------------+---------+-------+--------+-------+
+
++ Detail: 
+    * Instance: 
+    +----------------------------+-------------------------+---------+-------+-----+-----+
+    |          Instance          |          Module         | BRAM_18K| DSP48E|  FF | LUT |
+    +----------------------------+-------------------------+---------+-------+-----+-----+
+    |peaks_mul_7ns_9ns_16_3_U4   |peaks_mul_7ns_9ns_16_3   |        0|      1|    0|    0|
+    |peaks_mul_9ns_7ns_16_3_U2   |peaks_mul_9ns_7ns_16_3   |        0|      1|    0|    0|
+    |peaks_mul_9ns_7ns_16_3_U3   |peaks_mul_9ns_7ns_16_3   |        0|      1|    0|    0|
+    |peaks_urem_7ns_3ns_7_11_U0  |peaks_urem_7ns_3ns_7_11  |        0|      0|  120|  120|
+    |peaks_urem_7ns_3ns_7_11_U1  |peaks_urem_7ns_3ns_7_11  |        0|      0|  120|  120|
+    +----------------------------+-------------------------+---------+-------+-----+-----+
+    |Total                       |                         |        0|      3|  240|  240|
+    +----------------------------+-------------------------+---------+-------+-----+-----+
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +------------------------------+----------+-------+---+----+------------+------------+
+    |         Variable Name        | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +------------------------------+----------+-------+---+----+------------+------------+
+    |i_1_fu_346_p2                 |     +    |      0|  0|   7|           7|           1|
+    |peak_fu_520_p2                |     +    |      0|  0|  32|          32|           1|
+    |tmp_2_fu_329_p2               |     +    |      0|  0|   7|           2|           7|
+    |tmp_7_fu_465_p2               |     +    |      0|  0|   7|           7|           1|
+    |sel_tmp1_fu_426_p3            |  Select  |      0|  0|  32|           1|          32|
+    |sel_tmp3_fu_496_p3            |  Select  |      0|  0|  32|           1|          32|
+    |sel_tmp5_fu_447_p3            |  Select  |      0|  0|  32|           1|          32|
+    |signals_load_5_phi_fu_439_p3  |  Select  |      0|  0|  32|           1|          32|
+    |signals_load_6_phi_fu_454_p3  |  Select  |      0|  0|  32|           1|          32|
+    |signals_load_8_phi_fu_503_p3  |  Select  |      0|  0|  32|           1|          32|
+    |exitcond_fu_323_p2            |   icmp   |      0|  0|   3|           7|           6|
+    |sel_tmp2_fu_434_p2            |   icmp   |      0|  0|   2|           3|           1|
+    |sel_tmp4_fu_411_p2            |   icmp   |      0|  0|   2|           3|           1|
+    |sel_tmp6_fu_416_p2            |   icmp   |      0|  0|   2|           3|           1|
+    |sel_tmp_fu_421_p2             |   icmp   |      0|  0|   2|           3|           1|
+    |tmp_1_fu_531_p2               |   icmp   |      0|  0|  11|          32|          32|
+    |tmp_5_fu_460_p2               |   icmp   |      0|  0|  11|          32|          32|
+    |tmp_9_fu_509_p2               |   icmp   |      0|  0|  11|          32|          32|
+    |tmp_fu_304_p2                 |   icmp   |      0|  0|  11|          32|          32|
+    +------------------------------+----------+-------+---+----+------------+------------+
+    |Total                         |          |      0|  0| 300|         201|         340|
+    +------------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +-----------------------+----+-----------+-----+-----------+
+    |          Name         | LUT| Input Size| Bits| Total Bits|
+    +-----------------------+----+-----------+-----+-----------+
+    |amplitude_address0     |   6|          4|    6|         24|
+    |amplitude_d0           |  32|          3|   32|         96|
+    |ap_NS_fsm              |   4|         10|    1|         10|
+    |ap_reg_ppiten_pp0_it9  |   1|          2|    1|          2|
+    |i_phi_fu_278_p4        |   7|          2|    7|         14|
+    |i_reg_274              |   7|          2|    7|         14|
+    |locations_address0     |   6|          4|    6|         24|
+    |locations_d0           |  32|          4|   32|        128|
+    |peak_1_fu_68           |  32|          2|   32|         64|
+    |reg_289                |  32|          2|   32|         64|
+    |reg_299                |  32|          2|   32|         64|
+    |signals_0_address0     |   6|          4|    6|         24|
+    |signals_0_address1     |   6|          3|    6|         18|
+    |signals_1_address0     |   6|          4|    6|         24|
+    |signals_2_address0     |   6|          3|    6|         18|
+    |signals_2_address1     |   6|          3|    6|         18|
+    +-----------------------+----+-----------+-----+-----------+
+    |Total                  | 221|         54|  218|        606|
+    +-----------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +----------------------------+----+----+-----+-----------+
+    |            Name            | FF | LUT| Bits| Const Bits|
+    +----------------------------+----+----+-----+-----------+
+    |ap_CS_fsm                   |   9|   0|    9|          0|
+    |ap_reg_ppiten_pp0_it0       |   1|   0|    1|          0|
+    |ap_reg_ppiten_pp0_it1       |   1|   0|    1|          0|
+    |ap_reg_ppiten_pp0_it2       |   1|   0|    1|          0|
+    |ap_reg_ppiten_pp0_it3       |   1|   0|    1|          0|
+    |ap_reg_ppiten_pp0_it4       |   1|   0|    1|          0|
+    |ap_reg_ppiten_pp0_it5       |   1|   0|    1|          0|
+    |ap_reg_ppiten_pp0_it6       |   1|   0|    1|          0|
+    |ap_reg_ppiten_pp0_it7       |   1|   0|    1|          0|
+    |ap_reg_ppiten_pp0_it8       |   1|   0|    1|          0|
+    |ap_reg_ppiten_pp0_it9       |   1|   0|    1|          0|
+    |exitcond_reg_568            |   1|   0|    1|          0|
+    |i_1_reg_578                 |   7|   0|    7|          0|
+    |i_cast_reg_563              |   7|   0|   32|         25|
+    |i_reg_274                   |   7|   0|    7|          0|
+    |peak_1_fu_68                |  32|   0|   32|          0|
+    |peak_1_ph_reg_261           |   1|   0|    1|          0|
+    |reg_289                     |  32|   0|   32|          0|
+    |reg_295                     |  32|   0|   32|          0|
+    |reg_299                     |  32|   0|   32|          0|
+    |sel_tmp3_reg_707            |  32|   0|   32|          0|
+    |sel_tmp4_reg_645            |   1|   0|    1|          0|
+    |sel_tmp5_reg_662            |  32|   0|   32|          0|
+    |sel_tmp6_reg_651            |   1|   0|    1|          0|
+    |signals_load_5_phi_reg_657  |  32|   0|   32|          0|
+    |signals_load_6_phi_reg_667  |  32|   0|   32|          0|
+    |tmp_10_reg_687              |   7|   0|    7|          0|
+    |tmp_11_reg_624              |   3|   0|    3|          0|
+    |tmp_12_reg_613              |   3|   0|    3|          0|
+    |tmp_2_reg_572               |   7|   0|    7|          0|
+    |tmp_4_reg_593               |   7|   0|    7|          0|
+    |tmp_5_reg_673               |   1|   0|    1|          0|
+    |tmp_7_reg_677               |   7|   0|    7|          0|
+    |tmp_8_reg_619               |   7|   0|    7|          0|
+    |i_cast_reg_563              |   0|   7|   32|         25|
+    |i_reg_274                   |   0|   7|    7|          0|
+    |sel_tmp4_reg_645            |   0|   1|    1|          0|
+    |sel_tmp6_reg_651            |   0|   1|    1|          0|
+    |signals_load_6_phi_reg_667  |   0|  32|   32|          0|
+    |tmp_2_reg_572               |   0|   7|    7|          0|
+    |tmp_5_reg_673               |   0|   1|    1|          0|
+    +----------------------------+----+----+-----+-----------+
+    |Total                       | 342|  56|  448|         50|
+    +----------------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++--------------------+-----+-----+------------+--------------+--------------+
+|      RTL Ports     | Dir | Bits|  Protocol  | Source Object|    C Type    |
++--------------------+-----+-----+------------+--------------+--------------+
+|ap_clk              |  in |    1| ap_ctrl_hs |     peaks    | return value |
+|ap_rst              |  in |    1| ap_ctrl_hs |     peaks    | return value |
+|ap_start            |  in |    1| ap_ctrl_hs |     peaks    | return value |
+|ap_done             | out |    1| ap_ctrl_hs |     peaks    | return value |
+|ap_idle             | out |    1| ap_ctrl_hs |     peaks    | return value |
+|ap_ready            | out |    1| ap_ctrl_hs |     peaks    | return value |
+|signals_0_address0  | out |    6|  ap_memory |   signals_0  |     array    |
+|signals_0_ce0       | out |    1|  ap_memory |   signals_0  |     array    |
+|signals_0_q0        |  in |   32|  ap_memory |   signals_0  |     array    |
+|signals_0_address1  | out |    6|  ap_memory |   signals_0  |     array    |
+|signals_0_ce1       | out |    1|  ap_memory |   signals_0  |     array    |
+|signals_0_q1        |  in |   32|  ap_memory |   signals_0  |     array    |
+|signals_1_address0  | out |    6|  ap_memory |   signals_1  |     array    |
+|signals_1_ce0       | out |    1|  ap_memory |   signals_1  |     array    |
+|signals_1_q0        |  in |   32|  ap_memory |   signals_1  |     array    |
+|signals_1_address1  | out |    6|  ap_memory |   signals_1  |     array    |
+|signals_1_ce1       | out |    1|  ap_memory |   signals_1  |     array    |
+|signals_1_q1        |  in |   32|  ap_memory |   signals_1  |     array    |
+|signals_2_address0  | out |    6|  ap_memory |   signals_2  |     array    |
+|signals_2_ce0       | out |    1|  ap_memory |   signals_2  |     array    |
+|signals_2_q0        |  in |   32|  ap_memory |   signals_2  |     array    |
+|signals_2_address1  | out |    6|  ap_memory |   signals_2  |     array    |
+|signals_2_ce1       | out |    1|  ap_memory |   signals_2  |     array    |
+|signals_2_q1        |  in |   32|  ap_memory |   signals_2  |     array    |
+|amplitude_address0  | out |    6|  ap_memory |   amplitude  |     array    |
+|amplitude_ce0       | out |    1|  ap_memory |   amplitude  |     array    |
+|amplitude_we0       | out |    1|  ap_memory |   amplitude  |     array    |
+|amplitude_d0        | out |   32|  ap_memory |   amplitude  |     array    |
+|locations_address0  | out |    6|  ap_memory |   locations  |     array    |
+|locations_ce0       | out |    1|  ap_memory |   locations  |     array    |
+|locations_we0       | out |    1|  ap_memory |   locations  |     array    |
+|locations_d0        | out |   32|  ap_memory |   locations  |     array    |
++--------------------+-----+-----+------------+--------------+--------------+
+

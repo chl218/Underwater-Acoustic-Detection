@@ -1,0 +1,214 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'peaks'" level="0">
+<item name = "Date">Mon May 08 18:49:13 2017
+</item>
+<item name = "Version">2015.4 (Build 1412921 on Wed Nov 18 09:58:55 AM 2015)</item>
+<item name = "Project">peaks</item>
+<item name = "Solution">solution1</item>
+<item name = "Product family">zynq</item>
+<item name = "Target device">xc7z020clg484-1</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing (ns)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">5.00, 4.36, 0.63</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency (clock cycles)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">, min, max, min, max, Type</keys>
+<column name="">220, 220, 221, 221, none</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="7">Instance, Module, min, max, min, max, Type</keys>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+<column name="- Local_Maxima">213, 213, 20, 2, 1, 98, yes</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Utilization Estimates" level="0">
+<item name = "Summary"><table name="" hasTotal="1">
+<keys size="5">Name, BRAM_18K, DSP48E, FF, LUT</keys>
+<column name="DSP">-, -, -, -</column>
+<column name="Expression">-, -, 0, 300</column>
+<column name="FIFO">-, -, -, -</column>
+<column name="Instance">-, 3, 240, 240</column>
+<column name="Memory">-, -, -, -</column>
+<column name="Multiplexer">-, -, -, 221</column>
+<column name="Register">-, -, 342, 56</column>
+<specialColumn name="Available">280, 220, 106400, 53200</specialColumn>
+<specialColumn name="Utilization (%)">0, 1, ~0, 1</specialColumn>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="1">
+<keys size="6">Instance, Module, BRAM_18K, DSP48E, FF, LUT</keys>
+<column name="peaks_mul_7ns_9ns_16_3_U4">peaks_mul_7ns_9ns_16_3, 0, 1, 0, 0</column>
+<column name="peaks_mul_9ns_7ns_16_3_U2">peaks_mul_9ns_7ns_16_3, 0, 1, 0, 0</column>
+<column name="peaks_mul_9ns_7ns_16_3_U3">peaks_mul_9ns_7ns_16_3, 0, 1, 0, 0</column>
+<column name="peaks_urem_7ns_3ns_7_11_U0">peaks_urem_7ns_3ns_7_11, 0, 0, 120, 120</column>
+<column name="peaks_urem_7ns_3ns_7_11_U1">peaks_urem_7ns_3ns_7_11, 0, 0, 120, 120</column>
+</table>
+</item>
+<item name = "DSP48"><table name="" hasTotal="0">
+<keys size="3">Instance, Module, Expression</keys>
+</table>
+</item>
+<item name = "Memory"><table name="" hasTotal="1">
+<keys size="9">Memory, Module, BRAM_18K, FF, LUT, Words, Bits, Banks, W*Bits*Banks</keys>
+</table>
+</item>
+<item name = "FIFO"><table name="" hasTotal="1">
+<keys size="7">Name, BRAM_18K, FF, LUT, Depth, Bits, Size:D*B</keys>
+</table>
+</item>
+<item name = "Expression"><table name="" hasTotal="1">
+<keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
+<column name="i_1_fu_346_p2">+, 0, 0, 7, 7, 1</column>
+<column name="peak_fu_520_p2">+, 0, 0, 32, 32, 1</column>
+<column name="tmp_2_fu_329_p2">+, 0, 0, 7, 2, 7</column>
+<column name="tmp_7_fu_465_p2">+, 0, 0, 7, 7, 1</column>
+<column name="sel_tmp1_fu_426_p3">Select, 0, 0, 32, 1, 32</column>
+<column name="sel_tmp3_fu_496_p3">Select, 0, 0, 32, 1, 32</column>
+<column name="sel_tmp5_fu_447_p3">Select, 0, 0, 32, 1, 32</column>
+<column name="signals_load_5_phi_fu_439_p3">Select, 0, 0, 32, 1, 32</column>
+<column name="signals_load_6_phi_fu_454_p3">Select, 0, 0, 32, 1, 32</column>
+<column name="signals_load_8_phi_fu_503_p3">Select, 0, 0, 32, 1, 32</column>
+<column name="exitcond_fu_323_p2">icmp, 0, 0, 3, 7, 6</column>
+<column name="sel_tmp2_fu_434_p2">icmp, 0, 0, 2, 3, 1</column>
+<column name="sel_tmp4_fu_411_p2">icmp, 0, 0, 2, 3, 1</column>
+<column name="sel_tmp6_fu_416_p2">icmp, 0, 0, 2, 3, 1</column>
+<column name="sel_tmp_fu_421_p2">icmp, 0, 0, 2, 3, 1</column>
+<column name="tmp_1_fu_531_p2">icmp, 0, 0, 11, 32, 32</column>
+<column name="tmp_5_fu_460_p2">icmp, 0, 0, 11, 32, 32</column>
+<column name="tmp_9_fu_509_p2">icmp, 0, 0, 11, 32, 32</column>
+<column name="tmp_fu_304_p2">icmp, 0, 0, 11, 32, 32</column>
+</table>
+</item>
+<item name = "Multiplexer"><table name="" hasTotal="1">
+<keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
+<column name="amplitude_address0">6, 4, 6, 24</column>
+<column name="amplitude_d0">32, 3, 32, 96</column>
+<column name="ap_NS_fsm">4, 10, 1, 10</column>
+<column name="ap_reg_ppiten_pp0_it9">1, 2, 1, 2</column>
+<column name="i_phi_fu_278_p4">7, 2, 7, 14</column>
+<column name="i_reg_274">7, 2, 7, 14</column>
+<column name="locations_address0">6, 4, 6, 24</column>
+<column name="locations_d0">32, 4, 32, 128</column>
+<column name="peak_1_fu_68">32, 2, 32, 64</column>
+<column name="reg_289">32, 2, 32, 64</column>
+<column name="reg_299">32, 2, 32, 64</column>
+<column name="signals_0_address0">6, 4, 6, 24</column>
+<column name="signals_0_address1">6, 3, 6, 18</column>
+<column name="signals_1_address0">6, 4, 6, 24</column>
+<column name="signals_2_address0">6, 3, 6, 18</column>
+<column name="signals_2_address1">6, 3, 6, 18</column>
+</table>
+</item>
+<item name = "Register"><table name="" hasTotal="1">
+<keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
+<column name="ap_CS_fsm">9, 0, 9, 0</column>
+<column name="ap_reg_ppiten_pp0_it0">1, 0, 1, 0</column>
+<column name="ap_reg_ppiten_pp0_it1">1, 0, 1, 0</column>
+<column name="ap_reg_ppiten_pp0_it2">1, 0, 1, 0</column>
+<column name="ap_reg_ppiten_pp0_it3">1, 0, 1, 0</column>
+<column name="ap_reg_ppiten_pp0_it4">1, 0, 1, 0</column>
+<column name="ap_reg_ppiten_pp0_it5">1, 0, 1, 0</column>
+<column name="ap_reg_ppiten_pp0_it6">1, 0, 1, 0</column>
+<column name="ap_reg_ppiten_pp0_it7">1, 0, 1, 0</column>
+<column name="ap_reg_ppiten_pp0_it8">1, 0, 1, 0</column>
+<column name="ap_reg_ppiten_pp0_it9">1, 0, 1, 0</column>
+<column name="exitcond_reg_568">1, 0, 1, 0</column>
+<column name="i_1_reg_578">7, 0, 7, 0</column>
+<column name="i_cast_reg_563">7, 0, 32, 25</column>
+<column name="i_reg_274">7, 0, 7, 0</column>
+<column name="peak_1_fu_68">32, 0, 32, 0</column>
+<column name="peak_1_ph_reg_261">1, 0, 1, 0</column>
+<column name="reg_289">32, 0, 32, 0</column>
+<column name="reg_295">32, 0, 32, 0</column>
+<column name="reg_299">32, 0, 32, 0</column>
+<column name="sel_tmp3_reg_707">32, 0, 32, 0</column>
+<column name="sel_tmp4_reg_645">1, 0, 1, 0</column>
+<column name="sel_tmp5_reg_662">32, 0, 32, 0</column>
+<column name="sel_tmp6_reg_651">1, 0, 1, 0</column>
+<column name="signals_load_5_phi_reg_657">32, 0, 32, 0</column>
+<column name="signals_load_6_phi_reg_667">32, 0, 32, 0</column>
+<column name="tmp_10_reg_687">7, 0, 7, 0</column>
+<column name="tmp_11_reg_624">3, 0, 3, 0</column>
+<column name="tmp_12_reg_613">3, 0, 3, 0</column>
+<column name="tmp_2_reg_572">7, 0, 7, 0</column>
+<column name="tmp_4_reg_593">7, 0, 7, 0</column>
+<column name="tmp_5_reg_673">1, 0, 1, 0</column>
+<column name="tmp_7_reg_677">7, 0, 7, 0</column>
+<column name="tmp_8_reg_619">7, 0, 7, 0</column>
+<column name="i_cast_reg_563">0, 7, 32, 25</column>
+<column name="i_reg_274">0, 7, 7, 0</column>
+<column name="sel_tmp4_reg_645">0, 1, 1, 0</column>
+<column name="sel_tmp6_reg_651">0, 1, 1, 0</column>
+<column name="signals_load_6_phi_reg_667">0, 32, 32, 0</column>
+<column name="tmp_2_reg_572">0, 7, 7, 0</column>
+<column name="tmp_5_reg_673">0, 1, 1, 0</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Interface" level="0">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">RTL Ports, Dir, Bits, Protocol, Source Object, C Type</keys>
+<column name="ap_clk">in, 1, ap_ctrl_hs, peaks, return value</column>
+<column name="ap_rst">in, 1, ap_ctrl_hs, peaks, return value</column>
+<column name="ap_start">in, 1, ap_ctrl_hs, peaks, return value</column>
+<column name="ap_done">out, 1, ap_ctrl_hs, peaks, return value</column>
+<column name="ap_idle">out, 1, ap_ctrl_hs, peaks, return value</column>
+<column name="ap_ready">out, 1, ap_ctrl_hs, peaks, return value</column>
+<column name="signals_0_address0">out, 6, ap_memory, signals_0, array</column>
+<column name="signals_0_ce0">out, 1, ap_memory, signals_0, array</column>
+<column name="signals_0_q0">in, 32, ap_memory, signals_0, array</column>
+<column name="signals_0_address1">out, 6, ap_memory, signals_0, array</column>
+<column name="signals_0_ce1">out, 1, ap_memory, signals_0, array</column>
+<column name="signals_0_q1">in, 32, ap_memory, signals_0, array</column>
+<column name="signals_1_address0">out, 6, ap_memory, signals_1, array</column>
+<column name="signals_1_ce0">out, 1, ap_memory, signals_1, array</column>
+<column name="signals_1_q0">in, 32, ap_memory, signals_1, array</column>
+<column name="signals_1_address1">out, 6, ap_memory, signals_1, array</column>
+<column name="signals_1_ce1">out, 1, ap_memory, signals_1, array</column>
+<column name="signals_1_q1">in, 32, ap_memory, signals_1, array</column>
+<column name="signals_2_address0">out, 6, ap_memory, signals_2, array</column>
+<column name="signals_2_ce0">out, 1, ap_memory, signals_2, array</column>
+<column name="signals_2_q0">in, 32, ap_memory, signals_2, array</column>
+<column name="signals_2_address1">out, 6, ap_memory, signals_2, array</column>
+<column name="signals_2_ce1">out, 1, ap_memory, signals_2, array</column>
+<column name="signals_2_q1">in, 32, ap_memory, signals_2, array</column>
+<column name="amplitude_address0">out, 6, ap_memory, amplitude, array</column>
+<column name="amplitude_ce0">out, 1, ap_memory, amplitude, array</column>
+<column name="amplitude_we0">out, 1, ap_memory, amplitude, array</column>
+<column name="amplitude_d0">out, 32, ap_memory, amplitude, array</column>
+<column name="locations_address0">out, 6, ap_memory, locations, array</column>
+<column name="locations_ce0">out, 1, ap_memory, locations, array</column>
+<column name="locations_we0">out, 1, ap_memory, locations, array</column>
+<column name="locations_d0">out, 32, ap_memory, locations, array</column>
+</table>
+</item>
+</section>
+</profile>
