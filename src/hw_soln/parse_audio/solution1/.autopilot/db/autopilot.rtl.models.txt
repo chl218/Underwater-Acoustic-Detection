@@ -1,0 +1,4 @@
+parse_audio_buffer_signal
+parse_audio_buffer_target
+parse_audio_parse_signal
+parse_audio

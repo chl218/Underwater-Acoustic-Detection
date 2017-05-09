@@ -16,7 +16,7 @@ typedef hls::stream<DTYPE_FLO> DSTREAM_FLO;
 #define SIZE      FREQUENCY*DURATION
 
 void peaks(DSTREAM_FLO &signals,
-		     DSTREAM_FLO &amplitude,
-		     DSTREAM_INT &locations);
+		   DSTREAM_FLO &amplitude,
+		   DSTREAM_INT &locations);
 
 #endif

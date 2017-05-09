@@ -1,10 +1,10 @@
 set C_TypeInfoList {{ 
 "peaks" : [[], { "return": [[], "void"]} , [{"ExternC" : 0}], [ {"samples": [[], {"reference": "0"}] }, {"amplitude": [[], {"reference": "0"}] }, {"locations": [[], {"reference": "1"}] }],[],""], 
-"1": [ "DSTREAM_INT", {"typedef": [[[],"2"],""]}], 
-"0": [ "DSTREAM_FLO", {"typedef": [[[],"3"],""]}], 
-"3": [ "stream<float>", {"hls_type": {"stream": [[[[], {"scalar": "float"}]],"4"]}}], 
-"2": [ "stream<int>", {"hls_type": {"stream": [[[[], {"scalar": "int"}]],"4"]}}],
-"4": ["hls", ""]
+"0": [ "DSTREAM_FLO", {"typedef": [[[],"2"],""]}], 
+"2": [ "stream<float>", {"hls_type": {"stream": [[[[], {"scalar": "float"}]],"3"]}}], 
+"1": [ "DSTREAM_INT", {"typedef": [[[],"4"],""]}], 
+"4": [ "stream<int>", {"hls_type": {"stream": [[[[], {"scalar": "int"}]],"3"]}}],
+"3": ["hls", ""]
 }}
 set moduleName peaks
 set isCombinational 0
@@ -67,9 +67,9 @@ set Spec2ImplPortList {
 
 # RTL port scheduling information:
 set fifoSchedulingInfoList { 
-	samples_V { fifo_read 100 has_conditional }
-	amplitude_V { fifo_write 100 has_conditional }
-	locations_V { fifo_write 100 has_conditional }
+	samples_V { fifo_read 120000 has_conditional }
+	amplitude_V { fifo_write 120000 has_conditional }
+	locations_V { fifo_write 120000 has_conditional }
 }
 
 # RTL bus port read request latency information:

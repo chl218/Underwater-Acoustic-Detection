@@ -1,0 +1,165 @@
+
+
+================================================================
+== Vivado HLS Report for 'parse_audio'
+================================================================
+* Date:           Tue May 09 15:14:18 2017
+
+* Version:        2015.4 (Build 1412921 on Wed Nov 18 09:58:55 AM 2015)
+* Project:        parse_audio
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   5.00|      3.94|        0.63|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +------+-------+------+-------+----------+
+    |    Latency   |   Interval   | Pipeline |
+    |  min |  max  |  min |  max  |   Type   |
+    +------+-------+------+-------+----------+
+    |  5112|  26628|  5003|  21626| dataflow |
+    +------+-------+------+-------+----------+
+
+    + Detail: 
+        * Instance: 
+        +--------------------------------------+---------------------------+------+-------+------+-------+---------+
+        |                                      |                           |    Latency   |   Interval   | Pipeline|
+        |               Instance               |           Module          |  min |  max  |  min |  max  |   Type  |
+        +--------------------------------------+---------------------------+------+-------+------+-------+---------+
+        |grp_parse_audio_buffer_signal_fu_94   |parse_audio_buffer_signal  |  5002|   5002|  5002|   5002|   none  |
+        |grp_parse_audio_buffer_target_fu_102  |parse_audio_buffer_target  |    14|     14|    14|     14|   none  |
+        |grp_parse_audio_parse_signal_fu_84    |parse_audio_parse_signal   |   109|  21625|   109|  21625|   none  |
+        +--------------------------------------+---------------------------+------+-------+------+-------+---------+
+
+        * Loop: 
+        N/A
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+-------+
+|       Name      | BRAM_18K| DSP48E|   FF   |  LUT  |
++-----------------+---------+-------+--------+-------+
+|DSP              |        -|      -|       -|      -|
+|Expression       |        -|      -|       0|      1|
+|FIFO             |        -|      -|       -|      -|
+|Instance         |        -|      -|     235|    308|
+|Memory           |       64|      -|     128|     12|
+|Multiplexer      |        -|      -|       -|      2|
+|Register         |        -|      -|       6|      -|
++-----------------+---------+-------+--------+-------+
+|Total            |       64|      0|     369|    323|
++-----------------+---------+-------+--------+-------+
+|Available        |      280|    220|  106400|  53200|
++-----------------+---------+-------+--------+-------+
+|Utilization (%)  |       22|      0|   ~0   |   ~0  |
++-----------------+---------+-------+--------+-------+
+
++ Detail: 
+    * Instance: 
+    +------------------------------+---------------------------+---------+-------+-----+-----+
+    |           Instance           |           Module          | BRAM_18K| DSP48E|  FF | LUT |
+    +------------------------------+---------------------------+---------+-------+-----+-----+
+    |parse_audio_buffer_signal_U0  |parse_audio_buffer_signal  |        0|      0|   35|   50|
+    |parse_audio_buffer_target_U0  |parse_audio_buffer_target  |        0|      0|   15|   17|
+    |parse_audio_parse_signal_U0   |parse_audio_parse_signal   |        0|      0|  185|  241|
+    +------------------------------+---------------------------+---------+-------+-----+-----+
+    |Total                         |                           |        0|      0|  235|  308|
+    +------------------------------+---------------------------+---------+-------+-----+-----+
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    +-----------+---------------------+---------+-----+----+-------+-----+------+-------------+
+    |   Memory  |        Module       | BRAM_18K|  FF | LUT| Words | Bits| Banks| W*Bits*Banks|
+    +-----------+---------------------+---------+-----+----+-------+-----+------+-------------+
+    |loc_buf_U  |parse_audio_loc_buf  |        0|  128|  12|     12|   32|     2|          768|
+    |sig_buf_U  |parse_audio_sig_buf  |       64|    0|   0|  10000|   32|     2|       640000|
+    +-----------+---------------------+---------+-----+----+-------+-----+------+-------------+
+    |Total      |                     |       64|  128|  12|  10012|   64|     4|       640768|
+    +-----------+---------------------+---------+-----+----+-------+-----+------+-------------+
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +--------------------------------------+----------+-------+---+----+------------+------------+
+    |             Variable Name            | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +--------------------------------------+----------+-------+---+----+------------+------------+
+    |parse_audio_parse_signal_U0_ap_start  |    and   |      0|  0|   1|           1|           1|
+    +--------------------------------------+----------+-------+---+----+------------+------------+
+    |Total                                 |          |      0|  0|   1|           1|           1|
+    +--------------------------------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +----------------------------------------------------+----+-----------+-----+-----------+
+    |                        Name                        | LUT| Input Size| Bits| Total Bits|
+    +----------------------------------------------------+----+-----------+-----+-----------+
+    |ap_sig_ready_parse_audio_buffer_signal_U0_ap_ready  |   1|          2|    1|          2|
+    |ap_sig_ready_parse_audio_buffer_target_U0_ap_ready  |   1|          2|    1|          2|
+    +----------------------------------------------------+----+-----------+-----+-----------+
+    |Total                                               |   2|          4|    2|          4|
+    +----------------------------------------------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +----------------------------------------------------+---+----+-----+-----------+
+    |                        Name                        | FF| LUT| Bits| Const Bits|
+    +----------------------------------------------------+---+----+-----+-----------+
+    |ap_CS                                               |  1|   0|    1|          0|
+    |ap_reg_procdone_parse_audio_buffer_signal_U0        |  1|   0|    1|          0|
+    |ap_reg_procdone_parse_audio_buffer_target_U0        |  1|   0|    1|          0|
+    |ap_reg_procdone_parse_audio_parse_signal_U0         |  1|   0|    1|          0|
+    |ap_reg_ready_parse_audio_buffer_signal_U0_ap_ready  |  1|   0|    1|          0|
+    |ap_reg_ready_parse_audio_buffer_target_U0_ap_ready  |  1|   0|    1|          0|
+    +----------------------------------------------------+---+----+-----+-----------+
+    |Total                                               |  6|   0|    6|          0|
+    +----------------------------------------------------+---+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++--------------------------+-----+-----+------------+-------------------+--------------+
+|         RTL Ports        | Dir | Bits|  Protocol  |   Source Object   |    C Type    |
++--------------------------+-----+-----+------------+-------------------+--------------+
+|ap_clk                    |  in |    1| ap_ctrl_hs |    parse_audio    | return value |
+|ap_rst                    |  in |    1| ap_ctrl_hs |    parse_audio    | return value |
+|ap_done                   | out |    1| ap_ctrl_hs |    parse_audio    | return value |
+|ap_start                  |  in |    1| ap_ctrl_hs |    parse_audio    | return value |
+|ap_idle                   | out |    1| ap_ctrl_hs |    parse_audio    | return value |
+|ap_ready                  | out |    1| ap_ctrl_hs |    parse_audio    | return value |
+|signals_V_dout            |  in |   32|   ap_fifo  |     signals_V     |    pointer   |
+|signals_V_empty_n         |  in |    1|   ap_fifo  |     signals_V     |    pointer   |
+|signals_V_read            | out |    1|   ap_fifo  |     signals_V     |    pointer   |
+|hits_V_dout               |  in |   32|   ap_fifo  |       hits_V      |    pointer   |
+|hits_V_empty_n            |  in |    1|   ap_fifo  |       hits_V      |    pointer   |
+|hits_V_read               | out |    1|   ap_fifo  |       hits_V      |    pointer   |
+|locs_V_dout               |  in |   32|   ap_fifo  |       locs_V      |    pointer   |
+|locs_V_empty_n            |  in |    1|   ap_fifo  |       locs_V      |    pointer   |
+|locs_V_read               | out |    1|   ap_fifo  |       locs_V      |    pointer   |
+|pairs_amplitude_V_din     | out |   32|   ap_fifo  | pairs_amplitude_V |    pointer   |
+|pairs_amplitude_V_full_n  |  in |    1|   ap_fifo  | pairs_amplitude_V |    pointer   |
+|pairs_amplitude_V_write   | out |    1|   ap_fifo  | pairs_amplitude_V |    pointer   |
+|pairs_duration_V_din      | out |   32|   ap_fifo  |  pairs_duration_V |    pointer   |
+|pairs_duration_V_full_n   |  in |    1|   ap_fifo  |  pairs_duration_V |    pointer   |
+|pairs_duration_V_write    | out |    1|   ap_fifo  |  pairs_duration_V |    pointer   |
++--------------------------+-----+-----+------------+-------------------+--------------+
+

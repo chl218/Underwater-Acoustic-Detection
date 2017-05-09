@@ -1,7 +1,7 @@
 <profile>
 
 <section name = "Vivado HLS Report for 'peaks'" level="0">
-<item name = "Date">Mon May 08 22:12:56 2017
+<item name = "Date">Tue May 09 11:44:44 2017
 </item>
 <item name = "Version">2015.4 (Build 1412921 on Wed Nov 18 09:58:55 AM 2015)</item>
 <item name = "Project">peaks</item>
@@ -24,7 +24,7 @@
 <section name = "" level="1">
 <item name = "Summary"><table name="" hasTotal="0">
 <keys size="6">, min, max, min, max, Type</keys>
-<column name="">113, 113, 114, 114, none</column>
+<column name="">120013, 120013, 120014, 120014, none</column>
 </table>
 </item>
 <item name = "Detail">
@@ -36,7 +36,7 @@
 <item name = "Loop"><table name="" hasTotal="0">
 <keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
 <column name="- memset_shift_buf">5, 5, 2, -, -, 3, no</column>
-<column name="- Local_Maxima">105, 105, 7, 1, 1, 100, yes</column>
+<column name="- Local_Maxima">120005, 120005, 7, 1, 1, 120000, yes</column>
 </table>
 </item>
 </section>

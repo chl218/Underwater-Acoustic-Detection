@@ -1,0 +1,281 @@
+
+
+================================================================
+== Vivado HLS Report for 'parse_audio_parse_signal'
+================================================================
+* Date:           Tue May 09 15:14:15 2017
+
+* Version:        2015.4 (Build 1412921 on Wed Nov 18 09:58:55 AM 2015)
+* Project:        parse_audio
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   5.00|      3.94|        0.63|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-------+-----+-------+---------+
+    |   Latency   |   Interval  | Pipeline|
+    | min |  max  | min |  max  |   Type  |
+    +-----+-------+-----+-------+---------+
+    |  109|  21625|  109|  21625|   none  |
+    +-----+-------+-----+-------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-----------------+-----+-------+----------+-----------+-----------+---------+----------+
+        |                 |   Latency   | Iteration|  Initiation Interval  |   Trip  |          |
+        |    Loop Name    | min |  max  |  Latency |  achieved |   target  |  Count  | Pipelined|
+        +-----------------+-----+-------+----------+-----------+-----------+---------+----------+
+        |- Loop 1         |  108|  21624| 9 ~ 1802 |          -|          -|       12|    no    |
+        | + Loop 1.1      |    7|   1800|  7 ~ 150 |          -|          -|  1 ~ 12 |    no    |
+        |  ++ Loop 1.1.1  |    1|    144|         2|          1|          1| 1 ~ 144 |    yes   |
+        +-----------------+-----+-------+----------+-----------+-----------+---------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 2
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 9
+* Pipeline: 1
+  Pipeline-0: II = 1, D = 2, States = { 7 8 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / (!exitcond5)
+3 --> 
+	2  / (exitcond)
+	4  / (!exitcond)
+4 --> 
+	5  / true
+5 --> 
+	6  / true
+6 --> 
+	7  / true
+7 --> 
+	9  / (!tmp_6)
+	8  / (tmp_6)
+8 --> 
+	7  / true
+9 --> 
+	3  / true
+* FSM state operations: 
+
+ <State 1>: 1.57ns
+ST_1: empty [1/1] 0.00ns
+:0  %empty = call i32 (...)* @_ssdm_op_SpecInterface(float* %pairs_amplitude_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str26, [1 x i8]* @p_str27, [1 x i8]* @p_str28, [1 x i8]* @p_str29)
+
+ST_1: empty_5 [1/1] 0.00ns
+:1  %empty_5 = call i32 (...)* @_ssdm_op_SpecInterface(i32* %pairs_duration_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str30, [1 x i8]* @p_str31, [1 x i8]* @p_str32, [1 x i8]* @p_str33)
+
+ST_1: stg_12 [1/1] 1.57ns
+:2  br label %.loopexit
+
+
+ <State 2>: 3.25ns
+ST_2: j [1/1] 0.00ns
+.loopexit:0  %j = phi i4 [ 0, %0 ], [ %i, %.preheader ]
+
+ST_2: exitcond5 [1/1] 1.88ns
+.loopexit:1  %exitcond5 = icmp eq i4 %j, -4
+
+ST_2: i [1/1] 0.80ns
+.loopexit:2  %i = add i4 %j, 1
+
+ST_2: stg_16 [1/1] 0.00ns
+.loopexit:3  br i1 %exitcond5, label %5, label %.preheader.preheader
+
+ST_2: j_cast1 [1/1] 0.00ns
+.preheader.preheader:0  %j_cast1 = zext i4 %j to i32
+
+ST_2: stg_18 [1/1] 0.00ns
+.preheader.preheader:1  call void (...)* @_ssdm_op_SpecLoopTripCount(i64 12, i64 12, i64 12)
+
+ST_2: tmp [1/1] 0.00ns
+.preheader.preheader:2  %tmp = zext i4 %j to i64
+
+ST_2: locs_addr [1/1] 0.00ns
+.preheader.preheader:3  %locs_addr = getelementptr [12 x i32]* %locs, i64 0, i64 %tmp
+
+ST_2: stg_21 [1/1] 1.57ns
+.preheader.preheader:4  br label %.preheader
+
+ST_2: stg_22 [1/1] 0.00ns
+:0  ret void
+
+
+ <State 3>: 3.89ns
+ST_3: j1 [1/1] 0.00ns
+.preheader:0  %j1 = phi i32 [ %j_1, %4 ], [ %j_cast1, %.preheader.preheader ]
+
+ST_3: exitcond [1/1] 2.52ns
+.preheader:1  %exitcond = icmp eq i32 %j1, 12
+
+ST_3: stg_25 [1/1] 0.00ns
+.preheader:2  br i1 %exitcond, label %.loopexit, label %1
+
+ST_3: b [2/2] 2.39ns
+:1  %b = load i32* %locs_addr, align 4
+
+ST_3: tmp_2 [1/1] 0.00ns
+:2  %tmp_2 = sext i32 %j1 to i64
+
+ST_3: locs_addr_1 [1/1] 0.00ns
+:3  %locs_addr_1 = getelementptr [12 x i32]* %locs, i64 0, i64 %tmp_2
+
+ST_3: e [2/2] 2.39ns
+:4  %e = load i32* %locs_addr_1, align 4
+
+
+ <State 4>: 2.39ns
+ST_4: b [1/2] 2.39ns
+:1  %b = load i32* %locs_addr, align 4
+
+ST_4: e [1/2] 2.39ns
+:4  %e = load i32* %locs_addr_1, align 4
+
+
+ <State 5>: 2.52ns
+ST_5: tmp_3 [1/1] 2.52ns
+:5  %tmp_3 = icmp sgt i32 %b, %e
+
+
+ <State 6>: 3.94ns
+ST_6: stg_33 [1/1] 0.00ns
+:0  call void (...)* @_ssdm_op_SpecLoopTripCount(i64 1, i64 12, i64 0)
+
+ST_6: smax [1/1] 1.37ns
+:6  %smax = select i1 %tmp_3, i32 %b, i32 %e
+
+ST_6: tmp_4 [1/1] 1.97ns
+:7  %tmp_4 = sub i32 1, %b
+
+ST_6: duration [1/1] 1.97ns
+:8  %duration = add i32 %tmp_4, %smax
+
+ST_6: stg_37 [1/1] 1.57ns
+:9  br label %2
+
+
+ <State 7>: 3.89ns
+ST_7: b1 [1/1] 0.00ns
+:0  %b1 = phi i32 [ %b, %1 ], [ %b_1, %3 ]
+
+ST_7: tmp_6 [1/1] 2.52ns
+:1  %tmp_6 = icmp slt i32 %b1, %e
+
+ST_7: stg_40 [1/1] 0.00ns
+:2  br i1 %tmp_6, label %3, label %4
+
+ST_7: tmp_7 [1/1] 0.00ns
+:3  %tmp_7 = sext i32 %b1 to i64
+
+ST_7: signal_addr [1/1] 0.00ns
+:4  %signal_addr = getelementptr [10000 x float]* %signal_r, i64 0, i64 %tmp_7
+
+ST_7: tmp_1 [2/2] 2.71ns
+:5  %tmp_1 = load float* %signal_addr, align 4
+
+ST_7: b_1 [1/1] 2.44ns
+:8  %b_1 = add nsw i32 %b1, 1
+
+
+ <State 8>: 3.71ns
+ST_8: tmp_9 [1/1] 0.00ns
+:0  %tmp_9 = call i32 (...)* @_ssdm_op_SpecRegionBegin([12 x i8]* @p_str3)
+
+ST_8: stg_46 [1/1] 0.00ns
+:1  call void (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str1) nounwind
+
+ST_8: stg_47 [1/1] 0.00ns
+:2  call void (...)* @_ssdm_op_SpecLoopTripCount(i32 1, i32 144, i32 72, [1 x i8]* @p_str1) nounwind
+
+ST_8: tmp_1 [1/2] 2.71ns
+:5  %tmp_1 = load float* %signal_addr, align 4
+
+ST_8: stg_49 [1/1] 1.00ns
+:6  call void @_ssdm_op_Write.ap_fifo.volatile.floatP(float* %pairs_amplitude_V, float %tmp_1)
+
+ST_8: empty_6 [1/1] 0.00ns
+:7  %empty_6 = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str3, i32 %tmp_9)
+
+ST_8: stg_51 [1/1] 0.00ns
+:9  br label %2
+
+
+ <State 9>: 2.44ns
+ST_9: stg_52 [1/1] 1.00ns
+:0  call void @_ssdm_op_Write.ap_fifo.volatile.i32P(i32* %pairs_duration_V, i32 %duration)
+
+ST_9: j_1 [1/1] 2.44ns
+:1  %j_1 = add nsw i32 %j1, 1
+
+ST_9: stg_54 [1/1] 0.00ns
+:2  br label %.preheader
+
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

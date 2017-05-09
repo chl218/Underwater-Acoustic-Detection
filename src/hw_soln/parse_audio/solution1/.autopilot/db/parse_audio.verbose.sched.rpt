@@ -1,0 +1,171 @@
+
+
+================================================================
+== Vivado HLS Report for 'parse_audio'
+================================================================
+* Date:           Tue May 09 15:14:15 2017
+
+* Version:        2015.4 (Build 1412921 on Wed Nov 18 09:58:55 AM 2015)
+* Project:        parse_audio
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   5.00|      3.94|        0.63|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +------+-------+------+-------+----------+
+    |    Latency   |   Interval   | Pipeline |
+    |  min |  max  |  min |  max  |   Type   |
+    +------+-------+------+-------+----------+
+    |  5112|  26628|  5003|  21626| dataflow |
+    +------+-------+------+-------+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 4
+* Pipeline: 0
+* Dataflow Pipeline: 1
+  DF-Pipeline-0: Size = 4, States = { 1 2 3 4 }
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / true
+3 --> 
+	4  / true
+4 --> 
+* FSM state operations: 
+
+ <State 1>: 0.00ns
+ST_1: sig_buf [1/1] 0.00ns
+:12  %sig_buf = alloca [10000 x float], align 16
+
+ST_1: loc_buf [1/1] 0.00ns
+:13  %loc_buf = alloca [12 x i32], align 16
+
+ST_1: stg_7 [2/2] 0.00ns
+:14  call fastcc void @parse_audio_buffer_signal(float* %signals_V, [10000 x float]* %sig_buf)
+
+ST_1: stg_8 [2/2] 0.00ns
+:15  call fastcc void @parse_audio_buffer_target(float* %hits_V, i32* %locs_V, [12 x i32]* %loc_buf)
+
+
+ <State 2>: 0.00ns
+ST_2: stg_9 [1/2] 0.00ns
+:14  call fastcc void @parse_audio_buffer_signal(float* %signals_V, [10000 x float]* %sig_buf)
+
+ST_2: stg_10 [1/2] 0.00ns
+:15  call fastcc void @parse_audio_buffer_target(float* %hits_V, i32* %locs_V, [12 x i32]* %loc_buf)
+
+
+ <State 3>: 0.00ns
+ST_3: stg_11 [2/2] 0.00ns
+:16  call fastcc void @parse_audio_parse_signal([10000 x float]* %sig_buf, [12 x i32]* %loc_buf, float* %pairs_amplitude_V, i32* %pairs_duration_V)
+
+
+ <State 4>: 0.00ns
+ST_4: stg_12 [1/1] 0.00ns
+:0  call void (...)* @_ssdm_op_SpecDataflowPipeline(i32 -1, [1 x i8]* @p_str1) nounwind
+
+ST_4: empty [1/1] 0.00ns
+:1  %empty = call i32 (...)* @_ssdm_op_SpecInterface(i32* %pairs_duration_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str30, [1 x i8]* @p_str31, [1 x i8]* @p_str32, [1 x i8]* @p_str33)
+
+ST_4: empty_7 [1/1] 0.00ns
+:2  %empty_7 = call i32 (...)* @_ssdm_op_SpecInterface(float* %pairs_amplitude_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str26, [1 x i8]* @p_str27, [1 x i8]* @p_str28, [1 x i8]* @p_str29)
+
+ST_4: empty_8 [1/1] 0.00ns
+:3  %empty_8 = call i32 (...)* @_ssdm_op_SpecInterface(i32* %locs_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str22, [1 x i8]* @p_str23, [1 x i8]* @p_str24, [1 x i8]* @p_str25)
+
+ST_4: empty_9 [1/1] 0.00ns
+:4  %empty_9 = call i32 (...)* @_ssdm_op_SpecInterface(float* %hits_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str18, [1 x i8]* @p_str19, [1 x i8]* @p_str20, [1 x i8]* @p_str21)
+
+ST_4: empty_10 [1/1] 0.00ns
+:5  %empty_10 = call i32 (...)* @_ssdm_op_SpecInterface(float* %signals_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str14, [1 x i8]* @p_str15, [1 x i8]* @p_str16, [1 x i8]* @p_str17)
+
+ST_4: stg_18 [1/1] 0.00ns
+:6  call void (...)* @_ssdm_op_SpecBitsMap(float* %signals_V), !map !7
+
+ST_4: stg_19 [1/1] 0.00ns
+:7  call void (...)* @_ssdm_op_SpecBitsMap(float* %hits_V), !map !11
+
+ST_4: stg_20 [1/1] 0.00ns
+:8  call void (...)* @_ssdm_op_SpecBitsMap(i32* %locs_V), !map !15
+
+ST_4: stg_21 [1/1] 0.00ns
+:9  call void (...)* @_ssdm_op_SpecBitsMap(float* %pairs_amplitude_V), !map !19
+
+ST_4: stg_22 [1/1] 0.00ns
+:10  call void (...)* @_ssdm_op_SpecBitsMap(i32* %pairs_duration_V), !map !23
+
+ST_4: stg_23 [1/1] 0.00ns
+:11  call void (...)* @_ssdm_op_SpecTopModule([12 x i8]* @parse_audio_str) nounwind
+
+ST_4: stg_24 [1/2] 0.00ns
+:16  call fastcc void @parse_audio_parse_signal([10000 x float]* %sig_buf, [12 x i32]* %loc_buf, float* %pairs_amplitude_V, i32* %pairs_duration_V)
+
+ST_4: stg_25 [1/1] 0.00ns
+:17  ret void
+
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

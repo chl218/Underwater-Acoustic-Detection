@@ -1,0 +1,146 @@
+
+
+================================================================
+== Vivado HLS Report for 'parse_audio_buffer_signal'
+================================================================
+* Date:           Tue May 09 15:14:16 2017
+
+* Version:        2015.4 (Build 1412921 on Wed Nov 18 09:58:55 AM 2015)
+* Project:        parse_audio
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   5.00|      3.71|        0.63|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +------+------+------+------+---------+
+    |   Latency   |   Interval  | Pipeline|
+    |  min |  max |  min |  max |   Type  |
+    +------+------+------+------+---------+
+    |  5002|  5002|  5002|  5002|   none  |
+    +------+------+------+------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+------+------+----------+-----------+-----------+------+----------+
+        |          |   Latency   | Iteration|  Initiation Interval  | Trip |          |
+        | Loop Name|  min |  max |  Latency |  achieved |   target  | Count| Pipelined|
+        +----------+------+------+----------+-----------+-----------+------+----------+
+        |- Loop 1  |  5000|  5000|         2|          1|          1|  5000|    yes   |
+        +----------+------+------+----------+-----------+-----------+------+----------+
+
+
+
+================================================================
+== Utilization Estimates
+================================================================
+* Summary: 
++-----------------+---------+-------+--------+-------+
+|       Name      | BRAM_18K| DSP48E|   FF   |  LUT  |
++-----------------+---------+-------+--------+-------+
+|DSP              |        -|      -|       -|      -|
+|Expression       |        -|      -|       0|     21|
+|FIFO             |        -|      -|       -|      -|
+|Instance         |        -|      -|       -|      -|
+|Memory           |        -|      -|       -|      -|
+|Multiplexer      |        -|      -|       -|     29|
+|Register         |        -|      -|      35|      -|
++-----------------+---------+-------+--------+-------+
+|Total            |        0|      0|      35|     50|
++-----------------+---------+-------+--------+-------+
+|Available        |      280|    220|  106400|  53200|
++-----------------+---------+-------+--------+-------+
+|Utilization (%)  |        0|      0|   ~0   |   ~0  |
++-----------------+---------+-------+--------+-------+
+
++ Detail: 
+    * Instance: 
+    N/A
+
+    * DSP48: 
+    N/A
+
+    * Memory: 
+    N/A
+
+    * FIFO: 
+    N/A
+
+    * Expression: 
+    +---------------+----------+-------+---+----+------------+------------+
+    | Variable Name | Operation| DSP48E| FF| LUT| Bitwidth P0| Bitwidth P1|
+    +---------------+----------+-------+---+----+------------+------------+
+    |i_2_fu_81_p2   |     +    |      0|  0|  14|          14|           2|
+    |ap_sig_bdd_58  |    and   |      0|  0|   1|           1|           1|
+    |tmp_fu_75_p2   |   icmp   |      0|  0|   5|          14|          14|
+    |ap_sig_bdd_74  |    or    |      0|  0|   1|           1|           1|
+    +---------------+----------+-------+---+----+------------+------------+
+    |Total          |          |      0|  0|  21|          30|          18|
+    +---------------+----------+-------+---+----+------------+------------+
+
+    * Multiplexer: 
+    +----------------+----+-----------+-----+-----------+
+    |      Name      | LUT| Input Size| Bits| Total Bits|
+    +----------------+----+-----------+-----+-----------+
+    |ap_NS_fsm       |   1|          4|    1|          4|
+    |i_phi_fu_67_p4  |  14|          2|   14|         28|
+    |i_reg_63        |  14|          2|   14|         28|
+    +----------------+----+-----------+-----+-----------+
+    |Total           |  29|          8|   29|         60|
+    +----------------+----+-----------+-----+-----------+
+
+    * Register: 
+    +-----------------------+----+----+-----+-----------+
+    |          Name         | FF | LUT| Bits| Const Bits|
+    +-----------------------+----+----+-----+-----------+
+    |ap_CS_fsm              |   3|   0|    3|          0|
+    |ap_done_reg            |   1|   0|    1|          0|
+    |ap_reg_ppiten_pp0_it0  |   1|   0|    1|          0|
+    |ap_reg_ppiten_pp0_it1  |   1|   0|    1|          0|
+    |i_2_reg_96             |  14|   0|   14|          0|
+    |i_reg_63               |  14|   0|   14|          0|
+    |tmp_reg_92             |   1|   0|    1|          0|
+    +-----------------------+----+----+-----+-----------+
+    |Total                  |  35|   0|   35|          0|
+    +-----------------------+----+----+-----+-----------+
+
+
+
+================================================================
+== Interface
+================================================================
+* Summary: 
++-------------------+-----+-----+------------+---------------------------+--------------+
+|     RTL Ports     | Dir | Bits|  Protocol  |       Source Object       |    C Type    |
++-------------------+-----+-----+------------+---------------------------+--------------+
+|ap_clk             |  in |    1| ap_ctrl_hs | parse_audio_buffer_signal | return value |
+|ap_rst             |  in |    1| ap_ctrl_hs | parse_audio_buffer_signal | return value |
+|ap_start           |  in |    1| ap_ctrl_hs | parse_audio_buffer_signal | return value |
+|ap_done            | out |    1| ap_ctrl_hs | parse_audio_buffer_signal | return value |
+|ap_continue        |  in |    1| ap_ctrl_hs | parse_audio_buffer_signal | return value |
+|ap_idle            | out |    1| ap_ctrl_hs | parse_audio_buffer_signal | return value |
+|ap_ready           | out |    1| ap_ctrl_hs | parse_audio_buffer_signal | return value |
+|signals_V_dout     |  in |   32|   ap_fifo  |         signals_V         |    pointer   |
+|signals_V_empty_n  |  in |    1|   ap_fifo  |         signals_V         |    pointer   |
+|signals_V_read     | out |    1|   ap_fifo  |         signals_V         |    pointer   |
+|amp_buf_address0   | out |   14|  ap_memory |          amp_buf          |     array    |
+|amp_buf_ce0        | out |    1|  ap_memory |          amp_buf          |     array    |
+|amp_buf_we0        | out |    1|  ap_memory |          amp_buf          |     array    |
+|amp_buf_d0         | out |   32|  ap_memory |          amp_buf          |     array    |
++-------------------+-----+-----+------------+---------------------------+--------------+
+

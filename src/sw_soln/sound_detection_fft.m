@@ -23,4 +23,4 @@ for idx = 1:L1
 end
 
 subplot(3, 1, 3);
-plot(t1, f1), hold on;
+plot(t1, f1, 'x'), hold on;
