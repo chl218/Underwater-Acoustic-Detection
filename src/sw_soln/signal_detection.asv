@@ -46,14 +46,14 @@ plot(locations, hits, 'x'), hold on;
 candidates = zeros(1, 2, nchoosek(sum(hits > 0),2));
 candidateAmount = 1;
 
-peakTime = zeros(1, sum(hits > threshold));
+peakTime = zero(1,sum(hits>1));
 peakHits = 1;
 
 % Return all combinations of potential fish calls
 for i = 1:length(locations)
    if hits(i) > 0
       peakTime(peakHits) = locations(i);
-      peakHits = peakHits + 1;
+      peakHits = peakHits +1
       for ii = i+1:length(locations)
          if hits(ii) > 0
             candidates(:,:,candidateAmount) = ...

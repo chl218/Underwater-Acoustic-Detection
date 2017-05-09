@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="running_threshold.cpp" path="C:\Users\Jack\Desktop\cse237d\Underwater-Acoustic-Detection\src\hw_soln\running_threshold.cpp"/>
+    <originFiles name="running_threshold.h" path="C:\Users\Jack\Desktop\cse237d\Underwater-Acoustic-Detection\src\hw_soln\running_threshold.h"/>
+  </source>
+  <testbench>
+    <originFiles name="running_threshold_tb.cpp" path="C:\Users\Jack\Desktop\cse237d\Underwater-Acoustic-Detection\src\hw_soln\running_threshold_tb.cpp"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>
