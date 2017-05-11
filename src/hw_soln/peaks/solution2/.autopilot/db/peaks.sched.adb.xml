@@ -29,52 +29,52 @@
 </condition>
 </trans>
 
-<trans id="102" from="4" to="5">
-<condition id="62">
+<trans id="103" from="4" to="5">
+<condition id="63">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="108" from="5" to="11">
-<condition id="63">
+<trans id="109" from="5" to="11">
+<condition id="64">
 <or_exp><and_exp><literal name="exitcond" val="1"/>
 </and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="109" from="5" to="6">
-<condition id="69">
+<trans id="110" from="5" to="6">
+<condition id="70">
 <or_exp><and_exp><literal name="exitcond" val="0"/>
 </and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="103" from="6" to="7">
-<condition id="64">
-<or_exp><and_exp></and_exp></or_exp>
-</condition>
-</trans>
-
-<trans id="104" from="7" to="8">
+<trans id="104" from="6" to="7">
 <condition id="65">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="105" from="8" to="9">
+<trans id="105" from="7" to="8">
 <condition id="66">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="106" from="9" to="10">
+<trans id="106" from="8" to="9">
 <condition id="67">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
 
-<trans id="107" from="10" to="4">
+<trans id="107" from="9" to="10">
 <condition id="68">
+<or_exp><and_exp></and_exp></or_exp>
+</condition>
+</trans>
+
+<trans id="108" from="10" to="4">
+<condition id="69">
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 </trans>
@@ -454,9 +454,9 @@ meminst15:5  br i1 %tmp_1, label %.preheader, label %meminst
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<node id="34" bw="7" op_0_bw="7" op_1_bw="0">
+<node id="34" bw="17" op_0_bw="17" op_1_bw="0">
 <![CDATA[
-.preheader:2  %tmp_6 = phi i7 [ %i, %._crit_edge ], [ 0, %meminst15 ]
+.preheader:2  %tmp_6 = phi i17 [ %i, %._crit_edge ], [ 0, %meminst15 ]
 
 ]]></node>
 <StgValue><ssdm name="tmp_6"/></StgValue>
@@ -469,9 +469,9 @@ meminst15:5  br i1 %tmp_1, label %.preheader, label %meminst
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<node id="35" bw="1" op_0_bw="7" op_1_bw="7">
+<node id="35" bw="1" op_0_bw="17" op_1_bw="17">
 <![CDATA[
-.preheader:3  %exitcond = icmp eq i7 %tmp_6, -28
+.preheader:3  %exitcond = icmp eq i17 %tmp_6, -11072
 
 ]]></node>
 <StgValue><ssdm name="exitcond"/></StgValue>
@@ -484,18 +484,34 @@ meminst15:5  br i1 %tmp_1, label %.preheader, label %meminst
 <or_exp><and_exp></and_exp></or_exp>
 </condition>
 
-<node id="36" bw="7" op_0_bw="7" op_1_bw="7">
+<node id="36" bw="17" op_0_bw="17" op_1_bw="17">
 <![CDATA[
-.preheader:4  %i = add i7 %tmp_6, 1
+.preheader:4  %i = add i17 %tmp_6, 1
 
 ]]></node>
 <StgValue><ssdm name="i"/></StgValue>
+</operation>
+
+<operation id="38" st_id="4" stage="1" lat="1">
+<core>NULL</core>
+<MemPortIdVec></MemPortIdVec>
+<condition id="0">
+<or_exp><and_exp><literal name="exitcond" val="0"/>
+</and_exp></or_exp>
+</condition>
+
+<node id="39" bw="32" op_0_bw="17">
+<![CDATA[
+:0  %tmp_18 = zext i17 %tmp_6 to i32
+
+]]></node>
+<StgValue><ssdm name="tmp_18"/></StgValue>
 </operation>
 </state>
 
 <state id="5" st_id="5">
 
-<operation id="38" st_id="5" stage="1" lat="1">
+<operation id="39" st_id="5" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -510,7 +526,7 @@ meminst15:5  br i1 %tmp_1, label %.preheader, label %meminst
 <StgValue><ssdm name="shift_buf_1_2"/></StgValue>
 </operation>
 
-<operation id="39" st_id="5" stage="1" lat="1">
+<operation id="40" st_id="5" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -525,7 +541,7 @@ meminst15:5  br i1 %tmp_1, label %.preheader, label %meminst
 <StgValue><ssdm name="shift_buf_1_9"/></StgValue>
 </operation>
 
-<operation id="40" st_id="5" stage="1" lat="1">
+<operation id="41" st_id="5" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="-1">
@@ -540,7 +556,7 @@ meminst15:5  br i1 %tmp_1, label %.preheader, label %meminst
 <StgValue><ssdm name=""/></StgValue>
 </operation>
 
-<operation id="41" st_id="5" stage="1" lat="1">
+<operation id="42" st_id="5" stage="1" lat="1">
 <core>FSL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="0">
@@ -556,7 +572,7 @@ meminst15:5  br i1 %tmp_1, label %.preheader, label %meminst
 <StgValue><ssdm name="tmp_20"/></StgValue>
 </operation>
 
-<operation id="42" st_id="5" stage="1" lat="1">
+<operation id="43" st_id="5" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="0">
@@ -572,7 +588,7 @@ meminst15:5  br i1 %tmp_1, label %.preheader, label %meminst
 <StgValue><ssdm name="shift_buf_1_2_to_int"/></StgValue>
 </operation>
 
-<operation id="43" st_id="5" stage="1" lat="1">
+<operation id="44" st_id="5" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="0">
@@ -588,7 +604,7 @@ meminst15:5  br i1 %tmp_1, label %.preheader, label %meminst
 <StgValue><ssdm name="tmp_3"/></StgValue>
 </operation>
 
-<operation id="44" st_id="5" stage="1" lat="1">
+<operation id="45" st_id="5" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="0">
@@ -604,7 +620,7 @@ meminst15:5  br i1 %tmp_1, label %.preheader, label %meminst
 <StgValue><ssdm name="tmp_4"/></StgValue>
 </operation>
 
-<operation id="45" st_id="5" stage="1" lat="1">
+<operation id="46" st_id="5" stage="1" lat="1">
 <core>Cmp</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="0">
@@ -620,7 +636,7 @@ meminst15:5  br i1 %tmp_1, label %.preheader, label %meminst
 <StgValue><ssdm name="notlhs"/></StgValue>
 </operation>
 
-<operation id="46" st_id="5" stage="1" lat="1">
+<operation id="47" st_id="5" stage="1" lat="1">
 <core>Cmp</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="0">
@@ -636,7 +652,7 @@ meminst15:5  br i1 %tmp_1, label %.preheader, label %meminst
 <StgValue><ssdm name="notrhs"/></StgValue>
 </operation>
 
-<operation id="47" st_id="5" stage="1" lat="1">
+<operation id="48" st_id="5" stage="1" lat="1">
 <core>LogicGate</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="0">
@@ -652,7 +668,7 @@ meminst15:5  br i1 %tmp_1, label %.preheader, label %meminst
 <StgValue><ssdm name="tmp_2"/></StgValue>
 </operation>
 
-<operation id="48" st_id="5" stage="4" lat="4">
+<operation id="49" st_id="5" stage="4" lat="4">
 <core>FCmp</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="0">
@@ -668,7 +684,7 @@ meminst15:5  br i1 %tmp_1, label %.preheader, label %meminst
 <StgValue><ssdm name="tmp_10"/></StgValue>
 </operation>
 
-<operation id="49" st_id="5" stage="4" lat="4">
+<operation id="50" st_id="5" stage="4" lat="4">
 <core>FCmp</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="0">
@@ -687,7 +703,7 @@ meminst15:5  br i1 %tmp_1, label %.preheader, label %meminst
 
 <state id="6" st_id="6">
 
-<operation id="50" st_id="6" stage="3" lat="4">
+<operation id="51" st_id="6" stage="3" lat="4">
 <core>FCmp</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="0">
@@ -703,7 +719,7 @@ meminst15:5  br i1 %tmp_1, label %.preheader, label %meminst
 <StgValue><ssdm name="tmp_10"/></StgValue>
 </operation>
 
-<operation id="51" st_id="6" stage="3" lat="4">
+<operation id="52" st_id="6" stage="3" lat="4">
 <core>FCmp</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="0">
@@ -722,7 +738,7 @@ meminst15:5  br i1 %tmp_1, label %.preheader, label %meminst
 
 <state id="7" st_id="7">
 
-<operation id="52" st_id="7" stage="1" lat="1">
+<operation id="53" st_id="7" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="0">
@@ -738,7 +754,7 @@ meminst15:5  br i1 %tmp_1, label %.preheader, label %meminst
 <StgValue><ssdm name="shift_buf_1_to_int"/></StgValue>
 </operation>
 
-<operation id="53" st_id="7" stage="1" lat="1">
+<operation id="54" st_id="7" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="0">
@@ -754,7 +770,7 @@ meminst15:5  br i1 %tmp_1, label %.preheader, label %meminst
 <StgValue><ssdm name="tmp_8"/></StgValue>
 </operation>
 
-<operation id="54" st_id="7" stage="1" lat="1">
+<operation id="55" st_id="7" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="0">
@@ -770,7 +786,7 @@ meminst15:5  br i1 %tmp_1, label %.preheader, label %meminst
 <StgValue><ssdm name="tmp_5"/></StgValue>
 </operation>
 
-<operation id="55" st_id="7" stage="1" lat="1">
+<operation id="56" st_id="7" stage="1" lat="1">
 <core>Cmp</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="0">
@@ -786,7 +802,7 @@ meminst15:5  br i1 %tmp_1, label %.preheader, label %meminst
 <StgValue><ssdm name="notlhs4"/></StgValue>
 </operation>
 
-<operation id="56" st_id="7" stage="1" lat="1">
+<operation id="57" st_id="7" stage="1" lat="1">
 <core>Cmp</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="0">
@@ -802,7 +818,7 @@ meminst15:5  br i1 %tmp_1, label %.preheader, label %meminst
 <StgValue><ssdm name="notrhs5"/></StgValue>
 </operation>
 
-<operation id="57" st_id="7" stage="1" lat="1">
+<operation id="58" st_id="7" stage="1" lat="1">
 <core>LogicGate</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="0">
@@ -818,7 +834,7 @@ meminst15:5  br i1 %tmp_1, label %.preheader, label %meminst
 <StgValue><ssdm name="tmp_7"/></StgValue>
 </operation>
 
-<operation id="58" st_id="7" stage="2" lat="4">
+<operation id="59" st_id="7" stage="2" lat="4">
 <core>FCmp</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="0">
@@ -834,7 +850,7 @@ meminst15:5  br i1 %tmp_1, label %.preheader, label %meminst
 <StgValue><ssdm name="tmp_10"/></StgValue>
 </operation>
 
-<operation id="59" st_id="7" stage="1" lat="1">
+<operation id="60" st_id="7" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="0">
@@ -850,7 +866,7 @@ meminst15:5  br i1 %tmp_1, label %.preheader, label %meminst
 <StgValue><ssdm name="shift_buf_0_to_int"/></StgValue>
 </operation>
 
-<operation id="60" st_id="7" stage="1" lat="1">
+<operation id="61" st_id="7" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="0">
@@ -866,7 +882,7 @@ meminst15:5  br i1 %tmp_1, label %.preheader, label %meminst
 <StgValue><ssdm name="tmp_12"/></StgValue>
 </operation>
 
-<operation id="61" st_id="7" stage="1" lat="1">
+<operation id="62" st_id="7" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="0">
@@ -882,7 +898,7 @@ meminst15:5  br i1 %tmp_1, label %.preheader, label %meminst
 <StgValue><ssdm name="tmp_13"/></StgValue>
 </operation>
 
-<operation id="62" st_id="7" stage="1" lat="1">
+<operation id="63" st_id="7" stage="1" lat="1">
 <core>Cmp</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="0">
@@ -898,7 +914,7 @@ meminst15:5  br i1 %tmp_1, label %.preheader, label %meminst
 <StgValue><ssdm name="notlhs8"/></StgValue>
 </operation>
 
-<operation id="63" st_id="7" stage="1" lat="1">
+<operation id="64" st_id="7" stage="1" lat="1">
 <core>Cmp</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="0">
@@ -914,7 +930,7 @@ meminst15:5  br i1 %tmp_1, label %.preheader, label %meminst
 <StgValue><ssdm name="notrhs9"/></StgValue>
 </operation>
 
-<operation id="64" st_id="7" stage="1" lat="1">
+<operation id="65" st_id="7" stage="1" lat="1">
 <core>LogicGate</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="0">
@@ -930,7 +946,7 @@ meminst15:5  br i1 %tmp_1, label %.preheader, label %meminst
 <StgValue><ssdm name="tmp_14"/></StgValue>
 </operation>
 
-<operation id="65" st_id="7" stage="2" lat="4">
+<operation id="66" st_id="7" stage="2" lat="4">
 <core>FCmp</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="0">
@@ -949,7 +965,7 @@ meminst15:5  br i1 %tmp_1, label %.preheader, label %meminst
 
 <state id="8" st_id="8">
 
-<operation id="66" st_id="8" stage="1" lat="1">
+<operation id="67" st_id="8" stage="1" lat="1">
 <core>LogicGate</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="0">
@@ -965,7 +981,7 @@ meminst15:5  br i1 %tmp_1, label %.preheader, label %meminst
 <StgValue><ssdm name="tmp_9"/></StgValue>
 </operation>
 
-<operation id="67" st_id="8" stage="1" lat="4">
+<operation id="68" st_id="8" stage="1" lat="4">
 <core>FCmp</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="0">
@@ -981,7 +997,7 @@ meminst15:5  br i1 %tmp_1, label %.preheader, label %meminst
 <StgValue><ssdm name="tmp_10"/></StgValue>
 </operation>
 
-<operation id="68" st_id="8" stage="1" lat="1">
+<operation id="69" st_id="8" stage="1" lat="1">
 <core>LogicGate</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="0">
@@ -997,7 +1013,7 @@ meminst15:5  br i1 %tmp_1, label %.preheader, label %meminst
 <StgValue><ssdm name="tmp_11"/></StgValue>
 </operation>
 
-<operation id="69" st_id="8" stage="1" lat="1">
+<operation id="70" st_id="8" stage="1" lat="1">
 <core>LogicGate</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="0">
@@ -1013,7 +1029,7 @@ meminst15:5  br i1 %tmp_1, label %.preheader, label %meminst
 <StgValue><ssdm name="tmp_15"/></StgValue>
 </operation>
 
-<operation id="70" st_id="8" stage="1" lat="4">
+<operation id="71" st_id="8" stage="1" lat="4">
 <core>FCmp</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="0">
@@ -1029,7 +1045,7 @@ meminst15:5  br i1 %tmp_1, label %.preheader, label %meminst
 <StgValue><ssdm name="tmp_16"/></StgValue>
 </operation>
 
-<operation id="71" st_id="8" stage="1" lat="1">
+<operation id="72" st_id="8" stage="1" lat="1">
 <core>LogicGate</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="0">
@@ -1048,7 +1064,7 @@ meminst15:5  br i1 %tmp_1, label %.preheader, label %meminst
 
 <state id="9" st_id="9">
 
-<operation id="72" st_id="9" stage="1" lat="1">
+<operation id="73" st_id="9" stage="1" lat="1">
 <core>LogicGate</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="0">
@@ -1064,7 +1080,7 @@ meminst15:5  br i1 %tmp_1, label %.preheader, label %meminst
 <StgValue><ssdm name="or_cond"/></StgValue>
 </operation>
 
-<operation id="73" st_id="9" stage="1" lat="1">
+<operation id="74" st_id="9" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
 <condition id="0">
@@ -1083,22 +1099,6 @@ meminst15:5  br i1 %tmp_1, label %.preheader, label %meminst
 
 <state id="10" st_id="10">
 
-<operation id="74" st_id="10" stage="1" lat="1">
-<core>NULL</core>
-<MemPortIdVec></MemPortIdVec>
-<condition id="0">
-<or_exp><and_exp><literal name="exitcond" val="0"/>
-</and_exp></or_exp>
-</condition>
-
-<node id="39" bw="32" op_0_bw="7">
-<![CDATA[
-:0  %tmp_18 = zext i7 %tmp_6 to i32
-
-]]></node>
-<StgValue><ssdm name="tmp_18"/></StgValue>
-</operation>
-
 <operation id="75" st_id="10" stage="1" lat="1">
 <core>NULL</core>
 <MemPortIdVec></MemPortIdVec>
@@ -1109,7 +1109,7 @@ meminst15:5  br i1 %tmp_1, label %.preheader, label %meminst
 
 <node id="40" bw="32" op_0_bw="32" op_1_bw="64" op_2_bw="64" op_3_bw="64">
 <![CDATA[
-:1  %empty_10 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 100, i64 100, i64 100)
+:1  %empty_10 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 120000, i64 120000, i64 120000)
 
 ]]></node>
 <StgValue><ssdm name="empty_10"/></StgValue>

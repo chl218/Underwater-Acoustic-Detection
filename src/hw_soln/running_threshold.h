@@ -9,8 +9,10 @@ typedef float 			   DTYPE_FLO;
 
 typedef hls::stream<DTYPE_FLO> DSTREAM_FLO;
 
-#define MAGNIFY 5
-#define SAMPLES 100
+#define DURATION  60
+#define FREQUENCY 2000
+#define MAGNIFY   5
+#define SAMPLES   FREQUENCY*DURATION
 
 void running_threshold(DSTREAM_FLO &amplitude, DSTREAM_FLO &threshold);
 

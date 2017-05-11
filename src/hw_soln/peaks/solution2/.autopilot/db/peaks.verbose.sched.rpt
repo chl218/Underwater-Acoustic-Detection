@@ -3,7 +3,7 @@
 ================================================================
 == Vivado HLS Report for 'peaks'
 ================================================================
-* Date:           Mon May 08 22:12:56 2017
+* Date:           Tue May 09 11:44:44 2017
 
 * Version:        2015.4 (Build 1412921 on Wed Nov 18 09:58:55 AM 2015)
 * Project:        peaks
@@ -25,25 +25,25 @@
 
 + Latency (clock cycles): 
     * Summary: 
-    +-----+-----+-----+-----+---------+
-    |  Latency  |  Interval | Pipeline|
-    | min | max | min | max |   Type  |
-    +-----+-----+-----+-----+---------+
-    |  113|  113|  114|  114|   none  |
-    +-----+-----+-----+-----+---------+
+    +--------+--------+--------+--------+---------+
+    |     Latency     |     Interval    | Pipeline|
+    |   min  |   max  |   min  |   max  |   Type  |
+    +--------+--------+--------+--------+---------+
+    |  120013|  120013|  120014|  120014|   none  |
+    +--------+--------+--------+--------+---------+
 
     + Detail: 
         * Instance: 
         N/A
 
         * Loop: 
-        +--------------------+-----+-----+----------+-----------+-----------+------+----------+
-        |                    |  Latency  | Iteration|  Initiation Interval  | Trip |          |
-        |      Loop Name     | min | max |  Latency |  achieved |   target  | Count| Pipelined|
-        +--------------------+-----+-----+----------+-----------+-----------+------+----------+
-        |- memset_shift_buf  |    5|    5|         2|          -|          -|     3|    no    |
-        |- Local_Maxima      |  105|  105|         7|          1|          1|   100|    yes   |
-        +--------------------+-----+-----+----------+-----------+-----------+------+----------+
+        +--------------------+--------+--------+----------+-----------+-----------+--------+----------+
+        |                    |     Latency     | Iteration|  Initiation Interval  |  Trip  |          |
+        |      Loop Name     |   min  |   max  |  Latency |  achieved |   target  |  Count | Pipelined|
+        +--------------------+--------+--------+----------+-----------+-----------+--------+----------+
+        |- memset_shift_buf  |       5|       5|         2|          -|          -|       3|    no    |
+        |- Local_Maxima      |  120005|  120005|         7|          1|          1|  120000|    yes   |
+        +--------------------+--------+--------+----------+-----------+-----------+--------+----------+
 
 ============================================================
 + Verbose Summary: Synthesis Manager
@@ -183,15 +183,18 @@ ST_3: stg_34 [1/1] 1.57ns
 meminst15:5  br i1 %tmp_1, label %.preheader, label %meminst
 
 
- <State 4>: 1.97ns
+ <State 4>: 2.30ns
 ST_4: tmp_6 [1/1] 0.00ns
-.preheader:2  %tmp_6 = phi i7 [ %i, %._crit_edge ], [ 0, %meminst15 ]
+.preheader:2  %tmp_6 = phi i17 [ %i, %._crit_edge ], [ 0, %meminst15 ]
 
-ST_4: exitcond [1/1] 1.97ns
-.preheader:3  %exitcond = icmp eq i7 %tmp_6, -28
+ST_4: exitcond [1/1] 2.30ns
+.preheader:3  %exitcond = icmp eq i17 %tmp_6, -11072
 
-ST_4: i [1/1] 1.72ns
-.preheader:4  %i = add i7 %tmp_6, 1
+ST_4: i [1/1] 2.08ns
+.preheader:4  %i = add i17 %tmp_6, 1
+
+ST_4: tmp_18 [1/1] 0.00ns
+:0  %tmp_18 = zext i17 %tmp_6 to i32
 
 
  <State 5>: 3.76ns
@@ -201,7 +204,7 @@ ST_5: shift_buf_1_2 [1/1] 0.00ns
 ST_5: shift_buf_1_9 [1/1] 0.00ns
 .preheader:1  %shift_buf_1_9 = phi float [ %tmp_20, %._crit_edge ], [ %shift_buf_load, %meminst15 ]
 
-ST_5: stg_40 [1/1] 0.00ns
+ST_5: stg_41 [1/1] 0.00ns
 .preheader:5  br i1 %exitcond, label %3, label %1
 
 ST_5: tmp_20 [1/1] 1.00ns
@@ -308,16 +311,13 @@ ST_8: tmp_17 [1/1] 1.37ns
 ST_9: or_cond [1/1] 1.37ns
 :30  %or_cond = and i1 %tmp_11, %tmp_17
 
-ST_9: stg_73 [1/1] 0.00ns
+ST_9: stg_74 [1/1] 0.00ns
 :31  br i1 %or_cond, label %2, label %._crit_edge
 
 
  <State 10>: 1.00ns
-ST_10: tmp_18 [1/1] 0.00ns
-:0  %tmp_18 = zext i7 %tmp_6 to i32
-
 ST_10: empty_10 [1/1] 0.00ns
-:1  %empty_10 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 100, i64 100, i64 100)
+:1  %empty_10 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 120000, i64 120000, i64 120000)
 
 ST_10: stg_76 [1/1] 0.00ns
 :2  call void (...)* @_ssdm_op_SpecLoopName([13 x i8]* @p_str2) nounwind

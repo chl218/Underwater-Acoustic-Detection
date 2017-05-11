@@ -1,0 +1,4 @@
+running_threshold_fadd_32ns_32ns_32_9_full_dsp
+running_threshold_fmul_32ns_32ns_32_5_max_dsp
+running_threshold_fdiv_32ns_32ns_32_30
+running_threshold

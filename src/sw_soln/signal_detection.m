@@ -1,5 +1,5 @@
-function [ candidates, candidateAmount, peakTime ] = ...
-   signal_detection( audioFile )
+% function [ candidates, candidateAmount, peakTime ] = ...
+%    signal_detection( audioFile )
 
 % Number of samples and sampling rate
 [samples, frequency] = audioread(audioFile);
@@ -29,7 +29,7 @@ subplot(3,1,2);
 plot(locations, peaks, 'x'), hold on;
 
 
-difference = 5;
+difference = 4;
 threshold = mean(difference*peaks);
 hits = zeros(1, length(peaks));
 
@@ -65,4 +65,4 @@ for i = 1:length(locations)
 end
 
 
-end
+%end

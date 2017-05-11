@@ -668,7 +668,7 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>7</bitwidth>
+					<bitwidth>17</bitwidth>
 				</Value>
 				<oprand_edges>
 					<count>4</count>
@@ -754,7 +754,7 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>7</bitwidth>
+					<bitwidth>17</bitwidth>
 				</Value>
 				<oprand_edges>
 					<count>2</count>
@@ -2305,7 +2305,7 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>7</bitwidth>
+					<bitwidth>17</bitwidth>
 				</Value>
 				<const_type>0</const_type>
 				<content>0</content>
@@ -2328,10 +2328,10 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>7</bitwidth>
+					<bitwidth>17</bitwidth>
 				</Value>
 				<const_type>0</const_type>
-				<content>100</content>
+				<content>120000</content>
 			</item>
 			<item class_id_reference="16" object_id="_63">
 				<Value>
@@ -2351,7 +2351,7 @@
 						<rtlName></rtlName>
 						<coreName></coreName>
 					</Obj>
-					<bitwidth>7</bitwidth>
+					<bitwidth>17</bitwidth>
 				</Value>
 				<const_type>0</const_type>
 				<content>1</content>
@@ -3503,7 +3503,7 @@
 			<mDepth>-1</mDepth>
 			<mMinTripCount>-1</mMinTripCount>
 			<mMaxTripCount>-1</mMaxTripCount>
-			<mMinLatency>113</mMinLatency>
+			<mMinLatency>120013</mMinLatency>
 			<mMaxLatency>-1</mMaxLatency>
 			<mIsDfPipe>0</mIsDfPipe>
 			<mDfPipe class_id="-1"></mDfPipe>
@@ -3573,9 +3573,9 @@
 			</basic_blocks>
 			<mII>1</mII>
 			<mDepth>7</mDepth>
-			<mMinTripCount>100</mMinTripCount>
-			<mMaxTripCount>100</mMaxTripCount>
-			<mMinLatency>105</mMinLatency>
+			<mMinTripCount>120000</mMinTripCount>
+			<mMaxTripCount>120000</mMaxTripCount>
+			<mMinLatency>120005</mMinLatency>
 			<mMaxLatency>-1</mMaxLatency>
 			<mIsDfPipe>0</mIsDfPipe>
 			<mDfPipe class_id="-1"></mDfPipe>
@@ -3751,7 +3751,7 @@
 		<item>
 			<first>39</first>
 			<second>
-				<first>9</first>
+				<first>3</first>
 				<second>0</second>
 			</second>
 		</item>
@@ -4028,7 +4028,7 @@
 		<item>
 			<first>71</first>
 			<second>
-				<first>4</first>
+				<first>3</first>
 				<second>9</second>
 			</second>
 		</item>

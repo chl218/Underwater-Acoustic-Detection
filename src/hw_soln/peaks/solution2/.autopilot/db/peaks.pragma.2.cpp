@@ -32354,6 +32354,9 @@ typedef hls::stream<DTYPE_FLO> DSTREAM_FLO;
 
 
 
+
+
+
 void peaks(DSTREAM_FLO &signals,
      DSTREAM_FLO &amplitude,
      DSTREAM_INT &locations);
@@ -32366,7 +32369,7 @@ void peaks(DSTREAM_FLO &samples,
  DTYPE_FLO shift_buf[3] = {0};
 _ssdm_SpecArrayPartition( shift_buf, 1, "COMPLETE", 0, "");
 
- Local_Maxima: for(int i = 0; i < 100; i++) {
+ Local_Maxima: for(int i = 0; i < 2000*60; i++) {
 _ssdm_op_SpecPipeline(1, 1, 1, 0, "");
 
  shift_buf[2] = shift_buf[1];

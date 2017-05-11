@@ -10,7 +10,10 @@ typedef float 			   DTYPE_FLO;
 typedef hls::stream<DTYPE_INT> DSTREAM_INT;
 typedef hls::stream<DTYPE_FLO> DSTREAM_FLO;
 
-#define SIZE 100
+
+#define DURATION  60
+#define FREQUENCY 2000
+#define SIZE      FREQUENCY*DURATION
 
 void peaks(DSTREAM_FLO &signals,
 		   DSTREAM_FLO &amplitude,

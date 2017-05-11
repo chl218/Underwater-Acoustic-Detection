@@ -1,0 +1,7 @@
+Running: xsim.dir/running_threshold/xsimk.exe -maxdeltaid 10000 -simmode gui -wdb running_threshold.wdb -simrunnum 0 -socket 36336
+Design successfully loaded
+Design Loading Memory Usage: 25972 KB (Peak: 25972 KB)
+Design Loading CPU Usage: 686 ms
+Simulation completed
+Simulation Memory Usage: 26796 KB (Peak: 26796 KB)
+Simulation CPU Usage: 152905 ms

@@ -1,7 +1,8 @@
-function demo_energy_detection
+%function demo_energy_detection
 
 %define location of data
-file = 'LJ21P1_130617_094835_10s_2xSealBomb.x.wav';
+%file = 'LJ21P1_130617_094835_10s_2xSealBomb.x.wav';
+file = 'test1.wav';
 
 %load data
 y = audioread(file);
@@ -41,5 +42,3 @@ Energy(2:rows-1, :) = y(2:rows-1,:).^2 - y(1:rows-2,:) .* y(3:end,:);
 
 subplot(2,1,2)
 plot(Energy,'r'), hold off
-
-1;

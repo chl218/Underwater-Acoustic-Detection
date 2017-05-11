@@ -1,0 +1,566 @@
+
+
+================================================================
+== Vivado HLS Report for 'running_threshold'
+================================================================
+* Date:           Tue May 09 00:01:19 2017
+
+* Version:        2015.4 (Build 1412921 on Wed Nov 18 09:58:55 AM 2015)
+* Project:        running_threshold
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   5.00|      4.35|        0.63|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +---------+---------+---------+---------+---------+
+    |      Latency      |      Interval     | Pipeline|
+    |   min   |   max   |   min   |   max   |   Type  |
+    +---------+---------+---------+---------+---------+
+    |  1080043|  1080043|  1080044|  1080044|   none  |
+    +---------+---------+---------+---------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+---------+---------+----------+-----------+-----------+--------+----------+
+        |          |      Latency      | Iteration|  Initiation Interval  |  Trip  |          |
+        | Loop Name|   min   |   max   |  Latency |  achieved |   target  |  Count | Pipelined|
+        +----------+---------+---------+----------+-----------+-----------+--------+----------+
+        |- Loop 1  |  1080001|  1080001|        11|          9|          1|  120000|    yes   |
+        +----------+---------+---------+----------+-----------+-----------+--------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 9, depth = 11
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 53
+* Pipeline: 1
+  Pipeline-0: II = 9, D = 11, States = { 2 3 4 5 6 7 8 9 10 11 12 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	13  / (exitcond)
+	3  / (!exitcond)
+3 --> 
+	4  / true
+4 --> 
+	5  / true
+5 --> 
+	6  / true
+6 --> 
+	7  / true
+7 --> 
+	8  / true
+8 --> 
+	9  / true
+9 --> 
+	10  / true
+10 --> 
+	11  / true
+11 --> 
+	12  / true
+12 --> 
+	2  / true
+13 --> 
+	14  / true
+14 --> 
+	15  / true
+15 --> 
+	16  / true
+16 --> 
+	17  / true
+17 --> 
+	18  / true
+18 --> 
+	19  / true
+19 --> 
+	20  / true
+20 --> 
+	21  / true
+21 --> 
+	22  / true
+22 --> 
+	23  / true
+23 --> 
+	24  / true
+24 --> 
+	25  / true
+25 --> 
+	26  / true
+26 --> 
+	27  / true
+27 --> 
+	28  / true
+28 --> 
+	29  / true
+29 --> 
+	30  / true
+30 --> 
+	31  / true
+31 --> 
+	32  / true
+32 --> 
+	33  / true
+33 --> 
+	34  / true
+34 --> 
+	35  / true
+35 --> 
+	36  / true
+36 --> 
+	37  / true
+37 --> 
+	38  / true
+38 --> 
+	39  / true
+39 --> 
+	40  / true
+40 --> 
+	41  / true
+41 --> 
+	42  / true
+42 --> 
+	43  / true
+43 --> 
+	44  / true
+44 --> 
+	45  / true
+45 --> 
+	46  / true
+46 --> 
+	47  / true
+47 --> 
+	48  / true
+48 --> 
+	49  / true
+49 --> 
+	50  / true
+50 --> 
+	51  / true
+51 --> 
+	52  / true
+52 --> 
+	53  / true
+53 --> 
+* FSM state operations: 
+
+ <State 1>: 1.57ns
+ST_1: empty [1/1] 0.00ns
+:0  %empty = call i32 (...)* @_ssdm_op_SpecInterface(float* %threshold_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str10, [1 x i8]* @p_str11, [1 x i8]* @p_str12, [1 x i8]* @p_str13)
+
+ST_1: empty_3 [1/1] 0.00ns
+:1  %empty_3 = call i32 (...)* @_ssdm_op_SpecInterface(float* %amplitude_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str6, [1 x i8]* @p_str7, [1 x i8]* @p_str8, [1 x i8]* @p_str9)
+
+ST_1: stg_56 [1/1] 0.00ns
+:2  call void (...)* @_ssdm_op_SpecBitsMap(float* %amplitude_V), !map !7
+
+ST_1: stg_57 [1/1] 0.00ns
+:3  call void (...)* @_ssdm_op_SpecBitsMap(float* %threshold_V), !map !11
+
+ST_1: stg_58 [1/1] 0.00ns
+:4  call void (...)* @_ssdm_op_SpecTopModule([18 x i8]* @running_threshold_str) nounwind
+
+ST_1: stg_59 [1/1] 1.57ns
+:5  br label %1
+
+
+ <State 2>: 2.30ns
+ST_2: mean [1/1] 0.00ns
+:0  %mean = phi float [ 0.000000e+00, %0 ], [ %mean_1, %2 ]
+
+ST_2: i [1/1] 0.00ns
+:1  %i = phi i17 [ 0, %0 ], [ %i_1, %2 ]
+
+ST_2: exitcond [1/1] 2.30ns
+:2  %exitcond = icmp eq i17 %i, -11072
+
+ST_2: i_1 [1/1] 2.08ns
+:3  %i_1 = add i17 %i, 1
+
+ST_2: stg_64 [1/1] 0.00ns
+:4  br i1 %exitcond, label %3, label %2
+
+
+ <State 3>: 1.00ns
+ST_3: tmp_3 [1/1] 1.00ns
+:3  %tmp_3 = call float @_ssdm_op_Read.ap_fifo.volatile.floatP(float* %amplitude_V)
+
+
+ <State 4>: 4.35ns
+ST_4: mean_1 [9/9] 4.35ns
+:4  %mean_1 = fadd float %mean, %tmp_3
+
+
+ <State 5>: 4.35ns
+ST_5: mean_1 [8/9] 4.35ns
+:4  %mean_1 = fadd float %mean, %tmp_3
+
+
+ <State 6>: 4.35ns
+ST_6: mean_1 [7/9] 4.35ns
+:4  %mean_1 = fadd float %mean, %tmp_3
+
+
+ <State 7>: 4.35ns
+ST_7: mean_1 [6/9] 4.35ns
+:4  %mean_1 = fadd float %mean, %tmp_3
+
+
+ <State 8>: 4.35ns
+ST_8: mean_1 [5/9] 4.35ns
+:4  %mean_1 = fadd float %mean, %tmp_3
+
+
+ <State 9>: 4.35ns
+ST_9: mean_1 [4/9] 4.35ns
+:4  %mean_1 = fadd float %mean, %tmp_3
+
+
+ <State 10>: 4.35ns
+ST_10: mean_1 [3/9] 4.35ns
+:4  %mean_1 = fadd float %mean, %tmp_3
+
+
+ <State 11>: 4.35ns
+ST_11: mean_1 [2/9] 4.35ns
+:4  %mean_1 = fadd float %mean, %tmp_3
+
+
+ <State 12>: 4.35ns
+ST_12: empty_4 [1/1] 0.00ns
+:0  %empty_4 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 120000, i64 120000, i64 120000)
+
+ST_12: tmp_5 [1/1] 0.00ns
+:1  %tmp_5 = call i32 (...)* @_ssdm_op_SpecRegionBegin([12 x i8]* @p_str)
+
+ST_12: stg_76 [1/1] 0.00ns
+:2  call void (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str1) nounwind
+
+ST_12: mean_1 [1/9] 4.35ns
+:4  %mean_1 = fadd float %mean, %tmp_3
+
+ST_12: empty_5 [1/1] 0.00ns
+:5  %empty_5 = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str, i32 %tmp_5)
+
+ST_12: stg_79 [1/1] 0.00ns
+:6  br label %1
+
+
+ <State 13>: 4.35ns
+ST_13: tmp [5/5] 4.35ns
+:0  %tmp = fmul float %mean, 5.000000e+00
+
+
+ <State 14>: 4.35ns
+ST_14: tmp [4/5] 4.35ns
+:0  %tmp = fmul float %mean, 5.000000e+00
+
+
+ <State 15>: 4.35ns
+ST_15: tmp [3/5] 4.35ns
+:0  %tmp = fmul float %mean, 5.000000e+00
+
+
+ <State 16>: 4.35ns
+ST_16: tmp [2/5] 4.35ns
+:0  %tmp = fmul float %mean, 5.000000e+00
+
+
+ <State 17>: 4.35ns
+ST_17: tmp [1/5] 4.35ns
+:0  %tmp = fmul float %mean, 5.000000e+00
+
+
+ <State 18>: 3.38ns
+ST_18: tmp_1 [30/30] 3.38ns
+:1  %tmp_1 = fdiv float %tmp, 2.000000e+03
+
+
+ <State 19>: 3.38ns
+ST_19: tmp_1 [29/30] 3.38ns
+:1  %tmp_1 = fdiv float %tmp, 2.000000e+03
+
+
+ <State 20>: 3.38ns
+ST_20: tmp_1 [28/30] 3.38ns
+:1  %tmp_1 = fdiv float %tmp, 2.000000e+03
+
+
+ <State 21>: 3.38ns
+ST_21: tmp_1 [27/30] 3.38ns
+:1  %tmp_1 = fdiv float %tmp, 2.000000e+03
+
+
+ <State 22>: 3.38ns
+ST_22: tmp_1 [26/30] 3.38ns
+:1  %tmp_1 = fdiv float %tmp, 2.000000e+03
+
+
+ <State 23>: 3.38ns
+ST_23: tmp_1 [25/30] 3.38ns
+:1  %tmp_1 = fdiv float %tmp, 2.000000e+03
+
+
+ <State 24>: 3.38ns
+ST_24: tmp_1 [24/30] 3.38ns
+:1  %tmp_1 = fdiv float %tmp, 2.000000e+03
+
+
+ <State 25>: 3.38ns
+ST_25: tmp_1 [23/30] 3.38ns
+:1  %tmp_1 = fdiv float %tmp, 2.000000e+03
+
+
+ <State 26>: 3.38ns
+ST_26: tmp_1 [22/30] 3.38ns
+:1  %tmp_1 = fdiv float %tmp, 2.000000e+03
+
+
+ <State 27>: 3.38ns
+ST_27: tmp_1 [21/30] 3.38ns
+:1  %tmp_1 = fdiv float %tmp, 2.000000e+03
+
+
+ <State 28>: 3.38ns
+ST_28: tmp_1 [20/30] 3.38ns
+:1  %tmp_1 = fdiv float %tmp, 2.000000e+03
+
+
+ <State 29>: 3.38ns
+ST_29: tmp_1 [19/30] 3.38ns
+:1  %tmp_1 = fdiv float %tmp, 2.000000e+03
+
+
+ <State 30>: 3.38ns
+ST_30: tmp_1 [18/30] 3.38ns
+:1  %tmp_1 = fdiv float %tmp, 2.000000e+03
+
+
+ <State 31>: 3.38ns
+ST_31: tmp_1 [17/30] 3.38ns
+:1  %tmp_1 = fdiv float %tmp, 2.000000e+03
+
+
+ <State 32>: 3.38ns
+ST_32: tmp_1 [16/30] 3.38ns
+:1  %tmp_1 = fdiv float %tmp, 2.000000e+03
+
+
+ <State 33>: 3.38ns
+ST_33: tmp_1 [15/30] 3.38ns
+:1  %tmp_1 = fdiv float %tmp, 2.000000e+03
+
+
+ <State 34>: 3.38ns
+ST_34: tmp_1 [14/30] 3.38ns
+:1  %tmp_1 = fdiv float %tmp, 2.000000e+03
+
+
+ <State 35>: 3.38ns
+ST_35: tmp_1 [13/30] 3.38ns
+:1  %tmp_1 = fdiv float %tmp, 2.000000e+03
+
+
+ <State 36>: 3.38ns
+ST_36: tmp_1 [12/30] 3.38ns
+:1  %tmp_1 = fdiv float %tmp, 2.000000e+03
+
+
+ <State 37>: 3.38ns
+ST_37: tmp_1 [11/30] 3.38ns
+:1  %tmp_1 = fdiv float %tmp, 2.000000e+03
+
+
+ <State 38>: 3.38ns
+ST_38: tmp_1 [10/30] 3.38ns
+:1  %tmp_1 = fdiv float %tmp, 2.000000e+03
+
+
+ <State 39>: 3.38ns
+ST_39: tmp_1 [9/30] 3.38ns
+:1  %tmp_1 = fdiv float %tmp, 2.000000e+03
+
+
+ <State 40>: 3.38ns
+ST_40: tmp_1 [8/30] 3.38ns
+:1  %tmp_1 = fdiv float %tmp, 2.000000e+03
+
+
+ <State 41>: 3.38ns
+ST_41: tmp_1 [7/30] 3.38ns
+:1  %tmp_1 = fdiv float %tmp, 2.000000e+03
+
+
+ <State 42>: 3.38ns
+ST_42: tmp_1 [6/30] 3.38ns
+:1  %tmp_1 = fdiv float %tmp, 2.000000e+03
+
+
+ <State 43>: 3.38ns
+ST_43: tmp_1 [5/30] 3.38ns
+:1  %tmp_1 = fdiv float %tmp, 2.000000e+03
+
+
+ <State 44>: 3.38ns
+ST_44: tmp_1 [4/30] 3.38ns
+:1  %tmp_1 = fdiv float %tmp, 2.000000e+03
+
+
+ <State 45>: 3.38ns
+ST_45: tmp_1 [3/30] 3.38ns
+:1  %tmp_1 = fdiv float %tmp, 2.000000e+03
+
+
+ <State 46>: 3.38ns
+ST_46: tmp_1 [2/30] 3.38ns
+:1  %tmp_1 = fdiv float %tmp, 2.000000e+03
+
+
+ <State 47>: 3.38ns
+ST_47: tmp_1 [1/30] 3.38ns
+:1  %tmp_1 = fdiv float %tmp, 2.000000e+03
+
+
+ <State 48>: 4.35ns
+ST_48: tmp_2 [5/5] 4.35ns
+:2  %tmp_2 = fmul float %tmp_1, 6.000000e+01
+
+
+ <State 49>: 4.35ns
+ST_49: tmp_2 [4/5] 4.35ns
+:2  %tmp_2 = fmul float %tmp_1, 6.000000e+01
+
+
+ <State 50>: 4.35ns
+ST_50: tmp_2 [3/5] 4.35ns
+:2  %tmp_2 = fmul float %tmp_1, 6.000000e+01
+
+
+ <State 51>: 4.35ns
+ST_51: tmp_2 [2/5] 4.35ns
+:2  %tmp_2 = fmul float %tmp_1, 6.000000e+01
+
+
+ <State 52>: 4.35ns
+ST_52: tmp_2 [1/5] 4.35ns
+:2  %tmp_2 = fmul float %tmp_1, 6.000000e+01
+
+
+ <State 53>: 1.00ns
+ST_53: stg_120 [1/1] 1.00ns
+:3  call void @_ssdm_op_Write.ap_fifo.volatile.floatP(float* %threshold_V, float %tmp_2)
+
+ST_53: stg_121 [1/1] 0.00ns
+:4  ret void
+
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+	State 25
+	State 26
+	State 27
+	State 28
+	State 29
+	State 30
+	State 31
+	State 32
+	State 33
+	State 34
+	State 35
+	State 36
+	State 37
+	State 38
+	State 39
+	State 40
+	State 41
+	State 42
+	State 43
+	State 44
+	State 45
+	State 46
+	State 47
+	State 48
+	State 49
+	State 50
+	State 51
+	State 52
+	State 53
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

@@ -42,14 +42,14 @@ meminst15:                                        ; preds = %branch1, %branch0, 
 .preheader:                                       ; preds = %meminst15, %._crit_edge
   %shift_buf_1_2 = phi float [ %shift_buf_1_9, %._crit_edge ], [ %shift_buf_1_load, %meminst15 ]
   %shift_buf_1_9 = phi float [ %tmp_20, %._crit_edge ], [ %shift_buf_load, %meminst15 ]
-  %tmp_6 = phi i7 [ %i, %._crit_edge ], [ 0, %meminst15 ]
-  %exitcond = icmp eq i7 %tmp_6, -28
-  %i = add i7 %tmp_6, 1
+  %tmp_6 = phi i17 [ %i, %._crit_edge ], [ 0, %meminst15 ]
+  %exitcond = icmp eq i17 %tmp_6, -11072
+  %i = add i17 %tmp_6, 1
   br i1 %exitcond, label %3, label %1
 
 ; <label>:1                                       ; preds = %.preheader
-  %tmp_18 = zext i7 %tmp_6 to i32
-  %empty_10 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 100, i64 100, i64 100)
+  %tmp_18 = zext i17 %tmp_6 to i32
+  %empty_10 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 120000, i64 120000, i64 120000)
   call void (...)* @_ssdm_op_SpecLoopName([13 x i8]* @p_str2) nounwind
   %tmp = call i32 (...)* @_ssdm_op_SpecRegionBegin([13 x i8]* @p_str2)
   call void (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str1) nounwind

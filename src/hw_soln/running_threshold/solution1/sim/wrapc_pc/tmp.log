@@ -1,0 +1,3 @@
+FAILED: output does not match golden solution
+expected threshold: 45040.91797
+actual   threshold: 45022.11328

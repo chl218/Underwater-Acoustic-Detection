@@ -32,3 +32,4 @@ f1(f1<=meanPeak) = 0;
 
 subplot(4, 1, 4);
 plot(t1, f1);
+

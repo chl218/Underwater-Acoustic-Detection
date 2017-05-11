@@ -46,16 +46,16 @@ meminst15:                                        ; preds = %branch1, %branch0, 
 .preheader:                                       ; preds = %._crit_edge, %meminst15
   %shift_buf_1_2 = phi float [ %shift_buf_1_9, %._crit_edge ], [ %shift_buf_1_load, %meminst15 ] ; [#uses=2 type=float]
   %shift_buf_1_9 = phi float [ %tmp_20, %._crit_edge ], [ %shift_buf_load, %meminst15 ] ; [#uses=5 type=float]
-  %tmp_6 = phi i7 [ %i, %._crit_edge ], [ 0, %meminst15 ] ; [#uses=3 type=i7]
-  %exitcond = icmp eq i7 %tmp_6, -28, !dbg !153   ; [#uses=1 type=i1] [debug line = 10:29]
-  %i = add i7 %tmp_6, 1, !dbg !155                ; [#uses=1 type=i7] [debug line = 10:40]
+  %tmp_6 = phi i17 [ %i, %._crit_edge ], [ 0, %meminst15 ] ; [#uses=3 type=i17]
+  %exitcond = icmp eq i17 %tmp_6, -11072, !dbg !153 ; [#uses=1 type=i1] [debug line = 10:29]
+  %i = add i17 %tmp_6, 1, !dbg !155               ; [#uses=1 type=i17] [debug line = 10:44]
   br i1 %exitcond, label %3, label %1, !dbg !153  ; [debug line = 10:29]
 
 ; <label>:1                                       ; preds = %.preheader
-  %tmp_18 = zext i7 %tmp_6 to i32, !dbg !153      ; [#uses=1 type=i32] [debug line = 10:29]
-  %empty_10 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 100, i64 100, i64 100) ; [#uses=0 type=i32]
-  call void (...)* @_ssdm_op_SpecLoopName([13 x i8]* @p_str2) nounwind, !dbg !156 ; [debug line = 10:46]
-  %tmp = call i32 (...)* @_ssdm_op_SpecRegionBegin([13 x i8]* @p_str2), !dbg !156 ; [#uses=1 type=i32] [debug line = 10:46]
+  %tmp_18 = zext i17 %tmp_6 to i32, !dbg !153     ; [#uses=1 type=i32] [debug line = 10:29]
+  %empty_10 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 120000, i64 120000, i64 120000) ; [#uses=0 type=i32]
+  call void (...)* @_ssdm_op_SpecLoopName([13 x i8]* @p_str2) nounwind, !dbg !156 ; [debug line = 10:50]
+  %tmp = call i32 (...)* @_ssdm_op_SpecRegionBegin([13 x i8]* @p_str2), !dbg !156 ; [#uses=1 type=i32] [debug line = 10:50]
   call void (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str1) nounwind, !dbg !158 ; [debug line = 11:1]
   call void @llvm.dbg.value(metadata !{float %shift_buf_1_9}, i64 0, metadata !159), !dbg !166 ; [debug line = 14:3] [debug variable = shift_buf[1]]
   call void @llvm.dbg.value(metadata !{float* %samples_V}, i64 0, metadata !167), !dbg !172 ; [debug line = 129:56@15:18] [debug variable = stream<float>.V]
@@ -91,7 +91,7 @@ meminst15:                                        ; preds = %branch1, %branch0, 
 
 ; <label>:2                                       ; preds = %1
   call void @llvm.dbg.value(metadata !{i32* %locations_V}, i64 0, metadata !179), !dbg !184 ; [debug line = 144:48@18:4] [debug variable = stream<int>.V]
-  call void @llvm.dbg.value(metadata !{i7 %tmp_6}, i64 0, metadata !187), !dbg !189 ; [debug line = 145:31@18:4] [debug variable = tmp]
+  call void @llvm.dbg.value(metadata !{i17 %tmp_6}, i64 0, metadata !187), !dbg !189 ; [debug line = 145:31@18:4] [debug variable = tmp]
   call void @llvm.dbg.value(metadata !{i32 %tmp_18}, i64 0, metadata !187), !dbg !189 ; [debug line = 145:31@18:4] [debug variable = tmp]
   call void @_ssdm_op_Write.ap_fifo.volatile.i32P(i32* %locations_V, i32 %tmp_18), !dbg !190 ; [debug line = 146:9@18:4]
   call void @llvm.dbg.value(metadata !{float* %amplitude_V}, i64 0, metadata !191), !dbg !194 ; [debug line = 144:48@19:4] [debug variable = stream<float>.V]
@@ -101,8 +101,8 @@ meminst15:                                        ; preds = %branch1, %branch0, 
 
 ._crit_edge:                                      ; preds = %2, %1
   %empty_11 = call i32 (...)* @_ssdm_op_SpecRegionEnd([13 x i8]* @p_str2, i32 %tmp), !dbg !201 ; [#uses=0 type=i32] [debug line = 21:2]
-  call void @llvm.dbg.value(metadata !{i7 %i}, i64 0, metadata !202), !dbg !155 ; [debug line = 10:40] [debug variable = i]
-  br label %.preheader, !dbg !155                 ; [debug line = 10:40]
+  call void @llvm.dbg.value(metadata !{i17 %i}, i64 0, metadata !202), !dbg !155 ; [debug line = 10:44] [debug variable = i]
+  br label %.preheader, !dbg !155                 ; [debug line = 10:44]
 
 ; <label>:3                                       ; preds = %.preheader
   ret void, !dbg !203                             ; [debug line = 23:1]
@@ -384,9 +384,9 @@ declare void @_GLOBAL__I_a() nounwind
 !152 = metadata !{i32 786443, metadata !21, i32 5, i32 30, metadata !22, i32 0} ; [ DW_TAG_lexical_block ]
 !153 = metadata !{i32 10, i32 29, metadata !154, null}
 !154 = metadata !{i32 786443, metadata !152, i32 10, i32 16, metadata !22, i32 1} ; [ DW_TAG_lexical_block ]
-!155 = metadata !{i32 10, i32 40, metadata !154, null}
-!156 = metadata !{i32 10, i32 46, metadata !157, null}
-!157 = metadata !{i32 786443, metadata !154, i32 10, i32 45, metadata !22, i32 2} ; [ DW_TAG_lexical_block ]
+!155 = metadata !{i32 10, i32 44, metadata !154, null}
+!156 = metadata !{i32 10, i32 50, metadata !157, null}
+!157 = metadata !{i32 786443, metadata !154, i32 10, i32 49, metadata !22, i32 2} ; [ DW_TAG_lexical_block ]
 !158 = metadata !{i32 11, i32 1, metadata !157, null}
 !159 = metadata !{i32 790529, metadata !160, metadata !"shift_buf[1]", null, i32 7, metadata !165, i32 0, i32 0} ; [ DW_TAG_auto_variable_field ]
 !160 = metadata !{i32 786688, metadata !152, metadata !"shift_buf", metadata !22, i32 7, metadata !161, i32 0, i32 0} ; [ DW_TAG_auto_variable ]

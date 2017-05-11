@@ -1,0 +1,2 @@
+signal_hits_fcmp_32ns_32ns_1_4
+signal_hits

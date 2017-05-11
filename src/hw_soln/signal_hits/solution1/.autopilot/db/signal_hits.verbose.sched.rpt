@@ -1,0 +1,269 @@
+
+
+================================================================
+== Vivado HLS Report for 'signal_hits'
+================================================================
+* Date:           Tue May 09 08:22:40 2017
+
+* Version:        2015.4 (Build 1412921 on Wed Nov 18 09:58:55 AM 2015)
+* Project:        signal_hits
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   5.00|      4.10|        0.63|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +--------+--------+--------+--------+---------+
+    |     Latency     |     Interval    | Pipeline|
+    |   min  |   max  |   min  |   max  |   Type  |
+    +--------+--------+--------+--------+---------+
+    |  120006|  120006|  120007|  120007|   none  |
+    +--------+--------+--------+--------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+--------+--------+----------+-----------+-----------+--------+----------+
+        |          |     Latency     | Iteration|  Initiation Interval  |  Trip  |          |
+        | Loop Name|   min  |   max  |  Latency |  achieved |   target  |  Count | Pipelined|
+        +----------+--------+--------+----------+-----------+-----------+--------+----------+
+        |- Loop 1  |  120004|  120004|         6|          1|          1|  120000|    yes   |
+        +----------+--------+--------+----------+-----------+-----------+--------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 6
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 8
+* Pipeline: 1
+  Pipeline-0: II = 1, D = 6, States = { 2 3 4 5 6 7 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	8  / (exitcond)
+	3  / (!exitcond)
+3 --> 
+	4  / true
+4 --> 
+	5  / true
+5 --> 
+	6  / true
+6 --> 
+	7  / true
+7 --> 
+	2  / true
+8 --> 
+* FSM state operations: 
+
+ <State 1>: 2.39ns
+ST_1: empty [1/1] 0.00ns
+:0  %empty = call i32 (...)* @_ssdm_op_SpecInterface(i32* %locs_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str14, [1 x i8]* @p_str15, [1 x i8]* @p_str16, [1 x i8]* @p_str17)
+
+ST_1: empty_6 [1/1] 0.00ns
+:1  %empty_6 = call i32 (...)* @_ssdm_op_SpecInterface(float* %hits_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str10, [1 x i8]* @p_str11, [1 x i8]* @p_str12, [1 x i8]* @p_str13)
+
+ST_1: empty_7 [1/1] 0.00ns
+:2  %empty_7 = call i32 (...)* @_ssdm_op_SpecInterface(float* %signals_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str6, [1 x i8]* @p_str7, [1 x i8]* @p_str8, [1 x i8]* @p_str9)
+
+ST_1: stg_12 [1/1] 0.00ns
+:3  call void (...)* @_ssdm_op_SpecBitsMap(float %threshold), !map !7
+
+ST_1: stg_13 [1/1] 0.00ns
+:4  call void (...)* @_ssdm_op_SpecBitsMap(float* %signals_V), !map !13
+
+ST_1: stg_14 [1/1] 0.00ns
+:5  call void (...)* @_ssdm_op_SpecBitsMap(float* %hits_V), !map !17
+
+ST_1: stg_15 [1/1] 0.00ns
+:6  call void (...)* @_ssdm_op_SpecBitsMap(i32* %locs_V), !map !21
+
+ST_1: stg_16 [1/1] 0.00ns
+:7  call void (...)* @_ssdm_op_SpecTopModule([12 x i8]* @signal_hits_str) nounwind
+
+ST_1: threshold_read [1/1] 0.00ns
+:8  %threshold_read = call float @_ssdm_op_Read.ap_auto.float(float %threshold)
+
+ST_1: threshold_to_int [1/1] 0.00ns
+:9  %threshold_to_int = bitcast float %threshold_read to i32
+
+ST_1: tmp [1/1] 0.00ns
+:10  %tmp = trunc i32 %threshold_to_int to i23
+
+ST_1: notrhs3 [1/1] 2.39ns
+:11  %notrhs3 = icmp eq i23 %tmp, 0
+
+ST_1: stg_21 [1/1] 1.57ns
+:12  br label %1
+
+
+ <State 2>: 3.67ns
+ST_2: tmp_5 [1/1] 0.00ns
+:0  %tmp_5 = phi i17 [ 0, %0 ], [ %i, %._crit_edge ]
+
+ST_2: exitcond [1/1] 2.30ns
+:1  %exitcond = icmp eq i17 %tmp_5, -11072
+
+ST_2: i [1/1] 2.08ns
+:2  %i = add i17 %tmp_5, 1
+
+ST_2: stg_25 [1/1] 0.00ns
+:3  br i1 %exitcond, label %4, label %2
+
+ST_2: tmp_12 [1/1] 0.00ns
+:0  %tmp_12 = zext i17 %tmp_5 to i32
+
+ST_2: tmp_7 [1/1] 0.00ns
+:8  %tmp_7 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %threshold_to_int, i32 23, i32 30)
+
+ST_2: notlhs2 [1/1] 2.00ns
+:12  %notlhs2 = icmp ne i8 %tmp_7, -1
+
+ST_2: tmp_2 [1/1] 1.37ns
+:13  %tmp_2 = or i1 %notrhs3, %notlhs2
+
+
+ <State 3>: 3.73ns
+ST_3: tmp_11 [1/1] 1.00ns
+:4  %tmp_11 = call float @_ssdm_op_Read.ap_fifo.volatile.floatP(float* %signals_V)
+
+ST_3: tmp_8 [4/4] 2.73ns
+:15  %tmp_8 = fcmp ogt float %tmp_11, %threshold_read
+
+
+ <State 4>: 2.73ns
+ST_4: tmp_8 [3/4] 2.73ns
+:15  %tmp_8 = fcmp ogt float %tmp_11, %threshold_read
+
+
+ <State 5>: 3.76ns
+ST_5: currAmp_to_int [1/1] 0.00ns
+:5  %currAmp_to_int = bitcast float %tmp_11 to i32
+
+ST_5: tmp_1 [1/1] 0.00ns
+:6  %tmp_1 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %currAmp_to_int, i32 23, i32 30)
+
+ST_5: tmp_4 [1/1] 0.00ns
+:7  %tmp_4 = trunc i32 %currAmp_to_int to i23
+
+ST_5: notlhs [1/1] 2.00ns
+:9  %notlhs = icmp ne i8 %tmp_1, -1
+
+ST_5: notrhs [1/1] 2.39ns
+:10  %notrhs = icmp eq i23 %tmp_4, 0
+
+ST_5: tmp_9 [1/1] 1.37ns
+:11  %tmp_9 = or i1 %notrhs, %notlhs
+
+ST_5: tmp_8 [2/4] 2.73ns
+:15  %tmp_8 = fcmp ogt float %tmp_11, %threshold_read
+
+
+ <State 6>: 4.10ns
+ST_6: tmp_6 [1/1] 1.37ns
+:14  %tmp_6 = and i1 %tmp_9, %tmp_2
+
+ST_6: tmp_8 [1/4] 2.73ns
+:15  %tmp_8 = fcmp ogt float %tmp_11, %threshold_read
+
+ST_6: tmp_10 [1/1] 1.37ns
+:16  %tmp_10 = and i1 %tmp_6, %tmp_8
+
+ST_6: stg_43 [1/1] 0.00ns
+:17  br i1 %tmp_10, label %3, label %._crit_edge
+
+
+ <State 7>: 1.00ns
+ST_7: empty_8 [1/1] 0.00ns
+:1  %empty_8 = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 120000, i64 120000, i64 120000)
+
+ST_7: tmp_3 [1/1] 0.00ns
+:2  %tmp_3 = call i32 (...)* @_ssdm_op_SpecRegionBegin([12 x i8]* @p_str)
+
+ST_7: stg_46 [1/1] 0.00ns
+:3  call void (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str1) nounwind
+
+ST_7: stg_47 [1/1] 1.00ns
+:0  call void @_ssdm_op_Write.ap_fifo.volatile.floatP(float* %hits_V, float %tmp_11)
+
+ST_7: stg_48 [1/1] 1.00ns
+:1  call void @_ssdm_op_Write.ap_fifo.volatile.i32P(i32* %locs_V, i32 %tmp_12)
+
+ST_7: stg_49 [1/1] 0.00ns
+:2  br label %._crit_edge
+
+ST_7: empty_9 [1/1] 0.00ns
+._crit_edge:0  %empty_9 = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str, i32 %tmp_3)
+
+ST_7: stg_51 [1/1] 0.00ns
+._crit_edge:1  br label %1
+
+
+ <State 8>: 0.00ns
+ST_8: stg_52 [1/1] 0.00ns
+:0  ret void
+
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A
