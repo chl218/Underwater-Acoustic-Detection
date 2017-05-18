@@ -5,8 +5,8 @@
 ############################################################
 open_project parse_audio
 set_top parse_audio
-add_files parse_audio.cpp
 add_files parse_audio.h
+add_files parse_audio.cpp
 add_files -tb parse_audio_tb.cpp
 open_solution "solution1"
 set_part {xc7z020clg484-1}
