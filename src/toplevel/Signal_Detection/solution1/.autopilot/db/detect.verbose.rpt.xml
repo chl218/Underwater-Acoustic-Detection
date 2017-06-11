@@ -1,0 +1,159 @@
+<profile>
+
+<section name = "Vivado HLS Report for 'detect'" level="0">
+<item name = "Date">Thu Jun 01 00:37:48 2017
+</item>
+<item name = "Version">2016.4 (Build 1722992 on Wed Mar 08 18:30:27 MST 2017)</item>
+<item name = "Project">Signal_Detection</item>
+<item name = "Solution">solution1</item>
+<item name = "Product family">zynq</item>
+<item name = "Target device">xc7z020clg484-1</item>
+</section>
+
+<section name = "Performance Estimates" level="0">
+<item name = "Timing (ns)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="4">Clock, Target, Estimated, Uncertainty</keys>
+<column name="ap_clk">5.00, 4.10, 0.63</column>
+</table>
+</item>
+</section>
+</item>
+<item name = "Latency (clock cycles)">
+<section name = "" level="1">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">, min, max, min, max, Type</keys>
+<column name="">600006, 600006, 600006, 600006, none</column>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="0">
+<keys size="7">Instance, Module, min, max, min, max, Type</keys>
+</table>
+</item>
+<item name = "Loop"><table name="" hasTotal="0">
+<keys size="8">Loop Name, min, max, Latency, achieved, target, Count, Pipelined</keys>
+<column name="- Loop 1">600004, 600004, 6, 1, 1, 600000, yes</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Utilization Estimates" level="0">
+<item name = "Summary"><table name="" hasTotal="1">
+<keys size="5">Name, BRAM_18K, DSP48E, FF, LUT</keys>
+<column name="DSP">-, -, -, -</column>
+<column name="Expression">-, -, 0, 88</column>
+<column name="FIFO">-, -, -, -</column>
+<column name="Instance">-, 0, 75, 248</column>
+<column name="Memory">-, -, -, -</column>
+<column name="Multiplexer">-, -, -, 57</column>
+<column name="Register">-, -, 149, 53</column>
+<specialColumn name="Available">280, 220, 106400, 53200</specialColumn>
+<specialColumn name="Utilization (%)">0, 0, ~0, ~0</specialColumn>
+</table>
+</item>
+<item name = "Detail">
+<section name = "" level="1">
+<item name = "Instance"><table name="" hasTotal="1">
+<keys size="6">Instance, Module, BRAM_18K, DSP48E, FF, LUT</keys>
+<column name="detect_calls_fcmpbkb_x_U14">detect_calls_fcmpbkb, 0, 0, 75, 248</column>
+</table>
+</item>
+<item name = "DSP48"><table name="" hasTotal="0">
+<keys size="3">Instance, Module, Expression</keys>
+</table>
+</item>
+<item name = "Memory"><table name="" hasTotal="1">
+<keys size="9">Memory, Module, BRAM_18K, FF, LUT, Words, Bits, Banks, W*Bits*Banks</keys>
+</table>
+</item>
+<item name = "FIFO"><table name="" hasTotal="1">
+<keys size="7">Name, BRAM_18K, FF, LUT, Depth, Bits, Size:D*B</keys>
+</table>
+</item>
+<item name = "Expression"><table name="" hasTotal="1">
+<keys size="7">Variable Name, Operation, DSP48E, FF, LUT, Bitwidth P0, Bitwidth P1</keys>
+<column name="i_fu_147_p2">+, 0, 0, 20, 20, 1</column>
+<column name="tmp_14_i_i_fu_223_p2">+, 0, 0, 32, 32, 1</column>
+<column name="ap_block_state7">and, 0, 0, 1, 1, 1</column>
+<column name="tmp_26_fu_211_p2">and, 0, 0, 1, 1, 1</column>
+<column name="tmp_28_fu_217_p2">and, 0, 0, 1, 1, 1</column>
+<column name="exitcond_i_i_fu_141_p2">icmp, 0, 0, 7, 20, 20</column>
+<column name="notlhs1_fu_166_p2">icmp, 0, 0, 3, 8, 2</column>
+<column name="notlhs_fu_189_p2">icmp, 0, 0, 3, 8, 2</column>
+<column name="notrhs2_fu_130_p2">icmp, 0, 0, 8, 23, 1</column>
+<column name="notrhs_fu_195_p2">icmp, 0, 0, 8, 23, 1</column>
+<column name="ap_block_state1">or, 0, 0, 1, 1, 1</column>
+<column name="ap_enable_pp0">or, 0, 0, 1, 1, 1</column>
+<column name="tmp_23_fu_201_p2">or, 0, 0, 1, 1, 1</column>
+<column name="tmp_25_fu_207_p2">or, 0, 0, 1, 1, 1</column>
+</table>
+</item>
+<item name = "Multiplexer"><table name="" hasTotal="1">
+<keys size="5">Name, LUT, Input Size, Bits, Total Bits</keys>
+<column name="ap_NS_fsm">1, 4, 1, 4</column>
+<column name="ap_enable_reg_pp0_iter5">1, 2, 1, 2</column>
+<column name="hits_def_channel_fu_62">32, 2, 32, 64</column>
+<column name="hits_out_blk_n">1, 2, 1, 2</column>
+<column name="loc_V_blk_n">1, 2, 1, 2</column>
+<column name="signals_V_blk_n">1, 2, 1, 2</column>
+<column name="tmp_30_reg_102">20, 2, 20, 40</column>
+</table>
+</item>
+<item name = "Register"><table name="" hasTotal="1">
+<keys size="5">Name, FF, LUT, Bits, Const Bits</keys>
+<column name="ap_CS_fsm">3, 0, 3, 0</column>
+<column name="ap_done_reg">1, 0, 1, 0</column>
+<column name="ap_enable_reg_pp0_iter0">1, 0, 1, 0</column>
+<column name="ap_enable_reg_pp0_iter1">1, 0, 1, 0</column>
+<column name="ap_enable_reg_pp0_iter2">1, 0, 1, 0</column>
+<column name="ap_enable_reg_pp0_iter3">1, 0, 1, 0</column>
+<column name="ap_enable_reg_pp0_iter4">1, 0, 1, 0</column>
+<column name="ap_enable_reg_pp0_iter5">1, 0, 1, 0</column>
+<column name="hits_def_channel_fu_62">32, 0, 32, 0</column>
+<column name="notlhs1_reg_275">1, 0, 1, 0</column>
+<column name="notrhs2_reg_256">1, 0, 1, 0</column>
+<column name="p_read_to_int_reg_251">32, 0, 32, 0</column>
+<column name="tmp_28_reg_287">1, 0, 1, 0</column>
+<column name="tmp_29_reg_280">32, 0, 32, 0</column>
+<column name="tmp_30_reg_102">20, 0, 20, 0</column>
+<column name="tmp_6_reg_270">20, 0, 32, 12</column>
+<column name="notlhs1_reg_275">0, 1, 1, 0</column>
+<column name="tmp_29_reg_280">0, 32, 32, 0</column>
+<column name="tmp_6_reg_270">0, 20, 32, 12</column>
+</table>
+</item>
+</section>
+</item>
+</section>
+
+<section name = "Interface" level="0">
+<item name = "Summary"><table name="" hasTotal="0">
+<keys size="6">RTL Ports, Dir, Bits, Protocol, Source Object, C Type</keys>
+<column name="ap_clk">in, 1, ap_ctrl_hs, detect, return value</column>
+<column name="ap_rst">in, 1, ap_ctrl_hs, detect, return value</column>
+<column name="ap_start">in, 1, ap_ctrl_hs, detect, return value</column>
+<column name="ap_done">out, 1, ap_ctrl_hs, detect, return value</column>
+<column name="ap_continue">in, 1, ap_ctrl_hs, detect, return value</column>
+<column name="ap_idle">out, 1, ap_ctrl_hs, detect, return value</column>
+<column name="ap_ready">out, 1, ap_ctrl_hs, detect, return value</column>
+<column name="signals_V_dout">in, 32, ap_fifo, signals_V, pointer</column>
+<column name="signals_V_empty_n">in, 1, ap_fifo, signals_V, pointer</column>
+<column name="signals_V_read">out, 1, ap_fifo, signals_V, pointer</column>
+<column name="threshold_x">in, 32, ap_none, threshold, scalar</column>
+<column name="loc_V_din">out, 32, ap_fifo, loc_V, pointer</column>
+<column name="loc_V_full_n">in, 1, ap_fifo, loc_V, pointer</column>
+<column name="loc_V_write">out, 1, ap_fifo, loc_V, pointer</column>
+<column name="hits_out_din">out, 32, ap_fifo, hits_out, pointer</column>
+<column name="hits_out_full_n">in, 1, ap_fifo, hits_out, pointer</column>
+<column name="hits_out_write">out, 1, ap_fifo, hits_out, pointer</column>
+</table>
+</item>
+</section>
+</profile>

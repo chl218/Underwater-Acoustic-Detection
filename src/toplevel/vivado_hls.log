@@ -1,0 +1,100 @@
+INFO: [HLS 200-10] Running 'C:/Xilinx/SDx/2016.4/Vivado_HLS/bin/unwrapped/win64.o/vivado_hls.exe'
+INFO: [HLS 200-10] For user 'Jack' on host 'jack' (Windows NT_amd64 version 6.2) on Wed Jun 07 03:06:29 -0700 2017
+INFO: [HLS 200-10] In directory 'C:/Users/Jack/Desktop/cse237d/Underwater-Acoustic-Detection/src/toplevel'
+INFO: [HLS 200-10] Opening project 'C:/Users/Jack/Desktop/cse237d/Underwater-Acoustic-Detection/src/toplevel/Signal_Detection'.
+INFO: [HLS 200-10] Opening solution 'C:/Users/Jack/Desktop/cse237d/Underwater-Acoustic-Detection/src/toplevel/Signal_Detection/solution1'.
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 5ns.
+INFO: [HLS 200-10] Setting target device to 'xc7z020clg484-1'
+INFO: [SIM 211-2] *************** CSIM start ***************
+WARNING: [SIM 211-51] HLS only supports CLANG compiler in Linux.
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../toplevel_tb.cpp in debug mode
+   Compiling ../../../../abs.cpp in debug mode
+   Compiling ../../../../detect.cpp in debug mode
+   Compiling ../../../../duplicate.cpp in debug mode
+   Compiling ../../../../filter_noise.cpp in debug mode
+   Compiling ../../../../findpeaks.cpp in debug mode
+   Compiling ../../../../parse.cpp in debug mode
+   Compiling ../../../../threshold.cpp in debug mode
+   Compiling ../../../../toplevel.cpp in debug mode
+   Generating csim.exe
+TB:	SAMPLES   = 120000
+TB:	sum       = 313.884155
+TB:	mean      = 0.002616
+TB:	threshold = 0.013079
+TB:	peaks     = 200
+111213 --> 111222
+111226 --> 111235
+111392 --> 111401
+111404 --> 111413
+111477 --> 111486
+111906 --> 111915
+111959 --> 111968
+111974 --> 111983
+112147 --> 112156
+112267 --> 112276
+112286 --> 112295
+112291 --> 112300
+112371 --> 112380
+112433 --> 112442
+112485 --> 112494
+112507 --> 112516
+112531 --> 112540
+112629 --> 112638
+113064 --> 113073
+113138 --> 113147
+113437 --> 113446
+113688 --> 113697
+114181 --> 114190
+114188 --> 114197
+114193 --> 114202
+114198 --> 114207
+114271 --> 114280
+114318 --> 114327
+115243 --> 115252
+115258 --> 115267
+116403 --> 116412
+116418 --> 116427
+116426 --> 116435
+116431 --> 116440
+116437 --> 116446
+116443 --> 116452
+116451 --> 116460
+117072 --> 117081
+117087 --> 117096
+117098 --> 117107
+117104 --> 117113
+117135 --> 117144
+117185 --> 117194
+117197 --> 117206
+117203 --> 117212
+117213 --> 117222
+117243 --> 117252
+117273 --> 117282
+117296 --> 117305
+117359 --> 117368
+117367 --> 117376
+117373 --> 117382
+117411 --> 117420
+117957 --> 117966
+117964 --> 117973
+118025 --> 118034
+118062 --> 118071
+118083 --> 118092
+118144 --> 118153
+118189 --> 118198
+118222 --> 118231
+118227 --> 118236
+118232 --> 118241
+118302 --> 118311
+118308 --> 118317
+118364 --> 118373
+119064 --> 119073
+119117 --> 119126
+119164 --> 119173
+119430 --> 119439
+119453 --> 119462
+TB:	candidate = 71
+WARNING: Hls::stream 'hls::stream<float>.1' contains leftover data, which may result in RTL simulation hanging.
+INFO: [SIM 211-1] CSim done with 0 errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************

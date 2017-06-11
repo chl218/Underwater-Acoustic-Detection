@@ -1,0 +1,272 @@
+
+
+================================================================
+== Vivado HLS Report for 'detect_calls'
+================================================================
+* Date:           Thu Jun 01 00:37:43 2017
+
+* Version:        2016.4 (Build 1722992 on Wed Mar 08 18:30:27 MST 2017)
+* Project:        Signal_Detection
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   5.00|      4.35|        0.63|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+----------+
+    |  Latency  |  Interval | Pipeline |
+    | min | max | min | max |   Type   |
+    +-----+-----+-----+-----+----------+
+    |    ?|    ?|    ?|    ?| dataflow |
+    +-----+-----+-----+-----+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 8
+* Pipeline: 0
+* Dataflow Pipeline: 1
+  DF-Pipeline-0: Size = 8, States = { 1 2 3 4 5 6 7 8 }
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / true
+3 --> 
+	4  / true
+4 --> 
+	5  / true
+5 --> 
+	6  / true
+6 --> 
+	7  / true
+7 --> 
+	8  / true
+8 --> 
+* FSM state operations: 
+
+ <State 1>: 0.00ns
+ST_1: hits_channel (3)  [1/1] 0.00ns
+:0  %hits_channel = alloca i32, align 4
+
+ST_1: dup1_V (10)  [1/1] 0.00ns  loc: toplevel.cpp:7
+:7  %dup1_V = alloca float, align 4
+
+ST_1: dup2_V (13)  [1/1] 0.00ns  loc: toplevel.cpp:7
+:10  %dup2_V = alloca float, align 4
+
+ST_1: dup3_V (16)  [1/1] 0.00ns  loc: toplevel.cpp:7
+:13  %dup3_V = alloca float, align 4
+
+ST_1: dup4_V (19)  [1/1] 0.00ns  loc: toplevel.cpp:7
+:16  %dup4_V = alloca float, align 4
+
+ST_1: peaks_V (22)  [1/1] 0.00ns  loc: toplevel.cpp:10
+:19  %peaks_V = alloca float, align 4
+
+ST_1: peak_locs_V (23)  [1/1] 0.00ns  loc: toplevel.cpp:11
+:20  %peak_locs_V = alloca i32, align 4
+
+ST_1: sig_locs_V (24)  [1/1] 0.00ns  loc: toplevel.cpp:19
+:21  %sig_locs_V = alloca i32, align 4
+
+ST_1: StgValue_17 (27)  [2/2] 0.00ns  loc: toplevel.cpp:8
+:24  call fastcc void @duplicate(float* %dat_i_V, float* %dup1_V, float* %dup2_V, float* %dup3_V, float* %dup4_V)
+
+
+ <State 2>: 0.00ns
+ST_2: StgValue_18 (27)  [1/2] 0.00ns  loc: toplevel.cpp:8
+:24  call fastcc void @duplicate(float* %dat_i_V, float* %dup1_V, float* %dup2_V, float* %dup3_V, float* %dup4_V)
+
+
+ <State 3>: 0.00ns
+ST_3: StgValue_19 (28)  [2/2] 0.00ns  loc: toplevel.cpp:12
+:25  call fastcc void @findpeaks(float* %dup1_V, float* %peaks_V, i32* %peak_locs_V)
+
+ST_3: thres (29)  [2/2] 0.00ns  loc: toplevel.cpp:15
+:26  %thres = call fastcc float @threshold(float* %dup2_V)
+
+
+ <State 4>: 4.35ns
+ST_4: StgValue_21 (28)  [1/2] 0.00ns  loc: toplevel.cpp:12
+:25  call fastcc void @findpeaks(float* %dup1_V, float* %peaks_V, i32* %peak_locs_V)
+
+ST_4: thres (29)  [1/2] 4.35ns  loc: toplevel.cpp:15
+:26  %thres = call fastcc float @threshold(float* %dup2_V)
+
+
+ <State 5>: 2.39ns
+ST_5: StgValue_23 (32)  [2/2] 2.39ns  loc: toplevel.cpp:15
+:29  call fastcc void @detect(float* %dup3_V, float %thres, i32* %sig_locs_V, i32* %hits_channel)
+
+
+ <State 6>: 0.00ns
+ST_6: StgValue_24 (32)  [1/2] 0.00ns  loc: toplevel.cpp:15
+:29  call fastcc void @detect(float* %dup3_V, float %thres, i32* %sig_locs_V, i32* %hits_channel)
+
+
+ <State 7>: 0.00ns
+ST_7: StgValue_25 (33)  [2/2] 0.00ns
+:30  call fastcc void @parse(float* %dup4_V, i32* nocapture %hits_channel, i32* %sig_locs_V, float* %res_o_V)
+
+
+ <State 8>: 0.00ns
+ST_8: StgValue_26 (4)  [1/1] 0.00ns  loc: toplevel.cpp:5
+:1  call void (...)* @_ssdm_op_SpecDataflowPipeline(i32 -1, [1 x i8]* @p_str) nounwind
+
+ST_8: empty (5)  [1/1] 0.00ns
+:2  %empty = call i32 (...)* @_ssdm_op_SpecInterface(float* %res_o_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)
+
+ST_8: empty_20 (6)  [1/1] 0.00ns
+:3  %empty_20 = call i32 (...)* @_ssdm_op_SpecInterface(float* %dat_i_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)
+
+ST_8: StgValue_29 (7)  [1/1] 0.00ns
+:4  call void (...)* @_ssdm_op_SpecBitsMap(float* %dat_i_V), !map !42
+
+ST_8: StgValue_30 (8)  [1/1] 0.00ns
+:5  call void (...)* @_ssdm_op_SpecBitsMap(float* %res_o_V), !map !48
+
+ST_8: StgValue_31 (9)  [1/1] 0.00ns
+:6  call void (...)* @_ssdm_op_SpecTopModule([13 x i8]* @detect_calls_str) nounwind
+
+ST_8: empty_21 (11)  [1/1] 0.00ns
+:8  %empty_21 = call i32 (...)* @_ssdm_op_SpecChannel([7 x i8]* @dup1_OC_V_str, i32 1, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 1, i32 1, float* %dup1_V, float* %dup1_V)
+
+ST_8: empty_22 (12)  [1/1] 0.00ns
+:9  %empty_22 = call i32 (...)* @_ssdm_op_SpecInterface(float* %dup1_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)
+
+ST_8: empty_23 (14)  [1/1] 0.00ns
+:11  %empty_23 = call i32 (...)* @_ssdm_op_SpecChannel([7 x i8]* @dup2_OC_V_str, i32 1, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 1, i32 1, float* %dup2_V, float* %dup2_V)
+
+ST_8: empty_24 (15)  [1/1] 0.00ns
+:12  %empty_24 = call i32 (...)* @_ssdm_op_SpecInterface(float* %dup2_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)
+
+ST_8: empty_25 (17)  [1/1] 0.00ns
+:14  %empty_25 = call i32 (...)* @_ssdm_op_SpecChannel([7 x i8]* @dup3_OC_V_str, i32 1, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 1, i32 1, float* %dup3_V, float* %dup3_V)
+
+ST_8: empty_26 (18)  [1/1] 0.00ns
+:15  %empty_26 = call i32 (...)* @_ssdm_op_SpecInterface(float* %dup3_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)
+
+ST_8: empty_27 (20)  [1/1] 0.00ns
+:17  %empty_27 = call i32 (...)* @_ssdm_op_SpecChannel([7 x i8]* @dup4_OC_V_str, i32 1, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 1, i32 1, float* %dup4_V, float* %dup4_V)
+
+ST_8: empty_28 (21)  [1/1] 0.00ns
+:18  %empty_28 = call i32 (...)* @_ssdm_op_SpecInterface(float* %dup4_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)
+
+ST_8: empty_29 (25)  [1/1] 0.00ns
+:22  %empty_29 = call i32 (...)* @_ssdm_op_SpecChannel([11 x i8]* @sig_locs_OC_V_str, i32 1, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 1, i32 1, i32* %sig_locs_V, i32* %sig_locs_V)
+
+ST_8: empty_30 (26)  [1/1] 0.00ns
+:23  %empty_30 = call i32 (...)* @_ssdm_op_SpecInterface(i32* %sig_locs_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)
+
+ST_8: empty_31 (30)  [1/1] 0.00ns
+:27  %empty_31 = call i32 (...)* @_ssdm_op_SpecChannel([13 x i8]* @hits_channel_str, i32 1, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 1, i32 0, i32* %hits_channel, i32* %hits_channel)
+
+ST_8: empty_32 (31)  [1/1] 0.00ns
+:28  %empty_32 = call i32 (...)* @_ssdm_op_SpecInterface(i32* %hits_channel, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)
+
+ST_8: StgValue_44 (33)  [1/2] 0.00ns
+:30  call fastcc void @parse(float* %dup4_V, i32* nocapture %hits_channel, i32* %sig_locs_V, float* %res_o_V)
+
+ST_8: StgValue_45 (34)  [1/1] 0.00ns  loc: toplevel.cpp:23
+:31  ret void
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 5ns, clock uncertainty: 0.625ns.
+
+ <State 1>: 0ns
+The critical path consists of the following:
+
+ <State 2>: 0ns
+The critical path consists of the following:
+
+ <State 3>: 0ns
+The critical path consists of the following:
+
+ <State 4>: 4.35ns
+The critical path consists of the following:
+	'call' operation ('thres', toplevel.cpp:15) to 'threshold' [29]  (4.35 ns)
+
+ <State 5>: 2.39ns
+The critical path consists of the following:
+	'call' operation (toplevel.cpp:15) to 'detect' [32]  (2.39 ns)
+
+ <State 6>: 0ns
+The critical path consists of the following:
+
+ <State 7>: 0ns
+The critical path consists of the following:
+
+ <State 8>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

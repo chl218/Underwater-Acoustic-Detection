@@ -1,124 +1,33 @@
-@I [HLS-10] Running 'C:/Xilinx/Vivado_HLS/2015.4/bin/unwrapped/win64.o/vivado_hls.exe'
-            for user 'Jack' on host 'jack' (Windows NT_amd64 version 6.2) on Tue May 09 15:12:58 -0700 2017
-            in directory 'C:/Users/Jack/Desktop/cse237d/Underwater-Acoustic-Detection/src/hw_soln'
-@I [HLS-10] Opening project 'C:/Users/Jack/Desktop/cse237d/Underwater-Acoustic-Detection/src/hw_soln/parse_audio'.
-@I [HLS-10] Adding design file 'parse_audio.cpp' to the project
-@I [HLS-10] Adding design file 'parse_audio.h' to the project
-@I [HLS-10] Adding test bench file 'parse_audio_tb.cpp' to the project
-@I [HLS-10] Opening solution 'C:/Users/Jack/Desktop/cse237d/Underwater-Acoustic-Detection/src/hw_soln/parse_audio/solution1'.
-@I [SYN-201] Setting up clock 'default' with a period of 5ns.
-@I [HLS-10] Setting target device to 'xc7z020clg484-1'
-@I [HLS-10] Analyzing design file 'parse_audio.cpp' ... 
-@I [HLS-10] Validating synthesis directives ...
-@I [HLS-10] Starting code transformations ...
-@I [HLS-10] Checking synthesizability ...
-@I [XFORM-712] Applying dataflow to function 'parse_audio' (parse_audio.cpp:45), detected/extracted 3 process function(s):
-	 'buffer_signal'
-	 'buffer_target'
-	 'parse_signal'.
-@W [XFORM-542] Cannot flatten a loop nest 'Loop-1.1' (parse_audio.cpp:31:16) in function 'parse_signal' : 
-               the outer loop is not a perfect loop because there is nontrivial logic in the loop latch.
-@W [XFORM-542] Cannot flatten a loop nest 'Loop-1' (parse_audio.cpp:30:15) in function 'parse_signal' : 
-               the outer loop is not a perfect loop.
-@I [HLS-111] Elapsed time: 76.426 seconds; current memory usage: 111 MB.
-@I [HLS-10] Starting hardware synthesis ...
-@I [HLS-10] Synthesizing 'parse_audio' ...
-@I [HLS-10] ----------------------------------------------------------------
-@I [HLS-10] -- Scheduling module 'parse_audio_buffer_signal' 
-@I [HLS-10] ----------------------------------------------------------------
-@I [SCHED-11] Starting scheduling ...
-@I [SCHED-61] Pipelining loop 'Loop 1'.
-@I [SCHED-61] Pipelining result: Target II: 1, Final II: 1, Depth: 2.
-@I [SCHED-11] Finished scheduling.
-@I [HLS-111] Elapsed time: 0.487 seconds; current memory usage: 112 MB.
-@I [HLS-10] ----------------------------------------------------------------
-@I [HLS-10] -- Exploring micro-architecture for module 'parse_audio_buffer_signal' 
-@I [HLS-10] ----------------------------------------------------------------
-@I [BIND-100] Starting micro-architecture generation ...
-@I [BIND-101] Performing variable lifetime analysis.
-@I [BIND-101] Exploring resource sharing.
-@I [BIND-101] Binding ...
-@I [BIND-100] Finished micro-architecture generation.
-@I [HLS-111] Elapsed time: 0.136 seconds; current memory usage: 112 MB.
-@I [HLS-10] ----------------------------------------------------------------
-@I [HLS-10] -- Scheduling module 'parse_audio_buffer_target' 
-@I [HLS-10] ----------------------------------------------------------------
-@I [SCHED-11] Starting scheduling ...
-@I [SCHED-61] Pipelining loop 'Loop 1'.
-@I [SCHED-61] Pipelining result: Target II: 1, Final II: 1, Depth: 2.
-@I [SCHED-11] Finished scheduling.
-@I [HLS-111] Elapsed time: 0.645 seconds; current memory usage: 112 MB.
-@I [HLS-10] ----------------------------------------------------------------
-@I [HLS-10] -- Exploring micro-architecture for module 'parse_audio_buffer_target' 
-@I [HLS-10] ----------------------------------------------------------------
-@I [BIND-100] Starting micro-architecture generation ...
-@I [BIND-101] Performing variable lifetime analysis.
-@I [BIND-101] Exploring resource sharing.
-@I [BIND-101] Binding ...
-@I [BIND-100] Finished micro-architecture generation.
-@I [HLS-111] Elapsed time: 0.168 seconds; current memory usage: 112 MB.
-@I [HLS-10] ----------------------------------------------------------------
-@I [HLS-10] -- Scheduling module 'parse_audio_parse_signal' 
-@I [HLS-10] ----------------------------------------------------------------
-@I [SCHED-11] Starting scheduling ...
-@I [SCHED-61] Pipelining loop 'Loop 1.1.1'.
-@I [SCHED-61] Pipelining result: Target II: 1, Final II: 1, Depth: 2.
-@I [SCHED-11] Finished scheduling.
-@I [HLS-111] Elapsed time: 0.787 seconds; current memory usage: 113 MB.
-@I [HLS-10] ----------------------------------------------------------------
-@I [HLS-10] -- Exploring micro-architecture for module 'parse_audio_parse_signal' 
-@I [HLS-10] ----------------------------------------------------------------
-@I [BIND-100] Starting micro-architecture generation ...
-@I [BIND-101] Performing variable lifetime analysis.
-@I [BIND-101] Exploring resource sharing.
-@I [BIND-101] Binding ...
-@I [BIND-100] Finished micro-architecture generation.
-@I [HLS-111] Elapsed time: 0.164 seconds; current memory usage: 113 MB.
-@I [HLS-10] ----------------------------------------------------------------
-@I [HLS-10] -- Scheduling module 'parse_audio' 
-@I [HLS-10] ----------------------------------------------------------------
-@I [SCHED-11] Starting scheduling ...
-@I [SCHED-11] Finished scheduling.
-@I [HLS-111] Elapsed time: 0.223 seconds; current memory usage: 113 MB.
-@I [HLS-10] ----------------------------------------------------------------
-@I [HLS-10] -- Exploring micro-architecture for module 'parse_audio' 
-@I [HLS-10] ----------------------------------------------------------------
-@I [BIND-100] Starting micro-architecture generation ...
-@I [BIND-101] Performing variable lifetime analysis.
-@I [BIND-101] Exploring resource sharing.
-@I [BIND-101] Binding ...
-@I [BIND-100] Finished micro-architecture generation.
-@I [HLS-111] Elapsed time: 0.17 seconds; current memory usage: 113 MB.
-@I [HLS-10] ----------------------------------------------------------------
-@I [HLS-10] -- Generating RTL for module 'parse_audio_buffer_signal' 
-@I [HLS-10] ----------------------------------------------------------------
-@I [RTGEN-100] Finished creating RTL model for 'parse_audio_buffer_signal'.
-@I [HLS-111] Elapsed time: 0.206 seconds; current memory usage: 113 MB.
-@I [HLS-10] ----------------------------------------------------------------
-@I [HLS-10] -- Generating RTL for module 'parse_audio_buffer_target' 
-@I [HLS-10] ----------------------------------------------------------------
-@I [RTGEN-100] Finished creating RTL model for 'parse_audio_buffer_target'.
-@I [HLS-111] Elapsed time: 0.47 seconds; current memory usage: 113 MB.
-@I [HLS-10] ----------------------------------------------------------------
-@I [HLS-10] -- Generating RTL for module 'parse_audio_parse_signal' 
-@I [HLS-10] ----------------------------------------------------------------
-@I [RTGEN-100] Finished creating RTL model for 'parse_audio_parse_signal'.
-@I [HLS-111] Elapsed time: 0.486 seconds; current memory usage: 113 MB.
-@I [HLS-10] ----------------------------------------------------------------
-@I [HLS-10] -- Generating RTL for module 'parse_audio' 
-@I [HLS-10] ----------------------------------------------------------------
-@I [RTGEN-500] Setting interface mode on port 'parse_audio/signals_V' to 'ap_fifo'.
-@I [RTGEN-500] Setting interface mode on port 'parse_audio/hits_V' to 'ap_fifo'.
-@I [RTGEN-500] Setting interface mode on port 'parse_audio/locs_V' to 'ap_fifo'.
-@I [RTGEN-500] Setting interface mode on port 'parse_audio/pairs_amplitude_V' to 'ap_fifo'.
-@I [RTGEN-500] Setting interface mode on port 'parse_audio/pairs_duration_V' to 'ap_fifo'.
-@I [RTGEN-500] Setting interface mode on function 'parse_audio' to 'ap_ctrl_hs'.
-@I [RTGEN-100] Finished creating RTL model for 'parse_audio'.
-@I [HLS-111] Elapsed time: 0.946 seconds; current memory usage: 113 MB.
-@I [RTMG-278] Implementing memory 'parse_audio_sig_buf_memcore_ram' using block RAMs.
-@I [RTMG-278] Implementing memory 'parse_audio_loc_buf_memcore_ram' using distributed RAMs.
-@I [HLS-10] Finished generating all RTL models.
-@I [WSYSC-301] Generating RTL SystemC for 'parse_audio'.
-@I [WVHDL-304] Generating RTL VHDL for 'parse_audio'.
-@I [WVLOG-307] Generating RTL Verilog for 'parse_audio'.
-@I [HLS-112] Total elapsed time: 83.991 seconds; peak memory usage: 113 MB.
+INFO: [HLS 200-10] Running 'C:/Xilinx/SDx/2016.4/Vivado_HLS/bin/unwrapped/win64.o/vivado_hls.exe'
+INFO: [HLS 200-10] For user 'Jack' on host 'jack' (Windows NT_amd64 version 6.2) on Wed May 31 22:16:36 -0700 2017
+INFO: [HLS 200-10] In directory 'C:/Users/Jack/Desktop/cse237d/Underwater-Acoustic-Detection/src/hw_soln'
+INFO: [HLS 200-10] Opening project 'C:/Users/Jack/Desktop/cse237d/Underwater-Acoustic-Detection/src/hw_soln/peaks'.
+INFO: [HLS 200-10] Opening solution 'C:/Users/Jack/Desktop/cse237d/Underwater-Acoustic-Detection/src/hw_soln/peaks/solution2'.
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 5ns.
+INFO: [HLS 200-10] Setting target device to 'xc7z020clg484-1'
+INFO: [SIM 211-2] *************** CSIM start ***************
+WARNING: [SIM 211-51] HLS only supports CLANG compiler in Linux.
+INFO: [SIM 211-4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../peaks_tb.cpp in debug mode
+   Generating csim.exe
+In file included from C:/Xilinx/SDx/2016.4/Vivado_HLS/include/floating_point_v7_0_bitacc_cmodel.h:143:0,
+                 from C:/Xilinx/SDx/2016.4/Vivado_HLS/include/hls_half.h:40,
+                 from C:/Xilinx/SDx/2016.4/Vivado_HLS/include/ap_int.h:28,
+                 from ../../../../peaks.h:4,
+                 from ../../../../peaks_tb.cpp:5:
+C:/Xilinx/SDx/2016.4/Vivado_HLS/include/gmp.h:62:0: warning: "__GMP_LIBGMP_DLL" redefined [enabled by default]
+C:/Xilinx/SDx/2016.4/Vivado_HLS/include/floating_point_v7_0_bitacc_cmodel.h:135:0: note: this is the location of the previous definition
+@E Simulation failed: SIGSEGV.
+ERROR: [SIM 211-100] CSim failed with errors.
+INFO: [SIM 211-3] *************** CSIM finish ***************
+4
+    while executing
+"source C:/Users/Jack/Desktop/cse237d/Underwater-Acoustic-Detection/src/hw_soln/peaks/solution2/csim.tcl"
+    invoked from within
+"hls::main C:/Users/Jack/Desktop/cse237d/Underwater-Acoustic-Detection/src/hw_soln/peaks/solution2/csim.tcl"
+    ("uplevel" body line 1)
+    invoked from within
+"uplevel 1 hls::main {*}$args"
+    (procedure "hls_proc" line 5)
+    invoked from within
+"hls_proc $argv"

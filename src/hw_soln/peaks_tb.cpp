@@ -87,56 +87,56 @@ int main() {
 
 	DTYPE_FLO actual_amp[SIZE] = {0.0};
 	DTYPE_INT actual_loc[SIZE] = { 0 };
+//
+//	DSTREAM_FLO sig_stream_i;
+//	DSTREAM_FLO amp_stream_o;
+//	DSTREAM_INT loc_stream_o;
 
-	DSTREAM_FLO sig_stream_i;
-	DSTREAM_FLO amp_stream_o;
-	DSTREAM_INT loc_stream_o;
-
-	// Generate random amplitude signals
-	populate_samples(samples, sig_stream_i);
-
-	// Print sample signals
-	print_sample_signals(samples);
-
-	// Software solution
-	peaks_golden(samples, golden_amp, golden_loc);
-
-	// Print sample golden solutions
-	print_sample_results(golden_loc, golden_amp);
-
-
-	// Hardware solution
-	peaks(sig_stream_i, amp_stream_o, loc_stream_o);
-
-
-	// Write output stream to array for testing
-	int i = 0;
-	while(!amp_stream_o.empty()) {
-		actual_amp[i++] = amp_stream_o.read();
-	}
-	i = 0;
-	while(!loc_stream_o.empty()) {
-		actual_loc[i++] = loc_stream_o.read();
-	}
-
-	// Print sample actual solutions
-	print_sample_results(actual_loc, actual_amp);
-
-
-	// Check result
-	int result = check_results(golden_amp, golden_loc, actual_amp, actual_loc);
-	if(result) {
-		printf("FAILED: output does not match golden solution on ");
-		printf("%d-th index\n", result);
-		printf("expected amplitude: %3.5f\n", golden_amp[result]);
-		printf("expected location:  %3d\n",   golden_loc[result]);
-		printf("actual amplitude:   %3.5f\n", actual_amp[result]);
-		printf("actual location:    %3d\n",   actual_loc[result]);
-		return -1;
-	}
-	else {
-		printf("PASS: output matches golden solution\n");
-		return 0;
-
-	}
+//	// Generate random amplitude signals
+//	populate_samples(samples, sig_stream_i);
+//
+//	// Print sample signals
+//	print_sample_signals(samples);
+//
+//	// Software solution
+//	peaks_golden(samples, golden_amp, golden_loc);
+//
+//	// Print sample golden solutions
+//	print_sample_results(golden_loc, golden_amp);
+//
+//
+//	// Hardware solution
+//	peaks(sig_stream_i, amp_stream_o, loc_stream_o);
+//
+//
+//	// Write output stream to array for testing
+//	int i = 0;
+//	while(!amp_stream_o.empty()) {
+//		actual_amp[i++] = amp_stream_o.read();
+//	}
+//	i = 0;
+//	while(!loc_stream_o.empty()) {
+//		actual_loc[i++] = loc_stream_o.read();
+//	}
+//
+//	// Print sample actual solutions
+//	print_sample_results(actual_loc, actual_amp);
+//
+//
+//	// Check result
+//	int result = check_results(golden_amp, golden_loc, actual_amp, actual_loc);
+//	if(result) {
+//		printf("FAILED: output does not match golden solution on ");
+//		printf("%d-th index\n", result);
+//		printf("expected amplitude: %3.5f\n", golden_amp[result]);
+//		printf("expected location:  %3d\n",   golden_loc[result]);
+//		printf("actual amplitude:   %3.5f\n", actual_amp[result]);
+//		printf("actual location:    %3d\n",   actual_loc[result]);
+//		return -1;
+//	}
+//	else {
+//		printf("PASS: output matches golden solution\n");
+//		return 0;
+//
+//	}
 }

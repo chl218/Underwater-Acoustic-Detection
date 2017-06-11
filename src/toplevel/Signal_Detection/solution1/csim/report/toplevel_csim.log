@@ -1,0 +1,11 @@
+INFO: [SIM 2] *************** CSIM start ***************
+WARNING: [SIM 51] HLS only supports CLANG compiler in Linux.
+INFO: [SIM 4] CSIM will launch GCC as the compiler.
+   Compiling ../../../../toplevel_tb.cpp in debug mode
+   Compiling ../../../../toplevel.cpp in debug mode
+   Generating csim.exe
+WARNING: Hls::stream 'hls::stream<int>.1' contains leftover data, which may result in RTL simulation hanging.
+WARNING: Hls::stream 'hls::stream<float>.7' contains leftover data, which may result in RTL simulation hanging.
+WARNING: Hls::stream 'hls::stream<float>.6' contains leftover data, which may result in RTL simulation hanging.
+INFO: [SIM 1] CSim done with 0 errors.
+INFO: [SIM 3] *************** CSIM finish ***************

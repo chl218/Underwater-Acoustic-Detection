@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
   <source>
-    <originFiles name="signal_hits.cpp" path="C:\Users\Jack\Desktop\cse237d\Underwater-Acoustic-Detection\src\hw_soln\signal_hits.cpp"/>
     <originFiles name="signal_hits.h" path="C:\Users\Jack\Desktop\cse237d\Underwater-Acoustic-Detection\src\hw_soln\signal_hits.h"/>
+    <originFiles name="signal_hits.cpp" path="C:\Users\Jack\Desktop\cse237d\Underwater-Acoustic-Detection\src\hw_soln\signal_hits.cpp"/>
   </source>
   <testbench>
     <originFiles name="signal_hits_tb.cpp" path="C:\Users\Jack\Desktop\cse237d\Underwater-Acoustic-Detection\src\hw_soln\signal_hits_tb.cpp"/>

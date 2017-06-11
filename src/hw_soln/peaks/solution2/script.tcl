@@ -1,12 +1,12 @@
 ############################################################
 ## This file is generated automatically by Vivado HLS.
 ## Please DO NOT edit it.
-## Copyright (C) 2015 Xilinx Inc. All rights reserved.
+## Copyright (C) 1986-2017 Xilinx, Inc. All Rights Reserved.
 ############################################################
 open_project peaks
 set_top peaks
-add_files peaks.cpp
 add_files peaks.h
+add_files peaks.cpp
 add_files -tb peaks_tb.cpp
 open_solution "solution2"
 set_part {xc7z020clg484-1}

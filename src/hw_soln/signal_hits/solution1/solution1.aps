@@ -51,6 +51,9 @@
             <Rtl active="false" name="vhdl"/>
         </SimFlow>
     </Simulation>
+    <clockList>
+        <clock name="default" default="false" period="5"/>
+    </clockList>
     <name>
         <value string="solution1"/>
     </name>
@@ -64,8 +67,5 @@
         <library name="DefaultPlatform" value="xilinx/zynq/zynq"/>
         <library name="DefaultPlatform" value="xilinx/zynq/zynq_fpv6"/>
     </libraryList>
-    <clockList>
-        <clock name="default" default="false" period="5"/>
-    </clockList>
 </solution>
 

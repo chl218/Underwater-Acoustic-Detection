@@ -6,7 +6,22 @@
       <simLog/>
       <mgLog/>
       <packageLog/>
-      <csimLog/>
+      <csimLog>
+        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="peaks" solutionName="solution2" date="2017-05-31T22:16:48.349-0700"/>
+        <logs message="@E Simulation failed: SIGSEGV." projectName="peaks" solutionName="solution2" date="2017-05-31T22:16:48.310-0700"/>
+        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="peaks" solutionName="solution2" date="2017-05-31T21:59:33.959-0700"/>
+        <logs message="@E Simulation failed: SIGSEGV." projectName="peaks" solutionName="solution2" date="2017-05-31T21:59:33.919-0700"/>
+        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="peaks" solutionName="solution2" date="2017-05-31T21:57:53.400-0700"/>
+        <logs message="@E Simulation failed: SIGSEGV." projectName="peaks" solutionName="solution2" date="2017-05-31T21:57:53.361-0700"/>
+        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="peaks" solutionName="solution2" date="2017-05-31T21:56:10.086-0700"/>
+        <logs message="@E Simulation failed: SIGSEGV." projectName="peaks" solutionName="solution2" date="2017-05-31T21:56:10.045-0700"/>
+        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="peaks" solutionName="solution2" date="2017-05-31T21:27:05.685-0700"/>
+        <logs message="@E Simulation failed: SIGSEGV." projectName="peaks" solutionName="solution2" date="2017-05-31T21:27:05.642-0700"/>
+        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="peaks" solutionName="solution2" date="2017-05-31T21:26:03.215-0700"/>
+        <logs message="@E Simulation failed: SIGSEGV." projectName="peaks" solutionName="solution2" date="2017-05-31T21:26:03.168-0700"/>
+        <logs message="ERROR: [SIM 211-100] CSim failed with errors." projectName="peaks" solutionName="solution2" date="2017-05-31T21:22:53.920-0700"/>
+        <logs message="@E Simulation failed: SIGSEGV." projectName="peaks" solutionName="solution2" date="2017-05-31T21:22:53.781-0700"/>
+      </csimLog>
     </logs>
   </errorLogs>
   <warningLogs>
@@ -17,7 +32,22 @@
       <simLog/>
       <mgLog/>
       <packageLog/>
-      <csimLog/>
+      <csimLog>
+        <logs message="WARNING: [SIM 211-51] HLS only supports CLANG compiler in Linux." projectName="peaks" solutionName="solution2" date="2017-05-31T22:16:38.388-0700" type="Warning"/>
+        <logs message="WARNING: [SIM 211-51] HLS only supports CLANG compiler in Linux." projectName="peaks" solutionName="solution2" date="2017-05-31T22:16:07.172-0700" type="Warning"/>
+        <logs message="WARNING: [SIM 211-51] HLS only supports CLANG compiler in Linux." projectName="peaks" solutionName="solution2" date="2017-05-31T22:15:25.377-0700" type="Warning"/>
+        <logs message="WARNING: [SIM 211-51] HLS only supports CLANG compiler in Linux." projectName="peaks" solutionName="solution2" date="2017-05-31T22:02:44.593-0700" type="Warning"/>
+        <logs message="WARNING: [SIM 211-51] HLS only supports CLANG compiler in Linux." projectName="peaks" solutionName="solution2" date="2017-05-31T22:02:07.390-0700" type="Warning"/>
+        <logs message="WARNING: [SIM 211-51] HLS only supports CLANG compiler in Linux." projectName="peaks" solutionName="solution2" date="2017-05-31T21:59:24.999-0700" type="Warning"/>
+        <logs message="WARNING: [SIM 211-51] HLS only supports CLANG compiler in Linux." projectName="peaks" solutionName="solution2" date="2017-05-31T21:58:55.399-0700" type="Warning"/>
+        <logs message="WARNING: [SIM 211-51] HLS only supports CLANG compiler in Linux." projectName="peaks" solutionName="solution2" date="2017-05-31T21:58:26.985-0700" type="Warning"/>
+        <logs message="WARNING: [SIM 211-51] HLS only supports CLANG compiler in Linux." projectName="peaks" solutionName="solution2" date="2017-05-31T21:57:52.357-0700" type="Warning"/>
+        <logs message="WARNING: [SIM 211-51] HLS only supports CLANG compiler in Linux." projectName="peaks" solutionName="solution2" date="2017-05-31T21:56:08.912-0700" type="Warning"/>
+        <logs message="WARNING: [SIM 211-51] HLS only supports CLANG compiler in Linux." projectName="peaks" solutionName="solution2" date="2017-05-31T21:26:55.906-0700" type="Warning"/>
+        <logs message="WARNING: [SIM 211-51] HLS only supports CLANG compiler in Linux." projectName="peaks" solutionName="solution2" date="2017-05-31T21:25:52.932-0700" type="Warning"/>
+        <logs message="WARNING: [SIM 211-51] HLS only supports CLANG compiler in Linux." projectName="peaks" solutionName="solution2" date="2017-05-31T21:25:13.216-0700" type="Warning"/>
+        <logs message="WARNING: [SIM 211-51] HLS only supports CLANG compiler in Linux." projectName="peaks" solutionName="solution2" date="2017-05-31T21:22:31.367-0700" type="Warning"/>
+      </csimLog>
     </logs>
   </warningLogs>
 </vivadoHLSLog:LogRoot>

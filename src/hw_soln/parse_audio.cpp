@@ -1,4 +1,4 @@
-#include "parse_audio.h"
+#include "parse.h"
 
 
 void buffer_signal(DSTREAM_FLO &signals, DTYPE_FLO amp_buf[MAX_DURATION]) {

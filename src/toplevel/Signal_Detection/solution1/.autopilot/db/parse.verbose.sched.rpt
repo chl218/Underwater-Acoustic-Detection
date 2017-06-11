@@ -1,0 +1,341 @@
+
+
+================================================================
+== Vivado HLS Report for 'parse'
+================================================================
+* Date:           Thu Jun 01 00:37:42 2017
+
+* Version:        2016.4 (Build 1722992 on Wed Mar 08 18:30:27 MST 2017)
+* Project:        Signal_Detection
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   5.00|      3.89|        0.63|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----+-----+-----+---------+
+    |  Latency  |  Interval | Pipeline|
+    | min | max | min | max |   Type  |
+    +-----+-----+-----+-----+---------+
+    |    ?|    ?|    ?|    ?|   none  |
+    +-----+-----+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-----------------+-----+-----+----------+-----------+-----------+--------+----------+
+        |                 |  Latency  | Iteration|  Initiation Interval  |  Trip  |          |
+        |    Loop Name    | min | max |  Latency |  achieved |   target  |  Count | Pipelined|
+        +-----------------+-----+-----+----------+-----------+-----------+--------+----------+
+        |- Parse_Signal   |    ?|    ?|         ?|          -|          -| 0 ~ 60 |    no    |
+        | + Signal_Begin  |    ?|    ?|         1|          -|          -|       ?|    no    |
+        | + Signal_End    |    ?|    ?|         2|          -|          -|       ?|    no    |
+        +-----------------+-----+-----+----------+-----------+-----------+--------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 9
+* Pipeline: 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / (tmp_i_i)
+3 --> 
+	4  / true
+4 --> 
+	5  / true
+5 --> 
+	6  / (!tmp_5_i_i)
+	5  / (tmp_5_i_i)
+6 --> 
+	7  / true
+7 --> 
+	8  / true
+8 --> 
+	9  / true
+9 --> 
+	8  / (tmp_10_i_i)
+	2  / (!tmp_10_i_i)
+* FSM state operations: 
+
+ <State 1>: 1.57ns
+ST_1: empty (5)  [1/1] 0.00ns
+entry:0  %empty = call i32 (...)* @_ssdm_op_SpecInterface(i32* %loc_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)
+
+ST_1: empty_8 (6)  [1/1] 0.00ns
+entry:1  %empty_8 = call i32 (...)* @_ssdm_op_SpecInterface(float* %sig_i_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)
+
+ST_1: empty_9 (7)  [1/1] 0.00ns
+entry:2  %empty_9 = call i32 (...)* @_ssdm_op_SpecInterface(float* %sig_o_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)
+
+ST_1: empty_10 (8)  [1/1] 0.00ns
+entry:3  %empty_10 = call i32 (...)* @_ssdm_op_SpecInterface(i32* %hits, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)
+
+ST_1: hits_read (9)  [1/1] 1.00ns  loc: toplevel.cpp:22
+entry:4  %hits_read = call i32 @_ssdm_op_Read.ap_fifo.i32P(i32* %hits)
+
+ST_1: StgValue_15 (10)  [1/1] 1.57ns  loc: parse.cpp:10->toplevel.cpp:22
+entry:5  br label %0
+
+
+ <State 2>: 3.89ns
+ST_2: read_count_i_i (12)  [1/1] 0.00ns
+:0  %read_count_i_i = phi i32 [ 0, %entry ], [ %read_count, %7 ]
+
+ST_2: i_i_i (13)  [1/1] 0.00ns  loc: parse.cpp:10->toplevel.cpp:22
+:1  %i_i_i = phi i31 [ 0, %entry ], [ %i, %7 ]
+
+ST_2: i_i_i_cast (14)  [1/1] 0.00ns  loc: parse.cpp:10->toplevel.cpp:22
+:2  %i_i_i_cast = zext i31 %i_i_i to i32
+
+ST_2: tmp_i_i (15)  [1/1] 2.52ns  loc: parse.cpp:10->toplevel.cpp:22
+:3  %tmp_i_i = icmp slt i32 %i_i_i_cast, %hits_read
+
+ST_2: i (16)  [1/1] 2.44ns  loc: parse.cpp:10->toplevel.cpp:22
+:4  %i = add i31 %i_i_i, 1
+
+ST_2: StgValue_21 (17)  [1/1] 0.00ns  loc: parse.cpp:10->toplevel.cpp:22
+:5  br i1 %tmp_i_i, label %1, label %.exit
+
+ST_2: tmp_4 (23)  [1/1] 1.00ns  loc: parse.cpp:13->toplevel.cpp:22
+:4  %tmp_4 = call i32 @_ssdm_op_Read.ap_fifo.volatile.i32P(i32* %loc_V)
+
+ST_2: StgValue_23 (63)  [1/1] 0.00ns
+.exit:0  ret void
+
+
+ <State 3>: 3.81ns
+ST_3: b (24)  [1/1] 2.44ns  loc: parse.cpp:15->toplevel.cpp:22
+:5  %b = add nsw i32 %tmp_4, -1001
+
+ST_3: e (25)  [1/1] 2.44ns  loc: parse.cpp:16->toplevel.cpp:22
+:6  %e = add nsw i32 %tmp_4, 1000
+
+ST_3: tmp (26)  [1/1] 0.00ns  loc: parse.cpp:18->toplevel.cpp:22
+:7  %tmp = call i1 @_ssdm_op_BitSelect.i1.i32.i32(i32 %b, i32 31)
+
+ST_3: p_op_i_i (29)  [1/1] 2.44ns  loc: parse.cpp:21->toplevel.cpp:22
+:10  %p_op_i_i = add i32 %tmp_4, -1002
+
+ST_3: tmp_1_i_i (30)  [1/1] 1.37ns  loc: parse.cpp:21->toplevel.cpp:22
+:11  %tmp_1_i_i = select i1 %tmp, i32 -1, i32 %p_op_i_i
+
+
+ <State 4>: 3.89ns
+ST_4: StgValue_29 (19)  [1/1] 0.00ns  loc: parse.cpp:10->toplevel.cpp:22
+:0  call void (...)* @_ssdm_op_SpecLoopName([13 x i8]* @p_str5) nounwind
+
+ST_4: tmp_14_i_i (20)  [1/1] 0.00ns  loc: parse.cpp:10->toplevel.cpp:22
+:1  %tmp_14_i_i = call i32 (...)* @_ssdm_op_SpecRegionBegin([13 x i8]* @p_str5)
+
+ST_4: StgValue_31 (21)  [1/1] 0.00ns  loc: parse.cpp:11->toplevel.cpp:22
+:2  call void (...)* @_ssdm_op_SpecLoopTripCount(i32 0, i32 60, i32 10, [1 x i8]* @p_str16) nounwind
+
+ST_4: StgValue_32 (22)  [1/1] 0.00ns  loc: parse.cpp:12->toplevel.cpp:22
+:3  call void (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str16) nounwind
+
+ST_4: tmp_i_i_11 (27)  [1/1] 2.52ns  loc: parse.cpp:19->toplevel.cpp:22
+:8  %tmp_i_i_11 = icmp sgt i32 %e, 599999
+
+ST_4: e_1 (28)  [1/1] 1.37ns  loc: parse.cpp:19->toplevel.cpp:22
+:9  %e_1 = select i1 %tmp_i_i_11, i32 599999, i32 %e
+
+ST_4: tmp_2_i_i (31)  [1/1] 2.52ns  loc: parse.cpp:22->toplevel.cpp:22
+:12  %tmp_2_i_i = icmp sgt i32 %read_count_i_i, %tmp_1_i_i
+
+ST_4: smax9_i_i (32)  [1/1] 1.37ns  loc: parse.cpp:22->toplevel.cpp:22
+:13  %smax9_i_i = select i1 %tmp_2_i_i, i32 %read_count_i_i, i32 %tmp_1_i_i
+
+ST_4: StgValue_37 (33)  [1/1] 1.57ns  loc: parse.cpp:21->toplevel.cpp:22
+:14  br label %2
+
+
+ <State 5>: 3.89ns
+ST_5: read_count_1_i_i (35)  [1/1] 0.00ns  loc: parse.cpp:22->toplevel.cpp:22
+:0  %read_count_1_i_i = phi i32 [ %read_count_i_i, %1 ], [ %tmp_3_i_i, %3 ]
+
+ST_5: tmp_3_i_i (36)  [1/1] 2.44ns  loc: parse.cpp:21->toplevel.cpp:22
+:1  %tmp_3_i_i = add nsw i32 %read_count_1_i_i, 1
+
+ST_5: tmp_5_i_i (37)  [1/1] 2.52ns  loc: parse.cpp:21->toplevel.cpp:22
+:2  %tmp_5_i_i = icmp slt i32 %read_count_1_i_i, %tmp_1_i_i
+
+ST_5: StgValue_41 (38)  [1/1] 0.00ns  loc: parse.cpp:21->toplevel.cpp:22
+:3  br i1 %tmp_5_i_i, label %3, label %4
+
+ST_5: StgValue_42 (40)  [1/1] 0.00ns  loc: parse.cpp:21->toplevel.cpp:22
+:0  call void (...)* @_ssdm_op_SpecLoopName([13 x i8]* @p_str2) nounwind
+
+ST_5: tmp_3_0 (41)  [1/1] 1.00ns  loc: parse.cpp:21->toplevel.cpp:22
+:1  %tmp_3_0 = call float @_ssdm_op_Read.ap_fifo.volatile.floatP(float* %sig_i_V)
+
+ST_5: StgValue_44 (42)  [1/1] 0.00ns  loc: parse.cpp:21->toplevel.cpp:22
+:2  br label %2
+
+ST_5: tmp_7_i_i (44)  [1/1] 2.44ns  loc: parse.cpp:22->toplevel.cpp:22
+:0  %tmp_7_i_i = add i32 %smax9_i_i, 1
+
+
+ <State 6>: 2.52ns
+ST_6: tmp_8_i_i (45)  [1/1] 2.52ns  loc: parse.cpp:19->toplevel.cpp:22
+:1  %tmp_8_i_i = icmp sgt i32 %e_1, %tmp_7_i_i
+
+
+ <State 7>: 2.44ns
+ST_7: smax8_i_i (46)  [1/1] 0.00ns  loc: parse.cpp:19->toplevel.cpp:22 (grouped into LUT with out node read_count)
+:2  %smax8_i_i = select i1 %tmp_8_i_i, i32 %e_1, i32 %tmp_7_i_i
+
+ST_7: read_count (47)  [1/1] 2.44ns  loc: parse.cpp:22->toplevel.cpp:22 (out node of the LUT)
+:3  %read_count = add i32 %smax8_i_i, 1
+
+ST_7: StgValue_49 (48)  [1/1] 1.57ns  loc: parse.cpp:22->toplevel.cpp:22
+:4  br label %5
+
+
+ <State 8>: 2.44ns
+ST_8: read_count_2_in_i_i (50)  [1/1] 0.00ns
+:0  %read_count_2_in_i_i = phi i32 [ %smax9_i_i, %4 ], [ %read_count_1, %6 ]
+
+ST_8: read_count_1 (51)  [1/1] 2.44ns  loc: parse.cpp:21->toplevel.cpp:22
+:1  %read_count_1 = add i32 %read_count_2_in_i_i, 1
+
+
+ <State 9>: 2.52ns
+ST_9: tmp_10_i_i (52)  [1/1] 2.52ns  loc: parse.cpp:22->toplevel.cpp:22
+:2  %tmp_10_i_i = icmp slt i32 %read_count_1, %e_1
+
+ST_9: StgValue_53 (53)  [1/1] 0.00ns  loc: parse.cpp:22->toplevel.cpp:22
+:3  br i1 %tmp_10_i_i, label %6, label %7
+
+ST_9: StgValue_54 (55)  [1/1] 0.00ns  loc: parse.cpp:22->toplevel.cpp:22
+:0  call void (...)* @_ssdm_op_SpecLoopName([11 x i8]* @p_str3) nounwind
+
+ST_9: tmp_3 (56)  [1/1] 1.00ns  loc: parse.cpp:22->toplevel.cpp:22
+:1  %tmp_3 = call float @_ssdm_op_Read.ap_fifo.volatile.floatP(float* %sig_i_V)
+
+ST_9: StgValue_56 (57)  [1/1] 1.00ns  loc: parse.cpp:22->toplevel.cpp:22
+:2  call void @_ssdm_op_Write.ap_fifo.volatile.floatP(float* %sig_o_V, float %tmp_3)
+
+ST_9: StgValue_57 (58)  [1/1] 0.00ns  loc: parse.cpp:22->toplevel.cpp:22
+:3  br label %5
+
+ST_9: empty_12 (60)  [1/1] 0.00ns  loc: parse.cpp:24->toplevel.cpp:22
+:0  %empty_12 = call i32 (...)* @_ssdm_op_SpecRegionEnd([13 x i8]* @p_str5, i32 %tmp_14_i_i)
+
+ST_9: StgValue_59 (61)  [1/1] 0.00ns  loc: parse.cpp:10->toplevel.cpp:22
+:1  br label %0
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 5ns, clock uncertainty: 0.625ns.
+
+ <State 1>: 1.57ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('read_count') with incoming values : ('read_count', parse.cpp:22->toplevel.cpp:22) [12]  (1.57 ns)
+
+ <State 2>: 3.89ns
+The critical path consists of the following:
+	'icmp' operation ('tmp_i_i', parse.cpp:10->toplevel.cpp:22) [15]  (2.52 ns)
+	blocking operation 1.37 ns on control path)
+
+ <State 3>: 3.81ns
+The critical path consists of the following:
+	'add' operation ('b', parse.cpp:15->toplevel.cpp:22) [24]  (2.44 ns)
+	'select' operation ('tmp_1_i_i', parse.cpp:21->toplevel.cpp:22) [30]  (1.37 ns)
+
+ <State 4>: 3.89ns
+The critical path consists of the following:
+	'icmp' operation ('tmp_i_i_11', parse.cpp:19->toplevel.cpp:22) [27]  (2.52 ns)
+	'select' operation ('e', parse.cpp:19->toplevel.cpp:22) [28]  (1.37 ns)
+
+ <State 5>: 3.89ns
+The critical path consists of the following:
+	'icmp' operation ('tmp_5_i_i', parse.cpp:21->toplevel.cpp:22) [37]  (2.52 ns)
+	blocking operation 1.37 ns on control path)
+
+ <State 6>: 2.52ns
+The critical path consists of the following:
+	'icmp' operation ('tmp_8_i_i', parse.cpp:19->toplevel.cpp:22) [45]  (2.52 ns)
+
+ <State 7>: 2.44ns
+The critical path consists of the following:
+	'select' operation ('smax8_i_i', parse.cpp:19->toplevel.cpp:22) [46]  (0 ns)
+	'add' operation ('read_count', parse.cpp:22->toplevel.cpp:22) [47]  (2.44 ns)
+
+ <State 8>: 2.44ns
+The critical path consists of the following:
+	'phi' operation ('read_count') with incoming values : ('smax9_i_i', parse.cpp:22->toplevel.cpp:22) ('read_count', parse.cpp:21->toplevel.cpp:22) [50]  (0 ns)
+	'add' operation ('read_count', parse.cpp:21->toplevel.cpp:22) [51]  (2.44 ns)
+
+ <State 9>: 2.52ns
+The critical path consists of the following:
+	'icmp' operation ('tmp_10_i_i', parse.cpp:22->toplevel.cpp:22) [52]  (2.52 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

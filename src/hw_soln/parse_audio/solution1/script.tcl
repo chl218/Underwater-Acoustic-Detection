@@ -1,7 +1,7 @@
 ############################################################
 ## This file is generated automatically by Vivado HLS.
 ## Please DO NOT edit it.
-## Copyright (C) 2015 Xilinx Inc. All rights reserved.
+## Copyright (C) 1986-2017 Xilinx, Inc. All Rights Reserved.
 ############################################################
 open_project parse_audio
 set_top parse_audio

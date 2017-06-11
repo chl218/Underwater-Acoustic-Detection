@@ -1,0 +1,16 @@
+<AutoPilot:ProjectResources xmlns:AutoPilot="com.autoesl.autopilot.ui.directiveView">
+<sourceFile name="">
+<directive functionLabel="" functionName="parse" label="">
+<pragma name="LOOP_TRIPCOUNT">
+<option name="min" value="0"/>
+<option name="max" value="60"/>
+<option name="avg" value="10"/>
+</pragma>
+</directive>
+<directive functionLabel="" functionName="parse" label="">
+<pragma name="PIPELINE">
+<option name="II" value="1"/>
+</pragma>
+</directive>
+</sourceFile>
+</AutoPilot:ProjectResources>

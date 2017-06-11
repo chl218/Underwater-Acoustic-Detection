@@ -1,0 +1,204 @@
+
+
+================================================================
+== Vivado HLS Report for 'duplicate'
+================================================================
+* Date:           Thu Jun 01 00:37:36 2017
+
+* Version:        2016.4 (Build 1722992 on Wed Mar 08 18:30:27 MST 2017)
+* Project:        Signal_Detection
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   5.00|      2.34|        0.63|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +--------+--------+--------+--------+---------+
+    |     Latency     |     Interval    | Pipeline|
+    |   min  |   max  |   min  |   max  |   Type  |
+    +--------+--------+--------+--------+---------+
+    |  600002|  600002|  600002|  600002|   none  |
+    +--------+--------+--------+--------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +----------+--------+--------+----------+-----------+-----------+--------+----------+
+        |          |     Latency     | Iteration|  Initiation Interval  |  Trip  |          |
+        | Loop Name|   min  |   max  |  Latency |  achieved |   target  |  Count | Pipelined|
+        +----------+--------+--------+----------+-----------+-----------+--------+----------+
+        |- Loop 1  |  600000|  600000|         2|          1|          1|  600000|    yes   |
+        +----------+--------+--------+----------+-----------+-----------+--------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 2
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 4
+* Pipeline: 1
+  Pipeline-0: II = 1, D = 2, States = { 2 3 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	4  / (exitcond)
+	3  / (!exitcond)
+3 --> 
+	2  / true
+4 --> 
+* FSM state operations: 
+
+ <State 1>: 1.57ns
+ST_1: empty (6)  [1/1] 0.00ns
+:0  %empty = call i32 (...)* @_ssdm_op_SpecInterface(float* %dat_4_o_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)
+
+ST_1: empty_15 (7)  [1/1] 0.00ns
+:1  %empty_15 = call i32 (...)* @_ssdm_op_SpecInterface(float* %dat_3_o_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)
+
+ST_1: empty_16 (8)  [1/1] 0.00ns
+:2  %empty_16 = call i32 (...)* @_ssdm_op_SpecInterface(float* %dat_2_o_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)
+
+ST_1: empty_17 (9)  [1/1] 0.00ns
+:3  %empty_17 = call i32 (...)* @_ssdm_op_SpecInterface(float* %dat_1_o_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)
+
+ST_1: empty_18 (10)  [1/1] 0.00ns
+:4  %empty_18 = call i32 (...)* @_ssdm_op_SpecInterface(float* %dat_i_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)
+
+ST_1: StgValue_10 (11)  [1/1] 1.57ns  loc: duplicate.cpp:6
+:5  br label %1
+
+
+ <State 2>: 2.34ns
+ST_2: i (13)  [1/1] 0.00ns
+:0  %i = phi i20 [ 0, %0 ], [ %i_2, %2 ]
+
+ST_2: exitcond (14)  [1/1] 2.34ns  loc: duplicate.cpp:6
+:1  %exitcond = icmp eq i20 %i, -448576
+
+ST_2: i_2 (15)  [1/1] 2.08ns  loc: duplicate.cpp:6
+:2  %i_2 = add i20 %i, 1
+
+ST_2: StgValue_14 (16)  [1/1] 0.00ns  loc: duplicate.cpp:6
+:3  br i1 %exitcond, label %3, label %2
+
+
+ <State 3>: 2.00ns
+ST_3: StgValue_15 (18)  [1/1] 0.00ns
+:0  call void (...)* @_ssdm_op_SpecLoopTripCount(i64 600000, i64 600000, i64 600000)
+
+ST_3: tmp_s (19)  [1/1] 0.00ns  loc: duplicate.cpp:6
+:1  %tmp_s = call i32 (...)* @_ssdm_op_SpecRegionBegin([12 x i8]* @p_str14)
+
+ST_3: StgValue_17 (20)  [1/1] 0.00ns  loc: duplicate.cpp:7
+:2  call void (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str115) nounwind
+
+ST_3: tmp (21)  [1/1] 1.00ns  loc: duplicate.cpp:8
+:3  %tmp = call float @_ssdm_op_Read.ap_fifo.volatile.floatP(float* %dat_i_V)
+
+ST_3: StgValue_19 (22)  [1/1] 1.00ns  loc: duplicate.cpp:9
+:4  call void @_ssdm_op_Write.ap_fifo.volatile.floatP(float* %dat_1_o_V, float %tmp)
+
+ST_3: StgValue_20 (23)  [1/1] 1.00ns  loc: duplicate.cpp:10
+:5  call void @_ssdm_op_Write.ap_fifo.volatile.floatP(float* %dat_2_o_V, float %tmp)
+
+ST_3: StgValue_21 (24)  [1/1] 1.00ns  loc: duplicate.cpp:11
+:6  call void @_ssdm_op_Write.ap_fifo.volatile.floatP(float* %dat_3_o_V, float %tmp)
+
+ST_3: StgValue_22 (25)  [1/1] 1.00ns  loc: duplicate.cpp:12
+:7  call void @_ssdm_op_Write.ap_fifo.volatile.floatP(float* %dat_4_o_V, float %tmp)
+
+ST_3: empty_19 (26)  [1/1] 0.00ns  loc: duplicate.cpp:13
+:8  %empty_19 = call i32 (...)* @_ssdm_op_SpecRegionEnd([12 x i8]* @p_str14, i32 %tmp_s)
+
+ST_3: StgValue_24 (27)  [1/1] 0.00ns  loc: duplicate.cpp:6
+:9  br label %1
+
+
+ <State 4>: 0.00ns
+ST_4: StgValue_25 (29)  [1/1] 0.00ns  loc: duplicate.cpp:14
+:0  ret void
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 5ns, clock uncertainty: 0.625ns.
+
+ <State 1>: 1.57ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('i') with incoming values : ('i', duplicate.cpp:6) [13]  (1.57 ns)
+
+ <State 2>: 2.34ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', duplicate.cpp:6) [13]  (0 ns)
+	'icmp' operation ('exitcond', duplicate.cpp:6) [14]  (2.34 ns)
+
+ <State 3>: 2ns
+The critical path consists of the following:
+	fifo read on port 'dat_i_V' (duplicate.cpp:8) [21]  (1 ns)
+	fifo write on port 'dat_4_o_V' (duplicate.cpp:12) [25]  (1 ns)
+
+ <State 4>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

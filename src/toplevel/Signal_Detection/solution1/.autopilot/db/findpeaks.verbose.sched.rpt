@@ -1,0 +1,407 @@
+
+
+================================================================
+== Vivado HLS Report for 'findpeaks'
+================================================================
+* Date:           Thu Jun 01 00:37:37 2017
+
+* Version:        2016.4 (Build 1722992 on Wed Mar 08 18:30:27 MST 2017)
+* Project:        Signal_Detection
+* Solution:       solution1
+* Product family: zynq
+* Target device:  xc7z020clg484-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |   5.00|      4.30|        0.63|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +--------+--------+--------+--------+---------+
+    |     Latency     |     Interval    | Pipeline|
+    |   min  |   max  |   min  |   max  |   Type  |
+    +--------+--------+--------+--------+---------+
+    |  600009|  600009|  600009|  600009|   none  |
+    +--------+--------+--------+--------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +--------------------+--------+--------+----------+-----------+-----------+--------+----------+
+        |                    |     Latency     | Iteration|  Initiation Interval  |  Trip  |          |
+        |      Loop Name     |   min  |   max  |  Latency |  achieved |   target  |  Count | Pipelined|
+        +--------------------+--------+--------+----------+-----------+-----------+--------+----------+
+        |- memset_shift_buf  |       2|       2|         1|          -|          -|       3|    no    |
+        |- Local_Maxima      |  600004|  600004|         6|          1|          1|  600000|    yes   |
+        +--------------------+--------+--------+----------+-----------+-----------+--------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 6
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states: 9
+* Pipeline: 1
+  Pipeline-0: II = 1, D = 6, States = { 3 4 5 6 7 8 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	2  / (!tmp)
+	3  / (tmp)
+3 --> 
+	4  / true
+4 --> 
+	9  / (exitcond)
+	5  / (!exitcond)
+5 --> 
+	6  / true
+6 --> 
+	7  / true
+7 --> 
+	8  / true
+8 --> 
+	3  / true
+9 --> 
+* FSM state operations: 
+
+ <State 1>: 1.57ns
+ST_1: shift_buf (4)  [1/1] 0.00ns
+:0  %shift_buf = alloca float
+
+ST_1: shift_buf_1 (5)  [1/1] 0.00ns
+:1  %shift_buf_1 = alloca float
+
+ST_1: empty (6)  [1/1] 0.00ns
+:2  %empty = call i32 (...)* @_ssdm_op_SpecInterface(float* %samples_V, [8 x i8]* @ap_fifo_str, i32 0, i32 0, [1 x i8]* @p_str, i32 0, i32 0, [1 x i8]* @p_str, [1 x i8]* @p_str, [1 x i8]* @p_str, i32 2, i32 2, i32 16, i32 16, [1 x i8]* @p_str, [1 x i8]* @p_str)
+
+ST_1: StgValue_13 (7)  [1/1] 1.57ns
+:3  br label %meminst
+
+
+ <State 2>: 4.30ns
+ST_2: invdar (9)  [1/1] 0.00ns  loc: findpeaks.cpp:7
+meminst:0  %invdar = phi i2 [ 0, %0 ], [ %indvarinc, %meminst ]
+
+ST_2: shift_buf_load (10)  [1/1] 0.00ns
+meminst:1  %shift_buf_load = load float* %shift_buf
+
+ST_2: shift_buf_1_load (11)  [1/1] 0.00ns
+meminst:2  %shift_buf_1_load = load float* %shift_buf_1
+
+ST_2: indvarinc (12)  [1/1] 0.80ns  loc: findpeaks.cpp:7
+meminst:3  %indvarinc = add i2 %invdar, 1
+
+ST_2: tmp_s (13)  [1/1] 1.36ns  loc: findpeaks.cpp:7
+meminst:4  %tmp_s = icmp eq i2 %invdar, 0
+
+ST_2: tmp_1 (14)  [1/1] 0.00ns  loc: findpeaks.cpp:7 (grouped into LUT with out node shift_buf_0_1)
+meminst:5  %tmp_1 = select i1 %tmp_s, float 0.000000e+00, float %shift_buf_load
+
+ST_2: tmp_2 (15)  [1/1] 1.36ns  loc: findpeaks.cpp:7
+meminst:6  %tmp_2 = icmp eq i2 %invdar, 1
+
+ST_2: shift_buf_0_1 (16)  [1/1] 1.37ns  loc: findpeaks.cpp:7 (out node of the LUT)
+meminst:7  %shift_buf_0_1 = select i1 %tmp_2, float %shift_buf_load, float %tmp_1
+
+ST_2: shift_buf_1_1 (17)  [1/1] 1.37ns  loc: findpeaks.cpp:7
+meminst:8  %shift_buf_1_1 = select i1 %tmp_2, float 0.000000e+00, float %shift_buf_1_load
+
+ST_2: tmp (18)  [1/1] 1.36ns  loc: findpeaks.cpp:7
+meminst:9  %tmp = icmp eq i2 %invdar, -2
+
+ST_2: StgValue_24 (19)  [1/1] 0.00ns
+meminst:10  call void (...)* @_ssdm_op_SpecLoopName([17 x i8]* @memset_shift_buf_str)
+
+ST_2: StgValue_25 (20)  [1/1] 0.00ns
+meminst:11  call void (...)* @_ssdm_op_SpecLoopTripCount(i64 3, i64 3, i64 3)
+
+ST_2: StgValue_26 (21)  [1/1] 0.00ns  loc: findpeaks.cpp:7
+meminst:12  store float %shift_buf_1_1, float* %shift_buf_1
+
+ST_2: StgValue_27 (22)  [1/1] 0.00ns  loc: findpeaks.cpp:7
+meminst:13  store float %shift_buf_0_1, float* %shift_buf
+
+ST_2: StgValue_28 (23)  [1/1] 0.00ns  loc: findpeaks.cpp:7
+meminst:14  br i1 %tmp, label %.preheader.preheader, label %meminst
+
+ST_2: StgValue_29 (25)  [1/1] 1.57ns  loc: findpeaks.cpp:10
+.preheader.preheader:0  br label %.preheader
+
+
+ <State 3>: 2.34ns
+ST_3: tmp_3 (29)  [1/1] 0.00ns
+.preheader:2  %tmp_3 = phi i20 [ %i, %._crit_edge ], [ 0, %.preheader.preheader ]
+
+ST_3: exitcond (30)  [1/1] 2.34ns  loc: findpeaks.cpp:10
+.preheader:3  %exitcond = icmp eq i20 %tmp_3, -448576
+
+ST_3: i (31)  [1/1] 2.08ns  loc: findpeaks.cpp:10
+.preheader:4  %i = add i20 %tmp_3, 1
+
+ST_3: tmp_5 (34)  [1/1] 0.00ns  loc: findpeaks.cpp:10
+:0  %tmp_5 = zext i20 %tmp_3 to i32
+
+
+ <State 4>: 3.73ns
+ST_4: shift_buf_1_2 (27)  [1/1] 0.00ns
+.preheader:0  %shift_buf_1_2 = phi float [ %shift_buf_1_13, %._crit_edge ], [ %shift_buf_1_1, %.preheader.preheader ]
+
+ST_4: shift_buf_1_13 (28)  [1/1] 0.00ns
+.preheader:1  %shift_buf_1_13 = phi float [ %tmp_22, %._crit_edge ], [ %shift_buf_0_1, %.preheader.preheader ]
+
+ST_4: StgValue_36 (32)  [1/1] 0.00ns  loc: findpeaks.cpp:10
+.preheader:5  br i1 %exitcond, label %3, label %1
+
+ST_4: tmp_22 (39)  [1/1] 1.00ns  loc: findpeaks.cpp:15
+:5  %tmp_22 = call float @_ssdm_op_Read.ap_fifo.volatile.floatP(float* %samples_V)
+
+ST_4: shift_buf_1_2_to_int (40)  [1/1] 0.00ns  loc: findpeaks.cpp:15
+:6  %shift_buf_1_2_to_int = bitcast float %shift_buf_1_2 to i32
+
+ST_4: tmp_8 (41)  [1/1] 0.00ns  loc: findpeaks.cpp:15
+:7  %tmp_8 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %shift_buf_1_2_to_int, i32 23, i32 30)
+
+ST_4: tmp_7 (42)  [1/1] 0.00ns  loc: findpeaks.cpp:15
+:8  %tmp_7 = trunc i32 %shift_buf_1_2_to_int to i23
+
+ST_4: notlhs (46)  [1/1] 2.00ns  loc: findpeaks.cpp:15
+:12  %notlhs = icmp ne i8 %tmp_8, -1
+
+ST_4: notrhs (47)  [1/1] 2.39ns  loc: findpeaks.cpp:15
+:13  %notrhs = icmp eq i23 %tmp_7, 0
+
+ST_4: tmp_13 (53)  [4/4] 2.73ns  loc: findpeaks.cpp:17
+:19  %tmp_13 = fcmp olt float %shift_buf_1_2, %shift_buf_1_13
+
+ST_4: tmp_19 (62)  [4/4] 2.73ns  loc: findpeaks.cpp:17
+:28  %tmp_19 = fcmp ogt float %shift_buf_1_13, %tmp_22
+
+
+ <State 5>: 2.73ns
+ST_5: tmp_13 (53)  [3/4] 2.73ns  loc: findpeaks.cpp:17
+:19  %tmp_13 = fcmp olt float %shift_buf_1_2, %shift_buf_1_13
+
+ST_5: tmp_19 (62)  [3/4] 2.73ns  loc: findpeaks.cpp:17
+:28  %tmp_19 = fcmp ogt float %shift_buf_1_13, %tmp_22
+
+
+ <State 6>: 3.76ns
+ST_6: shift_buf_1_to_int (43)  [1/1] 0.00ns  loc: findpeaks.cpp:15
+:9  %shift_buf_1_to_int = bitcast float %shift_buf_1_13 to i32
+
+ST_6: tmp_6 (44)  [1/1] 0.00ns  loc: findpeaks.cpp:15
+:10  %tmp_6 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %shift_buf_1_to_int, i32 23, i32 30)
+
+ST_6: tmp_9 (45)  [1/1] 0.00ns  loc: findpeaks.cpp:15
+:11  %tmp_9 = trunc i32 %shift_buf_1_to_int to i23
+
+ST_6: notlhs2 (49)  [1/1] 2.00ns  loc: findpeaks.cpp:15
+:15  %notlhs2 = icmp ne i8 %tmp_6, -1
+
+ST_6: notrhs3 (50)  [1/1] 2.39ns  loc: findpeaks.cpp:15
+:16  %notrhs3 = icmp eq i23 %tmp_9, 0
+
+ST_6: tmp_11 (51)  [1/1] 1.37ns  loc: findpeaks.cpp:15
+:17  %tmp_11 = or i1 %notrhs3, %notlhs2
+
+ST_6: tmp_13 (53)  [2/4] 2.73ns  loc: findpeaks.cpp:17
+:19  %tmp_13 = fcmp olt float %shift_buf_1_2, %shift_buf_1_13
+
+ST_6: tmp_19 (62)  [2/4] 2.73ns  loc: findpeaks.cpp:17
+:28  %tmp_19 = fcmp ogt float %shift_buf_1_13, %tmp_22
+
+
+ <State 7>: 4.10ns
+ST_7: tmp_13 (53)  [1/4] 2.73ns  loc: findpeaks.cpp:17
+:19  %tmp_13 = fcmp olt float %shift_buf_1_2, %shift_buf_1_13
+
+ST_7: shift_buf_0_to_int (55)  [1/1] 0.00ns  loc: findpeaks.cpp:15
+:21  %shift_buf_0_to_int = bitcast float %tmp_22 to i32
+
+ST_7: tmp_15 (56)  [1/1] 0.00ns  loc: findpeaks.cpp:15
+:22  %tmp_15 = call i8 @_ssdm_op_PartSelect.i8.i32.i32.i32(i32 %shift_buf_0_to_int, i32 23, i32 30)
+
+ST_7: tmp_16 (57)  [1/1] 0.00ns  loc: findpeaks.cpp:15
+:23  %tmp_16 = trunc i32 %shift_buf_0_to_int to i23
+
+ST_7: notlhs6 (58)  [1/1] 2.00ns  loc: findpeaks.cpp:15
+:24  %notlhs6 = icmp ne i8 %tmp_15, -1
+
+ST_7: notrhs7 (59)  [1/1] 2.39ns  loc: findpeaks.cpp:15
+:25  %notrhs7 = icmp eq i23 %tmp_16, 0
+
+ST_7: tmp_17 (60)  [1/1] 0.00ns  loc: findpeaks.cpp:15 (grouped into LUT with out node tmp_20)
+:26  %tmp_17 = or i1 %notrhs7, %notlhs6
+
+ST_7: tmp_18 (61)  [1/1] 0.00ns  loc: findpeaks.cpp:15 (grouped into LUT with out node tmp_20)
+:27  %tmp_18 = and i1 %tmp_11, %tmp_17
+
+ST_7: tmp_19 (62)  [1/4] 2.73ns  loc: findpeaks.cpp:17
+:28  %tmp_19 = fcmp ogt float %shift_buf_1_13, %tmp_22
+
+ST_7: tmp_20 (63)  [1/1] 1.37ns  loc: findpeaks.cpp:17 (out node of the LUT)
+:29  %tmp_20 = and i1 %tmp_18, %tmp_19
+
+
+ <State 8>: 1.37ns
+ST_8: StgValue_65 (35)  [1/1] 0.00ns
+:1  call void (...)* @_ssdm_op_SpecLoopTripCount(i64 600000, i64 600000, i64 600000)
+
+ST_8: StgValue_66 (36)  [1/1] 0.00ns  loc: findpeaks.cpp:10
+:2  call void (...)* @_ssdm_op_SpecLoopName([13 x i8]* @p_str211) nounwind
+
+ST_8: tmp_4 (37)  [1/1] 0.00ns  loc: findpeaks.cpp:10
+:3  %tmp_4 = call i32 (...)* @_ssdm_op_SpecRegionBegin([13 x i8]* @p_str211)
+
+ST_8: StgValue_68 (38)  [1/1] 0.00ns  loc: findpeaks.cpp:11
+:4  call void (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str110) nounwind
+
+ST_8: tmp_10 (48)  [1/1] 0.00ns  loc: findpeaks.cpp:15 (grouped into LUT with out node or_cond)
+:14  %tmp_10 = or i1 %notrhs, %notlhs
+
+ST_8: tmp_12 (52)  [1/1] 0.00ns  loc: findpeaks.cpp:15 (grouped into LUT with out node or_cond)
+:18  %tmp_12 = and i1 %tmp_10, %tmp_11
+
+ST_8: tmp_14 (54)  [1/1] 0.00ns  loc: findpeaks.cpp:17 (grouped into LUT with out node or_cond)
+:20  %tmp_14 = and i1 %tmp_12, %tmp_13
+
+ST_8: or_cond (64)  [1/1] 1.37ns  loc: findpeaks.cpp:17 (out node of the LUT)
+:30  %or_cond = and i1 %tmp_14, %tmp_20
+
+ST_8: StgValue_73 (65)  [1/1] 0.00ns  loc: findpeaks.cpp:17
+:31  br i1 %or_cond, label %2, label %._crit_edge
+
+ST_8: StgValue_74 (67)  [1/1] 0.00ns  loc: findpeaks.cpp:18
+:0  call void @_ssdm_op_Write.ap_auto.volatile.i32P(i32* %locations_V, i32 %tmp_5)
+
+ST_8: StgValue_75 (68)  [1/1] 0.00ns  loc: findpeaks.cpp:19
+:1  call void @_ssdm_op_Write.ap_auto.volatile.floatP(float* %amplitude_V, float %shift_buf_1_13)
+
+ST_8: StgValue_76 (69)  [1/1] 0.00ns  loc: findpeaks.cpp:20
+:2  br label %._crit_edge
+
+ST_8: empty_14 (71)  [1/1] 0.00ns  loc: findpeaks.cpp:21
+._crit_edge:0  %empty_14 = call i32 (...)* @_ssdm_op_SpecRegionEnd([13 x i8]* @p_str211, i32 %tmp_4)
+
+ST_8: StgValue_78 (72)  [1/1] 0.00ns  loc: findpeaks.cpp:10
+._crit_edge:1  br label %.preheader
+
+
+ <State 9>: 0.00ns
+ST_9: StgValue_79 (74)  [1/1] 0.00ns  loc: findpeaks.cpp:23
+:0  ret void
+
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 5ns, clock uncertainty: 0.625ns.
+
+ <State 1>: 1.57ns
+The critical path consists of the following:
+	multiplexor before 'phi' operation ('invdar', findpeaks.cpp:7) with incoming values : ('indvarinc', findpeaks.cpp:7) [9]  (1.57 ns)
+
+ <State 2>: 4.3ns
+The critical path consists of the following:
+	'phi' operation ('invdar', findpeaks.cpp:7) with incoming values : ('indvarinc', findpeaks.cpp:7) [9]  (0 ns)
+	'icmp' operation ('tmp_s', findpeaks.cpp:7) [13]  (1.36 ns)
+	'select' operation ('tmp_1', findpeaks.cpp:7) [14]  (0 ns)
+	'select' operation ('shift_buf_0_1', findpeaks.cpp:7) [16]  (1.37 ns)
+	multiplexor before 'phi' operation ('tmp') with incoming values : ('shift_buf_0_1', findpeaks.cpp:7) ('shift_buf_1_1', findpeaks.cpp:7) ('tmp', findpeaks.cpp:15) [27]  (1.57 ns)
+
+ <State 3>: 2.34ns
+The critical path consists of the following:
+	'phi' operation ('i') with incoming values : ('i', findpeaks.cpp:10) [29]  (0 ns)
+	'icmp' operation ('exitcond', findpeaks.cpp:10) [30]  (2.34 ns)
+
+ <State 4>: 3.73ns
+The critical path consists of the following:
+	fifo read on port 'samples_V' (findpeaks.cpp:15) [39]  (1 ns)
+	'fcmp' operation ('tmp_19', findpeaks.cpp:17) [62]  (2.73 ns)
+
+ <State 5>: 2.73ns
+The critical path consists of the following:
+	'fcmp' operation ('tmp_13', findpeaks.cpp:17) [53]  (2.73 ns)
+
+ <State 6>: 3.76ns
+The critical path consists of the following:
+	'icmp' operation ('notrhs3', findpeaks.cpp:15) [50]  (2.39 ns)
+	'or' operation ('tmp_11', findpeaks.cpp:15) [51]  (1.37 ns)
+
+ <State 7>: 4.1ns
+The critical path consists of the following:
+	'fcmp' operation ('tmp_19', findpeaks.cpp:17) [62]  (2.73 ns)
+	'and' operation ('tmp_20', findpeaks.cpp:17) [63]  (1.37 ns)
+
+ <State 8>: 1.37ns
+The critical path consists of the following:
+	'or' operation ('tmp_10', findpeaks.cpp:15) [48]  (0 ns)
+	'and' operation ('tmp_12', findpeaks.cpp:15) [52]  (0 ns)
+	'and' operation ('tmp_14', findpeaks.cpp:17) [54]  (0 ns)
+	'and' operation ('or_cond', findpeaks.cpp:17) [64]  (1.37 ns)
+
+ <State 9>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

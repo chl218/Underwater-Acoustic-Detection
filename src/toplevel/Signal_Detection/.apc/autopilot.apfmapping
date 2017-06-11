@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="abs.cpp" path="C:\Users\Jack\Desktop\cse237d\Underwater-Acoustic-Detection\src\toplevel\abs.cpp"/>
+    <originFiles name="abs.h" path="C:\Users\Jack\Desktop\cse237d\Underwater-Acoustic-Detection\src\toplevel\abs.h"/>
+    <originFiles name="definitions.h" path="C:\Users\Jack\Desktop\cse237d\Underwater-Acoustic-Detection\src\toplevel\definitions.h"/>
+    <originFiles name="detect.cpp" path="C:\Users\Jack\Desktop\cse237d\Underwater-Acoustic-Detection\src\toplevel\detect.cpp"/>
+    <originFiles name="detect.h" path="C:\Users\Jack\Desktop\cse237d\Underwater-Acoustic-Detection\src\toplevel\detect.h"/>
+    <originFiles name="duplicate.cpp" path="C:\Users\Jack\Desktop\cse237d\Underwater-Acoustic-Detection\src\toplevel\duplicate.cpp"/>
+    <originFiles name="duplicate.h" path="C:\Users\Jack\Desktop\cse237d\Underwater-Acoustic-Detection\src\toplevel\duplicate.h"/>
+    <originFiles name="filter_noise.cpp" path="C:\Users\Jack\Desktop\cse237d\Underwater-Acoustic-Detection\src\toplevel\filter_noise.cpp"/>
+    <originFiles name="filter_noise.h" path="C:\Users\Jack\Desktop\cse237d\Underwater-Acoustic-Detection\src\toplevel\filter_noise.h"/>
+    <originFiles name="findpeaks.cpp" path="C:\Users\Jack\Desktop\cse237d\Underwater-Acoustic-Detection\src\toplevel\findpeaks.cpp"/>
+    <originFiles name="findpeaks.h" path="C:\Users\Jack\Desktop\cse237d\Underwater-Acoustic-Detection\src\toplevel\findpeaks.h"/>
+    <originFiles name="parse.cpp" path="C:\Users\Jack\Desktop\cse237d\Underwater-Acoustic-Detection\src\toplevel\parse.cpp"/>
+    <originFiles name="parse.h" path="C:\Users\Jack\Desktop\cse237d\Underwater-Acoustic-Detection\src\toplevel\parse.h"/>
+    <originFiles name="threshold.cpp" path="C:\Users\Jack\Desktop\cse237d\Underwater-Acoustic-Detection\src\toplevel\threshold.cpp"/>
+    <originFiles name="threshold.h" path="C:\Users\Jack\Desktop\cse237d\Underwater-Acoustic-Detection\src\toplevel\threshold.h"/>
+    <originFiles name="toplevel.cpp" path="C:\Users\Jack\Desktop\cse237d\Underwater-Acoustic-Detection\src\toplevel\toplevel.cpp"/>
+    <originFiles name="toplevel.h" path="C:\Users\Jack\Desktop\cse237d\Underwater-Acoustic-Detection\src\toplevel\toplevel.h"/>
+  </source>
+  <testbench>
+    <originFiles name="audio.dat" path="C:\Users\Jack\Desktop\cse237d\Underwater-Acoustic-Detection\src\toplevel\audio.dat"/>
+    <originFiles name="sample.dat" path="C:\Users\Jack\Desktop\cse237d\Underwater-Acoustic-Detection\src\toplevel\sample.dat"/>
+    <originFiles name="toplevel_tb.cpp" path="C:\Users\Jack\Desktop\cse237d\Underwater-Acoustic-Detection\src\toplevel\toplevel_tb.cpp"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>
