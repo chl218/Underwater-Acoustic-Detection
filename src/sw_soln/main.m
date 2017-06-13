@@ -1,9 +1,9 @@
 function [ ] = ...
-   main( audioFile )
+   main( audioFile, audioDuration, threshold, intervalLength )
     disp('Program starts....');
     result = [];
-    chunkDuration = 300;
-    interval_length = 1.5;
+    chunkDuration = audioDuration;
+    interval_length = intervalLength;
     
     disp('Start to cut audio files into segments....');
     info = audioinfo(audioFile);
@@ -26,7 +26,7 @@ function [ ] = ...
     for index = 1: chunkCnt
         offset = (index - 1) * chunkDuration;
         fileName = sprintf('audio_segments/%s%d.wav', strrep(audioFile,'.wav',''), index);
-        signals = signal_detection(fileName);
+        signals = signal_detection(fileName, audioDuration, threshold);
         signals = (signals + offset);
         result = horzcat(result, signals);
 %         disp(signals);
@@ -34,9 +34,13 @@ function [ ] = ...
     disp('Finish!');
     disp('Start to create intervals and merge them....');
 
+    disp('Start to remove all the temporary wav files....');
+    delete audio_segments/*.wav;
+    disp('Finish!');
+    
     s = 0;
     e = 0;
-    outputFileName = sprintf('audio_segments/%s_intervals', strrep(audioFile,'.wav',''));
+    outputFileName = sprintf('audio_segments/%s_intervals_%d_%g_%g', strrep(audioFile,'.wav',''), audioDuration, threshold, intervalLength);
     for i = 1: length(result)
         c_s = 0;
         c_e = result(i) + interval_length;
