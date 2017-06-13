@@ -1,9 +1,10 @@
 def get_sec(time_str):
-    h, m, s = time_str.split(':')
-    return float(h) * 3600 + float(m) * 60 + float(s)
+	# print time_str
+	h, m, s = time_str.split(':')
+	return float(h) * 3600 + float(m) * 60 + float(s)
 
-target = 'GofMX_MP01_100804_155345.df100.x'
-interval_file = 'audio_segments/' + target + '_intervals'
+target = 'GofMX_MP01_100731_000345.df100.x'
+interval_file = 'audio_segments/' + target + '_intervals_240_2_1'
 sample = []
 result = []
 input_file_index = 0
@@ -14,8 +15,10 @@ f = open('FishLog_jpatel.xls - Detections.csv', 'r')
 for line in f:
 	attrs = line.split(',')
 	if target in attrs[input_file_index]:
-		start = get_sec(attrs[start_time_index].split(' ')[1])
-		end = get_sec(attrs[end_time_index].split(' ')[1])
+		if ':' in attrs[start_time_index].split(' ')[1]:
+			start = get_sec(attrs[start_time_index].split(' ')[1])
+		if ':' in attrs[end_time_index].split(' ')[1]:
+			end = get_sec(attrs[end_time_index].split(' ')[1])
 		sample.append([start, end])
 f.close()
 
