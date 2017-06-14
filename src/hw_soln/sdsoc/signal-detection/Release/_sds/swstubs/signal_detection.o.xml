@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xd:data xmlns:xd="http://www.xilinx.com/xd">
+  <xd:source name="signal_detection.cpp" compiler="g++" objfile="src/signal_detection.o" srcpath="C:/Users/Jack/workspace/signal-detection/src" flags="-IC:/Users/Jack/workspace/signal-detection/src -IC:/Users/Jack/workspace/signal-detection/src -Wall -O3 -fmessage-length=0 -MMD -MP -D __SDSCC__"/>
+</xd:data>

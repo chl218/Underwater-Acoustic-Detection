@@ -1,0 +1,42 @@
+(c) Copyright 2012-2016 Xilinx, Inc. All Rights Reserved.
+#-----------------------------------------------------------
+# Tool version  : sds++ 2016.4 SW Build 1804799 on Mar  8 2017 18:30:58
+# Start time    : Sun Jun 11 16:43:25 -0700 2017
+# Command line  : sds++ -o signal-detection.elf ./src/main.o ./src/signal_detection.o -dmclkid 1 -sds-sys-config linux -sds-proc a9_0 -sds-pf zed
+# Log file      : C:/Users/Jack/workspace/signal-detection/Release/_sds/reports/sds.log
+# Journal file  : C:/Users/Jack/workspace/signal-detection/Release/_sds/reports/sds.jou
+# Report file   : C:/Users/Jack/workspace/signal-detection/Release/_sds/reports/sds.rpt
+#-----------------------------------------------------------
+
+INFO: [SDSoC 0-0] Removing implementation files from previous run
+Libraries: 
+Library Paths {}
+INFO: [SDSoC 0-0] Analyzing object files
+arm-linux-gnueabihf-objcopy -O binary --set-section-flags .xdinfo=alloc --only-section=.xdinfo C:/Users/Jack/workspace/signal-detection/Release/src/main.o C:/Users/Jack/workspace/signal-detection/Release/_sds/.data/xdinfo.xml
+arm-linux-gnueabihf-objcopy -O binary --set-section-flags .xddata=alloc --only-section=.xddata C:/Users/Jack/workspace/signal-detection/Release/src/main.o C:/Users/Jack/workspace/signal-detection/Release/_sds/.data/xddata.xml
+arm-linux-gnueabihf-objcopy -O binary --set-section-flags .xdinfo=alloc --only-section=.xdinfo C:/Users/Jack/workspace/signal-detection/Release/src/signal_detection.o C:/Users/Jack/workspace/signal-detection/Release/_sds/.data/xdinfo.xml
+arm-linux-gnueabihf-objcopy -O binary --set-section-flags .xddata=alloc --only-section=.xddata C:/Users/Jack/workspace/signal-detection/Release/src/signal_detection.o C:/Users/Jack/workspace/signal-detection/Release/_sds/.data/xddata.xml
+build_xd_ip_db  -sds-pf C:/Xilinx/SDx/2016.4/platforms/zed/hw/zed.hpfm    -o C:/Users/Jack/workspace/signal-detection/Release/_sds/.cdb/xd_ip_db.xml  
+INFO: Using user-defined path for XILINX_XD environment variable C:/Xilinx/SDx/2016.4
+INFO: [SDSoC 0-0] Using prebuilt hardware
+INFO: [SDSoC 0-0] Skipping block diagram (BD), address map, port information and device registration for partition 0
+INFO: [SDSoC 0-0] Software tracing enabled
+INFO: [SDSoC 0-0] Prepare hardware access API functions
+INFO: [SDSoC 0-0] Create accelerator stub functions
+INFO: [SDSoC 0-0] Compile hardware access API functions
+arm-linux-gnueabihf-gcc       -I C:/Xilinx/SDx/2016.4/aarch32-linux/include  -I C:/Xilinx/SDx/2016.4/Vivado_HLS/include -c  C:/Users/Jack/workspace/signal-detection/Release/_sds/swstubs/portinfo.c
+arm-linux-gnueabihf-g++      -I C:/Xilinx/SDx/2016.4/aarch32-linux/include  -I C:/Xilinx/SDx/2016.4/Vivado_HLS/include -c  C:/Users/Jack/workspace/signal-detection/Release/_sds/swstubs/cf_stub.c
+arm-linux-gnueabihf-ar crs C:/Users/Jack/workspace/signal-detection/Release/_sds/swstubs/libxlnk_stub.a C:/Users/Jack/workspace/signal-detection/Release/_sds/swstubs/portinfo.o C:/Users/Jack/workspace/signal-detection/Release/_sds/swstubs/cf_stub.o
+INFO: [SDSoC 0-0] Compile accelerator stub functions
+arm-linux-gnueabihf-ar crs C:/Users/Jack/workspace/signal-detection/Release/_sds/swstubs/libsignal-detection.a C:/Users/Jack/workspace/signal-detection/Release/_sds/swstubs/portinfo.o C:/Users/Jack/workspace/signal-detection/Release/_sds/swstubs/cf_stub.o 
+INFO: [SDSoC 0-0] Link application ELF file
+arm-linux-gnueabihf-g++     C:/Users/Jack/workspace/signal-detection/Release/src/main.o C:/Users/Jack/workspace/signal-detection/Release/src/signal_detection.o C:/Users/Jack/workspace/signal-detection/Release/_sds/swstubs/portinfo.o    -L C:/Xilinx/SDx/2016.4/aarch32-linux/lib -LC:/Users/Jack/workspace/signal-detection/Release/_sds/swstubs -Wl,--start-group  -Wl,--end-group -Wl,--start-group    -lpthread -lsds_lib -lxlnk_stub  -Wl,--end-group -o C:/Users/Jack/workspace/signal-detection/Release/_sds/swstubs/signal-detection.elf
+arm-linux-gnueabihf-objcopy -R .xdinfo -R .xddata -R .xdasm -R .xdfcnmap -R .xdhlscore -R .xdif -R .xdparams -R .xdcore -R .xdsdata -R .xdpp C:/Users/Jack/workspace/signal-detection/Release/_sds/swstubs/signal-detection.elf
+INFO: [SDSoC 0-0] Enable generation of boot files
+INFO: [SDSoC 0-0] Calling system_linker for partition 0
+system_linker -cf-input C:/Users/Jack/workspace/signal-detection/Release/_sds/.llvm/apsys_0.xml -cf-output-dir _sds/p0 -ip-db C:/Users/Jack/workspace/signal-detection/Release/_sds/.cdb/xd_ip_db.xml -ip-repo C:/Users/Jack/workspace/signal-detection/Release/_sds/iprepo/repo -sds-pf C:/Xilinx/SDx/2016.4/platforms/zed:linux  -sds-sys-config linux -sds-proc a9_0   -bit-name signal-detection.elf.bit -boot-files   -target-os linux -mdev-no-swgen -mdev-no-xsd -mdev-no-swgen -mdev-no-xsd -sdsoc -sd-output-dir _sds/p0/sd_card -bit-binary -elf C:/Users/Jack/workspace/signal-detection/Release/_sds/swstubs/signal-detection.elf
+system_linker started at Sun Jun 11 16:43:32 -0700 2017
+INFO: [SDSoC 0-0] Creating boot files
+system_linker completed at Sun Jun 11 16:43:36 -0700 2017
+sds++ log file saved as C:/Users/Jack/workspace/signal-detection/Release/_sds/reports/sds.log
+sds++ completed at Sun Jun 11 16:43:36 -0700 2017
