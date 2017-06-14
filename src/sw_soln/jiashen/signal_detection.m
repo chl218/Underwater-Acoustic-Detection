@@ -1,5 +1,5 @@
 function [ peakTime ] = ...
-   signal_detection( audioFile )
+   signal_detection( audioFile, audioDuration, threshold )
 
 % Number of samples and sampling rate
 [samples, frequency] = audioread(audioFile);
@@ -7,7 +7,10 @@ function [ peakTime ] = ...
 % Duration of the audio file
 duration = (1/frequency)*length(samples);
 
-timeLimit = 300;
+timeLimit = audioDuration;
+difference = threshold;
+peak_distance = 0.5;
+
 maxSamples = timeLimit * frequency;
 
 % Limit input sample to 1 min
@@ -31,11 +34,10 @@ data=sqrt((real(pre_env_y)).^2+(imag(pre_env_y)).^2);
 % plot(dataLength, data);
 
 % Find peaks
-[peaks, locations] = findpeaks(data, dataLength);
+[peaks, locations] = findpeaks(data, dataLength,'MinPeakDistance',peak_distance);
 % subplot(5,1,4);
 % plot(locations, peaks, 'x', dataLength, data);
 
-difference = 5;
 threshold = mean(difference*peaks);
 hits = zeros(1, length(peaks));
 
